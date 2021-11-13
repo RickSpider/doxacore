@@ -6,6 +6,8 @@
 
 <?link rel="stylesheet" href="css/login/login.css" ?>
 
+<!-- comentario en index.zul -->
+
 <zk xmlns:h="http://www.w3.org/1999/xhtml">
 
 <div class="sidenav">
