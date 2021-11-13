@@ -1,6 +1,34 @@
-<?page title="Auto Generated index.zul"?>
-<window title="Hello World!!" border="normal" width="200px">
+<?page title="Doxa Core"?>
 
-<label value="You are using: ${desktop.webApp.version}"/>
+<?link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" ?>
+<?script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ?>
 
-</window>
+
+<?link rel="stylesheet" href="css/login/login.css" ?>
+
+<zk xmlns:h="http://www.w3.org/1999/xhtml">
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h:h2>DoxaCore<h:br/> Login Page</h:h2>
+            <h:p>Inicio de sesion de Usuario.</h:p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               
+                  <div class="form-group">
+                     <label>Usuario</label>
+                     <textbox type="text" class="form-control" placeholder="Usuario"/>
+                  </div>
+                  <div class="form-group">
+                     <label>Contraseña</label>
+                     <textbox type="password" class="form-control" placeholder="Contraseña"/>
+                  </div>
+                  <button label="Iniciar" class="btn btn-black">Login</button>
+             
+            </div>
+         </div>
+      </div>
+</zk>
