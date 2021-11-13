@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="WEB-INF/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/breeze.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/bsh.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/closure-compiler.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-collections4.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-io.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/Filters.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/flashchart.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/gmapsz.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/gson.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/iceblue_c.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/itext.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jasperreports.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/javassist.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jcommon.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jfreechart.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/sapphire.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/silvertail.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/timelinez.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/timeplotz.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/za11y.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zcommon.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zel.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zhtml.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zk.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zkbind.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zkex.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zkmax.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zkplus.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zkplus-legacy.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zkwebfragment.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zml.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zsoup.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zul.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zuljsp.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zuti.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zweb.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/zweb-dsp.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>
