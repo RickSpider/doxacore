@@ -1,0 +1,21 @@
+<?page title="menu" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="mainmenubar" apply="org.zkoss.bind.BindComposer"
+		border="2px"
+		viewModel="@id('vm') @init('com.doxacore.menu.MenuBarVM')">
+		<menubar id="mbar" top="0px" left="0px" sclass="mymenubar"
+			autodrop="true"
+			children="@bind(vm.nodes) @template(empty each.children?'menuitem':'menu')">
+			<template name="menu" var="menu">
+				<menu label="@bind(menu.name)">
+					<menupopup sclass="mymenupopup"
+						children="@bind(menu.children) @template(empty each.children?'menuitem':'menu')" />
+				</menu>
+			</template>
+			<template name="menuitem" var="item">
+				<menuitem label="@bind(item.name)"
+					onClick="@command('menuClicked',menuitem=item)" />
+			</template>
+		</menubar>
+	</window>
+</zk>
