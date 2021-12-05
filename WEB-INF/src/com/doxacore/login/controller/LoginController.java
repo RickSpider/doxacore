@@ -39,7 +39,8 @@ public class LoginController extends SelectorComposer<Component> {
         message.setValue("Welcome, "+cre.getName());
         message.setSclass("");
 
-        Executions.sendRedirect("/corezul/main/");
+       // Executions.sendRedirect("/corezul/main/");
+        Executions.sendRedirect("/corezul/adminTemplate/");
 
     }
 }

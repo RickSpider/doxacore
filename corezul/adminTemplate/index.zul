@@ -1,0 +1,16 @@
+<?link rel="stylesheet" href="/css/adminTemplate/layout.css" ?>
+<zk xmlns:n="native">
+
+    <div class="sidebar1" viewModel="@id('vm')@init('com.doxacore.adminTemplate.MainVM')" width="15%" >
+    	
+        <apply templateURI="/corezul/adminTemplate/sidebar.zul" />
+        
+     
+    </div>
+    
+    
+    <div sclass="container-fluid" hflex="1">
+            <apply templateURI="@load(vm.navigationModel.contentUrl)"/>
+        </div>
+    
+</zk>
