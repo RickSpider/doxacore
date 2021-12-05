@@ -1,38 +1,38 @@
+<?page title="DoxaCore" contentType="text/html;charset=UTF-8"?>
+
+<?link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" ?>
+<?script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ?>
+
+
 <?link rel="stylesheet" href="/css/adminTemplate/layout.css" ?>
+
 <zk xmlns:n="native">
 
 
-
-
+<div>
+	
+	</div>
+	
+	
+	
 
 <hlayout viewModel="@id('vm')@init('com.doxacore.adminTemplate.MainVM')" width="100%">
+
         <apply templateURI="/corezul/adminTemplate/sidebar.zul" />
+        
+
+
         <div sclass="container-fluid" hflex="1">
+                   
+                         
             <apply templateURI="@load(vm.navigationModel.contentUrl)"/>
         </div>
+        
+
+        
     </hlayout>
 
 
 
-
-
-
-
-
-
-
-
-<!-- 
-    <div class="sidebar1" viewModel="@id('vm')@init('com.doxacore.adminTemplate.MainVM')" width="15%" >
-        <apply templateURI="/corezul/adminTemplate/sidebar.zul" />
-    </div>
-    
-    <div>
-           <apply templateURI="@load(vm.navigationModel.contentUrl)"/>
-               
-        </div>
-        
-        -->
-        
     
 </zk>

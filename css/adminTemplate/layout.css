@@ -2,6 +2,14 @@
 
 @media(min-width:958px) {
     .sidebar {
+   background: #0d473e;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 10%;
+    height: 100%;
+    padding: 0 0;
+    transition: all 0.5s ease;
         line-height: normal;
         min-width: 190px;
     }
@@ -9,9 +17,18 @@
 
 @media(max-width:957px) {
     .sidebar {
+    background: #0d473e;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 10%;
+    height: 100%;
+    padding: 0 0;
+    transition: all 0.5s ease;
         min-width: 55px;
     }
     /* make navbar border fill the complete width */
+    
     .z-navbar-vertical{
         max-width: 100%;
     }
@@ -39,15 +56,16 @@
 .sidebar1{
     background: #0d473e;
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
-    width: 225px;
+    width: 10%;
     height: 100%;
     padding: 20px 0;
     transition: all 0.5s ease;
 }
 
 .sidebar1 div {
+overflow: auto;
 padding: 8px;
 font-size: 24px;
 display: block;
@@ -56,10 +74,21 @@ display: block;
 .centerDiv {
 	background: #758784;
     position: fixed;
-    top: 0;
-    left: 226px;
+    top: 50px;
+    left: 10%;
     width: 100%;
     height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+
+.upDiv {
+	background: #050606;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
     padding: 20px 0;
     transition: all 0.5s ease;
 }

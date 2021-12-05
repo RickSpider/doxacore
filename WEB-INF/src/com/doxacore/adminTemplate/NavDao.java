@@ -31,8 +31,7 @@ public class NavDao {
         menuList.add(menuC);
         Menu menuF = new Menu("Freeze", "z-icon-snowflake-o");
         menuList.add(menuF);
-        Menu menuL = new Menu("Logout", "z-icon-power-off");
-        menuList.add(menuL);
+        
     }
 
     static public List<Menu> queryMenu(){
