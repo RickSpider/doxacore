@@ -1,0 +1,10 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+
+<div class="centerDiv">
+New Content Here!
+</div>
+ 
+
+
+</zk>

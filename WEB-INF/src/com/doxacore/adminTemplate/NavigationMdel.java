@@ -1,8 +1,8 @@
 package com.doxacore.adminTemplate;
 
 public class NavigationMdel {
-    public static final String DASHBOARD_ECOMMERCE_ZUL = "/ecommerce/ecommerce.zul";
-    public static final String DASHBOARD_PROJECT_ZUL = "/project/project.zul";
+    public static final String DASHBOARD_ECOMMERCE_ZUL = "/corezul/adminTemplate/ecommerce.zul";
+    public static final String DASHBOARD_PROJECT_ZUL = "/corezul/adminTemplate/project.zul";
     public static final String BLANK_ZUL = "/blank.zul";
 
     private String contentUrl = DASHBOARD_ECOMMERCE_ZUL;

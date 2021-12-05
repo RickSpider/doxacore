@@ -22,8 +22,6 @@ public class NavDao {
         menuD.setSubMenus(subMenus);
         menuList.add(menuD);
 
-        Menu menuT = new Menu("Typography", "z-icon-flag-o");
-        menuList.add(menuT);
         Menu menuUI = new Menu("UI Elements", "z-icon-flag-o");
         menuList.add(menuUI);
         Menu menuTable = new Menu("Tables", "z-icon-flag-o");

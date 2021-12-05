@@ -1,0 +1,26 @@
+<!-- protect page by the authentication init  -->
+<?init class="com.doxacore.login.AuthenticationInit"?>
+
+<zk xmlns:h="http://www.w3.org/1999/xhtml">
+
+<div class="centerDiv">
+
+		
+
+		hello DoxaCore !!!!!!!!!
+
+
+	<hbox apply="com.doxacore.login.controller.LogoutController">
+			<label value="${sessionScope.userCredential.name}"
+				if="${not sessionScope.userCredential.anonymous}" />
+			<label id="logout" value="Logout"
+				if="${not sessionScope.userCredential.anonymous}" sclass="logout" />
+
+		</hbox>
+
+
+</div>
+
+
+
+</zk>
