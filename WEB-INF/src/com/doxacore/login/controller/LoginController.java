@@ -8,9 +8,9 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
 
-import com.doxacore.login.UserCredential;
-import com.doxacore.login.services.AuthenticationService;
-import com.doxacore.login.services.AuthenticationService3Impl;
+import com.doxacore.login.UsuarioCredencial;
+import com.doxacore.login.servicios.AuthenticationService;
+import com.doxacore.login.servicios.AuthenticationService3Impl;
 
 public class LoginController extends SelectorComposer<Component> {
 
@@ -35,7 +35,7 @@ public class LoginController extends SelectorComposer<Component> {
             message.setValue("account or password are not correct.");
             return;
         }
-        UserCredential cre= authService.getUserCredential();
+        UsuarioCredencial cre= authService.getUserCredential();
         message.setValue("Welcome, "+cre.getName());
         message.setSclass("");
 

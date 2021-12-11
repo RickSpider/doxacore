@@ -7,8 +7,8 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.util.Initiator;
 
-import com.doxacore.login.services.AuthenticationService;
-import com.doxacore.login.services.AuthenticationService3Impl;
+import com.doxacore.login.servicios.AuthenticationService;
+import com.doxacore.login.servicios.AuthenticationService3Impl;
 
 
 public class AuthenticationInit implements Initiator {
@@ -18,7 +18,7 @@ public class AuthenticationInit implements Initiator {
 
     public void doInit(Page page, Map<String, Object> args) throws Exception {
 
-        UserCredential cre = authService.getUserCredential();
+        UsuarioCredencial cre = authService.getUserCredential();
         if(cre==null || cre.isAnonymous()){
             Executions.sendRedirect("/corezul/login/login.zul");
             return;

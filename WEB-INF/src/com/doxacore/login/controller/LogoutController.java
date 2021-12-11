@@ -5,8 +5,8 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 
-import com.doxacore.login.services.AuthenticationService;
-import com.doxacore.login.services.AuthenticationService3Impl;
+import com.doxacore.login.servicios.AuthenticationService;
+import com.doxacore.login.servicios.AuthenticationService3Impl;
 
 public class LogoutController extends SelectorComposer<Component> {
 

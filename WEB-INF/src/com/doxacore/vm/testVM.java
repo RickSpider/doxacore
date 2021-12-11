@@ -2,13 +2,13 @@ package com.doxacore.vm;
 
 import org.zkoss.bind.annotation.Command;
 
-import com.doxacore.login.User;
-import com.doxacore.login.UserDAO;
+import com.doxacore.login.UsusarioDAO;
+import com.doxacore.modelo.Usuarios;
 
 public class testVM {
 	
-	private User user = new User();
-	private UserDAO ud = new UserDAO();
+	private Usuarios user = new Usuarios();
+	private UsusarioDAO ud = new UsusarioDAO();
 
 	
 	@Command
@@ -18,19 +18,19 @@ public class testVM {
 		
 	}
 
-	public User getUser() {
+	public Usuarios getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Usuarios user) {
 		this.user = user;
 	}
 
-	public UserDAO getUd() {
+	public UsusarioDAO getUd() {
 		return ud;
 	}
 
-	public void setUd(UserDAO ud) {
+	public void setUd(UsusarioDAO ud) {
 		this.ud = ud;
 	}
 	

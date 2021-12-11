@@ -1,4 +1,4 @@
-package com.doxacore.login;
+package com.doxacore.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,15 +16,14 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name ="USERS")
-
-public class User implements Serializable,Cloneable {
+@Table(name ="usuarios")
+public class Usuarios extends Modelo implements Serializable,Cloneable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name ="ID")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private long id;
+	@Column(name ="USUARIOID")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long usuarioid;
 	
 	@Column(name="account")
 	String account;
@@ -35,10 +34,15 @@ public class User implements Serializable,Cloneable {
 	String country;
 	String bio;
 
-	public User() {
-	}
+
 	
-	public User(String account, String password, String fullName,String email) {
+	public Usuarios() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Usuarios(String account, String password, String fullName,String email) {
+		super();
 		this.account = account;
 		this.password = password;
 		this.fullName = fullName;
@@ -118,7 +122,7 @@ public class User implements Serializable,Cloneable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Usuarios other = (Usuarios) obj;
 		if (account == null) {
 			if (other.account != null)
 				return false;
@@ -127,9 +131,9 @@ public class User implements Serializable,Cloneable {
 		return true;
 	}
 	
-	public static User clone(User user){
+	public static Usuarios clone(Usuarios user){
 		try {
-			return (User)user.clone();
+			return (Usuarios)user.clone();
 		} catch (CloneNotSupportedException e) {
 			//not possible
 		}

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserCredential implements Serializable{
+public class UsuarioCredencial implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	String account;
@@ -12,12 +12,12 @@ public class UserCredential implements Serializable{
 	
 	Set<String> roles = new HashSet<String>();
 
-	public UserCredential(String account, String name) {
+	public UsuarioCredencial(String account, String name) {
 		this.account = account;
 		this.name = name;
 	}
 
-	public UserCredential() {
+	public UsuarioCredencial() {
 		this.account = "anonymous";
 		this.name = "Anonymous";
 		roles.add("anonymous");

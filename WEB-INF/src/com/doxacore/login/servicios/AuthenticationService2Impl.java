@@ -1,4 +1,4 @@
-package com.doxacore.login.services;
+package com.doxacore.login.servicios;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 
-import com.doxacore.login.UserCredential;
+import com.doxacore.login.UsuarioCredencial;
 
 public class AuthenticationService2Impl implements AuthenticationService, Serializable {
 
@@ -27,11 +27,11 @@ public class AuthenticationService2Impl implements AuthenticationService, Serial
 
 	}
 	
-	public UserCredential getUserCredential(){
+	public UsuarioCredencial getUserCredential(){
 		Session sess = Sessions.getCurrent();
-		UserCredential cre = (UserCredential)sess.getAttribute("userCredential");
+		UsuarioCredencial cre = (UsuarioCredencial)sess.getAttribute("userCredential");
 		if(cre==null){
-			cre = new UserCredential();//new a anonymous user and set to session
+			cre = new UsuarioCredencial();//new a anonymous user and set to session
 			sess.setAttribute("userCredential",cre);
 		}
 		return cre;

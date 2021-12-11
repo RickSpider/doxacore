@@ -1,14 +1,11 @@
 package com.doxacore.login;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 
+import com.doxacore.modelo.Usuarios;
 import com.doxacore.util.HibernateUtil;
 
-
-
-public class UserDAO {
+public class UsusarioDAO {
 	
 	 Session currentSession() {
          return HibernateUtil.getSessionFactory().getCurrentSession();
@@ -18,7 +15,7 @@ public class UserDAO {
 	 public void saveOrUpdate(String account, String pass) {
 		 
 		 Session sess =  currentSession();
-		 User user = new User();
+		 Usuarios user = new Usuarios();
 		 user.setAccount(account);
 		 user.setPassword(pass);
 		 sess.save(user);

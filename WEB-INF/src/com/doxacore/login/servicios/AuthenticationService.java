@@ -1,6 +1,6 @@
-package com.doxacore.login.services;
+package com.doxacore.login.servicios;
 
-import com.doxacore.login.UserCredential;
+import com.doxacore.login.UsuarioCredencial;
 
 public interface AuthenticationService {
 	
@@ -12,7 +12,7 @@ public interface AuthenticationService {
 		public void logout();
 		
 		/**get current user credential**/
-		public UserCredential getUserCredential();
+		public UsuarioCredencial getUserCredential();
 		
 
 
