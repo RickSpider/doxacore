@@ -3,11 +3,11 @@ package com.doxacore.vm;
 import org.zkoss.bind.annotation.Command;
 
 import com.doxacore.login.UsusarioDAO;
-import com.doxacore.modelo.Usuarios;
+import com.doxacore.modelo.Usuario;
 
 public class testVM {
 	
-	private Usuarios user = new Usuarios();
+	private Usuario user = new Usuario();
 	private UsusarioDAO ud = new UsusarioDAO();
 
 	
@@ -18,11 +18,11 @@ public class testVM {
 		
 	}
 
-	public Usuarios getUser() {
+	public Usuario getUser() {
 		return user;
 	}
 
-	public void setUser(Usuarios user) {
+	public void setUser(Usuario user) {
 		this.user = user;
 	}
 

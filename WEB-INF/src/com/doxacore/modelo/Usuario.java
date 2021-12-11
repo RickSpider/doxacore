@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name ="usuarios")
-public class Usuarios extends Modelo implements Serializable,Cloneable {
+public class Usuario extends Modelo implements Serializable,Cloneable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -36,12 +36,12 @@ public class Usuarios extends Modelo implements Serializable,Cloneable {
 
 
 	
-	public Usuarios() {
+	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuarios(String account, String password, String fullName,String email) {
+	public Usuario(String account, String password, String fullName,String email) {
 		super();
 		this.account = account;
 		this.password = password;
@@ -122,7 +122,7 @@ public class Usuarios extends Modelo implements Serializable,Cloneable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuarios other = (Usuarios) obj;
+		Usuario other = (Usuario) obj;
 		if (account == null) {
 			if (other.account != null)
 				return false;
@@ -131,9 +131,9 @@ public class Usuarios extends Modelo implements Serializable,Cloneable {
 		return true;
 	}
 	
-	public static Usuarios clone(Usuarios user){
+	public static Usuario clone(Usuario user){
 		try {
-			return (Usuarios)user.clone();
+			return (Usuario)user.clone();
 		} catch (CloneNotSupportedException e) {
 			//not possible
 		}

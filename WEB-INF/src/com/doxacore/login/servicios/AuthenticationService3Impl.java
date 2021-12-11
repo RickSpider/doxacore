@@ -5,7 +5,7 @@ import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 
 import com.doxacore.login.UsuarioCredencial;
-import com.doxacore.modelo.Usuarios;
+import com.doxacore.modelo.Usuario;
 
 public class AuthenticationService3Impl extends AuthenticationService2Impl{
 	
@@ -19,7 +19,7 @@ public class AuthenticationService3Impl extends AuthenticationService2Impl{
 	
 	@Override
 	public boolean login(String nm, String pd) {
-		Usuarios user = userInfoService.findUser(nm);
+		Usuario user = userInfoService.findUser(nm);
 		//a simple plan text password verification
 		if(user==null || !user.getPassword().equals(pd)){
 			return false;
