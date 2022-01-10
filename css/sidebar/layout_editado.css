@@ -1,6 +1,5 @@
 .z-navbar-vertical{
-    background: rgba(15, 139, 240, 0.1); /* este es el contorno del menu lateral */
-    padding: 5px;
+    background: #008000; /* este es el contorno del menu lateral */
     max-width: 100%;
     }
    
@@ -18,7 +17,7 @@
 .centerDiv {
 	position: fixed;
 	background: #bfdddf;
-	left: 13%;
+	left: 12%;
     top: 50px;
     width: 90%;
     height: 100%;
@@ -30,7 +29,7 @@
     .centerDiv {
     position: fixed;
 	background: #bfdddf;
-	left: 13%;
+	left: 12%;
     top: 50px;
     width: 90%;
     height: 100%;
@@ -42,7 +41,7 @@
     .centerDiv {
     position: fixed;
  	background: #bfdddf;
- 	left: 13%;
+ 	left: 12%;
     top: 50px;
     width: 90%;
     height: 100%;
@@ -53,9 +52,9 @@
 .upDiv {
 position: fixed;
 background: #050606;
-width: 13%;
+width: 11.7%;
 top: 20%;
-padding: 10px;
+
 }
 
 .sidebar1{
