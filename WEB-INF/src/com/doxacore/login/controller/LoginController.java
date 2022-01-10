@@ -40,7 +40,7 @@ public class LoginController extends SelectorComposer<Component> {
         message.setSclass("");
 
        // Executions.sendRedirect("/corezul/main/");
-        Executions.sendRedirect("/corezul/adminTemplate/");
+        Executions.sendRedirect("/corezul/sidebar/");
 
     }
 }
