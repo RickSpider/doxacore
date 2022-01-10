@@ -1,18 +1,19 @@
 <zk xmlns:n="native" xmlns="http://www.zkoss.org/2005/zul">
 
 
-    <div sclass="sidebar1" viewModel="@id('vm')@init('com.doxacore.sideBar.SidebarVM')">
+    <div class="upDiv" viewModel="@id('vm')@init('com.doxacore.sideBar.SidebarVM')">
     
-   
-        <div>
-            <if test="@load(not vm.collapsed)">
-                <label value="@init(vm.userName)"/>
-            </if>
-        </div>
+     
         <navbar orient="vertical" collapsed="@load(vm.collapsed)">
             <apply template="iterate" menuItems="@load(vm.menuList)"/>
         </navbar>
+        
+   
     </div>
+    
+    
+    
+    
     <template name="iterate">
         <forEach items="@load(menuItems)">
             <apply template="@load(empty each.subMenus?'menuitem':'menu')" menuItem="@init(each)"/>

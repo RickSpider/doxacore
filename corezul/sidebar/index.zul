@@ -7,6 +7,17 @@
 <zk xmlns:n="native">
 
 
+<div class="sidebar1">
+ <div class="sidebar2" >
+ 
+ <!-- ACA TIENE QUE IR EL MENU DE ARRIBA -->
+ 
+ 
+ </div>
+
+</div>
+
+
 <hlayout viewModel="@id('vm')@init('com.doxacore.sideBar.MainVM')" width="100%">
 
         <apply templateURI="/corezul/sidebar/sidebar.zul" />
