@@ -1,11 +1,11 @@
-package com.doxacore.adminTemplate;
+package com.doxacore.sideBar;
 
 import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.*;
 
-import java.util.List;
+import static com.doxacore.sideBar.MainVM.NAVIGATION;
 
-import static com.doxacore.adminTemplate.MainVM.NAVIGATION;
+import java.util.List;
 
 public class SidebarVM {
     private NavigationMdel navigationModel;

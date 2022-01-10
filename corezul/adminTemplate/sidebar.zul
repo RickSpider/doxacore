@@ -1,13 +1,9 @@
 <zk xmlns:n="native" xmlns="http://www.zkoss.org/2005/zul">
 
 
-
-    <div sclass="sidebar" viewModel="@id('vm')@init('com.doxacore.adminTemplate.SidebarVM')">
+    <div sclass="sidebar1" viewModel="@id('vm')@init('com.doxacore.adminTemplate.SidebarVM')">
     
-    
-
-    
-    
+   
         <div>
             <if test="@load(not vm.collapsed)">
                 <label value="@init(vm.userName)"/>

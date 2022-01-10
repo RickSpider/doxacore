@@ -1,4 +1,4 @@
-package com.doxacore.adminTemplate;
+package com.doxacore.sideBar;
 
 public class NavigationMdel {
     public static final String DASHBOARD_ECOMMERCE_ZUL = "/corezul/adminTemplate/ecommerce.zul";

@@ -1,0 +1,66 @@
+/* sidebar */
+.z-navbar-vertical{
+       background: rgba(15, 139, 240, 0.1); /* este es el contorno del menu lateral */
+       max-width: 100%;     
+    }
+   
+.z-nav-text, .z-navitem-text {
+	color: black;
+	font-size: 18px;
+}
+
+.z-nav-content:hover, .z-navitem-content:hover {
+	background: rgba(15,139,240,.1);
+}
+
+.z-navbar-vertical{
+        max-width: 100%;
+    }
+
+
+ 
+/*este DIV es para las paginas de contenido*/
+.centerDiv {
+	background: #c0c0c0;
+    position: fixed;
+    top: 50px;
+    left: 10,5%;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+
+@media(min-width:958px) {
+    .centerDiv {
+    
+	background: #c0c0c0;
+    position: fixed;
+    top: 50px;
+    left: 10,5%;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+
+    }
+}
+
+@media(max-width:957px) {
+    .centerDiv {
+    
+ 	background: #c0c0c0;
+    position: fixed;
+    top: 30px;
+    left: 10,5%;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    }
+}
+
+.sidebar1 div {
+overflow: auto;
+padding: 15px;
+
+}
+

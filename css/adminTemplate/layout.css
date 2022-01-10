@@ -1,7 +1,10 @@
 /* sidebar */
 
+
+
 @media(min-width:958px) {
     .sidebar {
+    
    background: #0d473e;
     position: fixed;
     top: 50px;
@@ -17,6 +20,7 @@
 
 @media(max-width:957px) {
     .sidebar {
+    
     background: #0d473e;
     position: fixed;
     top: 50px;
@@ -41,7 +45,9 @@
 /** make font consistent with ZK
 */
 .highcharts-legend-item >text{
+	
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    
 }
 
 .container-fluid{

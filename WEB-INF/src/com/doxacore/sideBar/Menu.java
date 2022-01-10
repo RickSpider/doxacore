@@ -1,4 +1,4 @@
-package com.doxacore.adminTemplate;
+package com.doxacore.sideBar;
 
 import java.util.*;
 
