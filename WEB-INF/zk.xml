@@ -9,6 +9,11 @@
 			browser to reload the same URL -->
 	</device-config>
 	
+	<library-property>
+		<name>org.zkoss.theme.preferred</name>
+		<value>iceblue_c</value>
+	</library-property>
+	
 	<listener>
 		<listener-class>com.doxacore.util.OpenSessionInViewListener</listener-class>
 	</listener>

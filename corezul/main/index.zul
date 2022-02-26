@@ -1,54 +1,27 @@
-<?link rel="stylesheet" type="text/css" href="/style.css"?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <!-- protect page by the authentication init  -->
 <?init class="com.doxacore.login.AuthenticationInit"?>
 
+
 <zk xmlns:h="http://www.w3.org/1999/xhtml">
+	
+	<style src="/css/main/style.css"/>
+
+	<div id="container" sclass="vertical" apply="org.zkoss.bind.BindComposer"
+		 viewModel="@id('vm')@init('com.doxacore.vm.MainVM')">
+
+	
+			 <apply templateURI="/corezul/main/navbarMenu.zul" />
 
 
+	
 
-		
-
-		hello DoxaCore !!!!!!!!!
-
-
-	<hbox apply="com.doxacore.login.controller.LogoutController" hflex="1"
-			vflex="1" pack="end">
-			<label value="${sessionScope.userCredential.name}"
-				if="${not sessionScope.userCredential.anonymous}" />
-			<label id="logout" value="Logout"
-				if="${not sessionScope.userCredential.anonymous}" sclass="logout" />
-
-		</hbox>
-		
-		<window id="mainmenubar" apply="org.zkoss.bind.BindComposer"
-		border="2px"
-		viewModel="@id('vm') @init('com.doxacore.vm.testVM')">
-		
-		<vbox>
-		
-			<hbox>
+			<!-- <apply templateURI="@load(vm.uriTemplate)" />  -->
 			
-				<label value="user: " />
-				<textbox value="@bind(vm.user.account)" />		
-				
-			</hbox>
-			
-			<hbox>
-			
-				<label value="pass: " />
-				<textbox value="@bind(vm.user.password)" />		
-				
-			</hbox>
-			
-			<button onClick="@command('guardar')" />
-		
-		</vbox>
-		
-		</window>
+			 <include id="contentInclude" mode="instant" sclass="content"
+                 currentPage="@ref(vm.currentPage)"
+                 src="@load(currentPage.includeUri)" />
 
-
-
-
-
+	</div>
 
 </zk>

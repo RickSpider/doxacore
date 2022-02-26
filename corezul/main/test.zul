@@ -1,0 +1,53 @@
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
+
+
+<zk xmlns:h="http://www.w3.org/1999/xhtml">
+
+
+
+		
+
+		hello DoxaCore !!!!!!!!!
+
+
+	<hbox apply="com.doxacore.login.controller.LogoutController" hflex="1"
+			vflex="1" pack="end">
+			<label value="${sessionScope.userCredential.name}"
+				if="${not sessionScope.userCredential.anonymous}" />
+			<label id="logout" value="Logout"
+				if="${not sessionScope.userCredential.anonymous}" sclass="logout" />
+
+		</hbox>
+		
+		<window id="mainmenubar" apply="org.zkoss.bind.BindComposer"
+		border="2px"
+		viewModel="@id('vm') @init('com.doxacore.vm.testVM')">
+		
+		<vbox>
+		
+			<hbox>
+			
+				<label value="user: " />
+				<textbox value="@bind(vm.user.account)" />		
+				
+			</hbox>
+			
+			<hbox>
+			
+				<label value="pass: " />
+				<textbox value="@bind(vm.user.password)" />		
+				
+			</hbox>
+			
+			<button onClick="@command('guardar')" />
+		
+		</vbox>
+		
+		</window>
+
+
+
+
+
+
+</zk>
