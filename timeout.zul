@@ -1,7 +1,9 @@
 <window width="80%" title="Session Timeout" border="normal">
 	<vbox>
-The page or component you request is no longer available.
-This is normally caused by timeout, opening too many Web pages, or rebooting
-the server.
+	La página no está disponible. Esto se debe a que ha expirado el tiempo o se ha reiniciado el servidor, 
+	debe volver a iniciar sesión. 
+	
+	<a href="/corezul/login/login.zul" label="[Iniciar sesión]" autodisable="self" />
+	
 	</vbox>
 </window>
