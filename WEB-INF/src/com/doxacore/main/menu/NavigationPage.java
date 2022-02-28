@@ -1,4 +1,4 @@
-package com.doxacore.vm;
+package com.doxacore.main.menu;
 
 public abstract class NavigationPage {
 	

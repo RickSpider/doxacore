@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.doxacore.modelo.Register;
 import com.doxacore.modelo.Usuario;
+import com.doxacore.util.Register;
 
 
 public class UserInfoService2Impl implements UserInfoService,Serializable{

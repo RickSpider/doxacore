@@ -1,0 +1,88 @@
+<?page title="Usuario" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Usuario" border="normal"
+		viewModel="@id('vm') @init('com.doxacore.configuracion.UsuarioVM')"
+		vflex="1" id="Body" apply="org.zkoss.bind.BindComposer">
+
+		<hlayout  vflex="1">
+			<groupbox width="600px" vflex="1">
+				<caption label="Usuarios" />
+				
+				<hbox pack="end" >
+				
+					<button label="Agregar" iconSclass=" z-icon-plus"  onClick="@command('modalUsuarioAgregar')"/>
+				
+				</hbox>
+				
+				<space height="5px" />
+
+				<listbox emptyMessage="lista vacía..." mold="paging"
+					vflex="1" model="@load(vm.lUsuarios)">
+
+					<listhead>
+
+						<listheader label="ID" align="right"
+							width="30px" />
+						<listheader label="Usuario" align="left"
+							width="100px" />
+						<listheader label="Nombre Completo" align="left"
+							width="150px" />
+						<listheader label="Email" align="left"
+							width="150px" />
+						<listheader label="activo" align="center"
+							width="50px" />
+						<listheader align="center" />
+
+
+					</listhead>
+
+					<template name="model">
+
+						<listitem>
+
+
+							<listcell label="@load(each.usuarioid)" />
+							<listcell label="@load(each.account)" />
+							<listcell label="@load(each.fullName)" />
+							<listcell label="@load(each.email)" />
+							<listcell>
+
+								<if test="@load(each.activo)">
+									<label value="Si" />
+								</if>
+
+
+								<if test="@load(!each.activo)">
+									<label value="No" />
+								</if>
+
+							</listcell>
+							<listcell>
+								<hlayout>
+
+									<button iconSclass="z-icon-edit"
+										onClick="@command('modalUsuario', usuarioid=each.usuarioid)" />
+									<button iconSclass="z-icon-trash-o"
+										style="background-color:red" />
+
+
+								</hlayout>
+
+
+							</listcell>
+
+
+						</listitem>
+
+
+					</template>
+
+
+				</listbox>
+
+			</groupbox>
+			
+		</hlayout>
+
+	</window>
+</zk>

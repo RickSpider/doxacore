@@ -1,4 +1,4 @@
-package com.doxacore.vm;
+package com.doxacore.main;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -7,6 +7,8 @@ import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
+
+import com.doxacore.main.menu.NavigationPage;
 
 public class MainVM {
 	
@@ -38,7 +40,9 @@ public class MainVM {
         pageMap = new LinkedHashMap<String, Map<String, NavigationPage>>();
          
         addPage("Main", "page 1", "/corezul/main/test.zul");
-        addPage("Main", "Blank", "/corezul/sidebar/blank.zul");
+        addPage("Main", "Blank", "/corezul/blank.zul");
+        
+        addPage("Configuracion", "Usuario", "/corezul/configuracion/usuario.zul");
       
     }
  

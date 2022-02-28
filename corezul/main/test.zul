@@ -5,45 +5,36 @@
 
 
 
-		
-
-		hello DoxaCore !!!!!!!!!
 
 
-	<hbox apply="com.doxacore.login.controller.LogoutController" hflex="1"
-			vflex="1" pack="end">
-			<label value="${sessionScope.userCredential.name}"
-				if="${not sessionScope.userCredential.anonymous}" />
-			<label id="logout" value="Logout"
-				if="${not sessionScope.userCredential.anonymous}" sclass="logout" />
+	hello DoxaCore !!!!!!!!!
 
-		</hbox>
-		
-		<window id="mainmenubar" apply="org.zkoss.bind.BindComposer"
-		border="2px"
-		viewModel="@id('vm') @init('com.doxacore.vm.testVM')">
-		
+
+
+	<window apply="org.zkoss.bind.BindComposer"
+		border="2px" viewModel="@id('vm') @init('com.doxacore.vm.testVM')">
+
 		<vbox>
-		
+
 			<hbox>
-			
+
 				<label value="user: " />
-				<textbox value="@bind(vm.user.account)" />		
-				
+				<textbox value="@bind(vm.user.account)" />
+
 			</hbox>
-			
+
 			<hbox>
-			
+
 				<label value="pass: " />
-				<textbox value="@bind(vm.user.password)" />		
-				
+				<textbox value="@bind(vm.user.password)" />
+
 			</hbox>
-			
+
 			<button onClick="@command('guardar')" />
-		
+
 		</vbox>
-		
-		</window>
+
+	</window>
 
 
 

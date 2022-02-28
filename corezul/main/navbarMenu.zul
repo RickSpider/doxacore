@@ -6,7 +6,7 @@
 		<nav label="Main" iconSclass="z-icon-home"
 			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
 
-		<nav label="Customers" iconSclass="z-icon-group" badgeText="3"
+		<nav label="Configuracion" iconSclass="z-icon-group" 
 			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
 
 		<nav label="Orders" iconSclass="z-icon-truck" badgeText="4"
@@ -33,23 +33,7 @@
 		<nav label="Fan Service" iconSclass="z-icon-star"
 			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
 			
-		<nav label="Customers" iconSclass="z-icon-group" badgeText="3"
-			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
-
-		<nav label="Orders" iconSclass="z-icon-truck" badgeText="4"
-			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
-
-		<nav label="Fan Service" iconSclass="z-icon-star"
-			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
-			
-		<nav label="Customers" iconSclass="z-icon-group" badgeText="3"
-			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
-
-		<nav label="Orders" iconSclass="z-icon-truck" badgeText="4"
-			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
-
-		<nav label="Fan Service" iconSclass="z-icon-star"
-			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
+	
 
 		<template name="navitem" var="navigationPage">
 			<navitem label="@load(navigationPage.subTitle)"

@@ -26,7 +26,7 @@ public class AuthenticationService3Impl extends AuthenticationService2Impl{
 		}
 		
 		Session sess = Sessions.getCurrent();
-		UsuarioCredencial cre = new UsuarioCredencial(user.getAccount(),user.getFullName());
+		UsuarioCredencial cre = new UsuarioCredencial(user.getAccount(), user.getFullName());
 		//just in case for this demo.
 		if(cre.isAnonymous()){
 			return false;

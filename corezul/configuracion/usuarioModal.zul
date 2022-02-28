@@ -1,0 +1,59 @@
+<?page title="usuarioModal" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Usuario Crear/Ver/Editar" border="normal"
+		position="center,center" closable="true"
+		action="show: slideDown;hide: slideUp" >
+	
+		<vlayout>
+		
+			<hlayout>
+				<hbox width = "130px">
+					<label value="Usuario: " style="font-weight:bold" />	
+				</hbox>
+				<textbox value="@bind(vm.usuarioSelected.account)" width="150px"/>
+			</hlayout>
+			
+			<hlayout>
+				<hbox width = "130px">
+					<label value="Nombre Completo: " style="font-weight:bold" />	
+				</hbox>
+				<textbox value="@bind(vm.usuarioSelected.fullName)" width="150px"/>
+			</hlayout>
+			
+			<hlayout>
+				<hbox width = "130px">
+					<label value="Password: " style="font-weight:bold" />	
+				</hbox>
+				<textbox value="@bind(vm.usuarioSelected.password)" width="150px"/>
+			</hlayout>
+			
+			<hlayout>
+				<hbox width = "130px">
+					<label value="Email: " style="font-weight:bold" />	
+				</hbox>
+				<textbox value="@bind(vm.usuarioSelected.email)" width="150px"/>
+			</hlayout>
+			
+			<hlayout>
+				<hbox width = "130px">
+					<label value="Activo: " style="font-weight:bold" />	
+				</hbox>
+				<checkbox checked="@bind(vm.usuarioSelected.activo)" />
+			</hlayout>
+		
+		</vlayout>
+		
+		<space height="10px" />
+		
+		<hlayout>
+		
+			<button label="Aceptar" onClick="@command('guardar')" />
+			
+			<button label="Cancelar" />
+		
+		</hlayout>
+	
+
+	</window>
+
+</zk>
