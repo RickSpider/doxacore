@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
@@ -23,6 +24,7 @@ public class Usuario extends Modelo implements Serializable, Cloneable {
 	@Id
 	@Column(name = "USUARIOID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private long usuarioid;
 
 	@Column(name = "account")

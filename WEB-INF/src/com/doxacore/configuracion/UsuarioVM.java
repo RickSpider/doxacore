@@ -34,7 +34,7 @@ public class UsuarioVM extends TemplateViewModel {
 
 	private void cargarUsuarios() {
 
-		this.lUsuarios = this.r.getAllObjects(Usuario.class.getName());
+		this.lUsuarios = this.r.getAllObjectsByCondicionOrder(Usuario.class.getName(), null, "usuarioid asc");
 
 	}
 
@@ -85,6 +85,21 @@ public class UsuarioVM extends TemplateViewModel {
 	}
 
 	// Fin Seccion Modal
+	
+	@Command
+	@NotifyChange("lUsuarios")
+	public void borrarUsuario(@BindingParam("usuario") Usuario u) {
+		
+		if (this.mensajeSiNo("Borrar el Usuario?")) {
+			
+			this.r.deleteObject(u);
+			
+		}
+		
+		this.cargarUsuarios();
+		
+		
+	}
 
 	public List<Usuario> getlUsuarios() {
 		return lUsuarios;

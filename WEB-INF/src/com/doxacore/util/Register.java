@@ -3,9 +3,11 @@ package com.doxacore.util;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.query.Query;
 
 import com.doxacore.modelo.Modelo;
+import com.doxacore.modelo.Usuario;
 
 public class Register {
 	
@@ -23,7 +25,7 @@ public class Register {
 			 
 			 m.setCreadoUser(Usuario);
 			 
-		 }else 
+		 } 
 		 
 		 m.setModificacionUser(Usuario);
 
@@ -52,9 +54,39 @@ public class Register {
 	public synchronized <T> List<T> getAllObjects(String entityName) {
 		
 		Session sess =  currentSession();
-		
+
 		return sess.createQuery("from " + entityName ).list();
+			
+	}
+	
+	public synchronized <T> List<T> getAllObjectsByCondicionOrder(String entityName, String condicion, String order) {
+		
+		Session sess =  currentSession();
+		
+		String wo = "";
+		
+		if (condicion != null) {
+			
+			wo = " where "+condicion;
+			
+		}
+		
+		if (order != null) {
+			
+			wo = " order by "+order;
+		}
+
+		return sess.createQuery("from " + entityName + wo).list();
+			
+	}
+	
+	public synchronized void deleteObject(Modelo m) {
+		
+		Session sess = currentSession();
+		
+		sess.delete(m);
 		
 	}
+	
 	
 }
