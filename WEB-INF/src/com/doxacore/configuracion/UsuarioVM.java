@@ -2,13 +2,17 @@ package com.doxacore.configuracion;
 
 import java.util.List;
 
+import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.select.Selectors;
+import org.zkoss.zk.ui.util.Notification;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
@@ -32,6 +36,7 @@ public class UsuarioVM extends TemplateViewModel {
 
 	}
 
+	
 	private void cargarUsuarios() {
 
 		this.lUsuarios = this.r.getAllObjectsByCondicionOrder(Usuario.class.getName(), null, "usuarioid asc");
@@ -50,7 +55,6 @@ public class UsuarioVM extends TemplateViewModel {
 	}
 
 	@Command
-	@NotifyChange("usuarioSelected")
 	public void modalUsuario(@BindingParam("usuarioid") long usuarioid) {
 
 		if (usuarioid != -1) {
@@ -81,23 +85,42 @@ public class UsuarioVM extends TemplateViewModel {
 		this.cargarUsuarios();
 
 		this.modal.detach();
+		
+		Notification.show("El Usuario fue agregado.");
 
 	}
 
 	// Fin Seccion Modal
 	
 	@Command
-	@NotifyChange("lUsuarios")
-	public void borrarUsuario(@BindingParam("usuario") Usuario u) {
+	public void borrarUsuarioMensaje(@BindingParam("usuario") Usuario u) {
 		
-		if (this.mensajeSiNo("Borrar el Usuario?")) {
-			
-			this.r.deleteObject(u);
-			
-		}
+		EventListener event = new EventListener () {
+
+			@Override
+			public void onEvent(Event evt) throws Exception {
+				
+				if (evt.getName().equals(Messagebox.ON_YES)) {
+					
+					borrarUsuario(u);
+					
+				}
+				
+			}
+
+		};
+		
+		this.mensajeEliminar("El usuario sera eliminado. \n Continuar?", event);
+	}
+	
+	
+	private void borrarUsuario (Usuario u) {
+		
+		this.r.deleteObject(u);
 		
 		this.cargarUsuarios();
 		
+		BindUtils.postNotifyChange(null,null,this,"lUsuarios");
 		
 	}
 

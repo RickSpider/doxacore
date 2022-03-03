@@ -46,18 +46,36 @@ public abstract class TemplateViewModel {
 		
 	}
 	
-	protected boolean mensajeSiNo(String mensaje) {
+	public void mensajeInfo(String texto) {
+		org.zkoss.zul.Messagebox.Button b = Messagebox.show(texto, "Información",
+				new Messagebox.Button[] { Messagebox.Button.OK }, Messagebox.INFORMATION, null);
+	}
+	
+	public void mensajeSiNo(String texto, String titulo, EventListener event ) {
 
-		int mb = Messagebox.show(mensaje, "Mensaje de Confirmación", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION);
+		int b = Messagebox.show(texto, titulo,
+				Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event);
+
+	
+	}
+
+	
+	public void mensajeAgregar(String texto, EventListener event) {
+
+		mensajeSiNo(texto, "Agregar",  event);
 		
-		if (mb == Messagebox.YES) {
-			
-			return true;
-			
-		}
+	}
+	
+	
+	public void mensajeEliminar(String texto, EventListener event) {
+
+		mensajeSiNo(texto, "Eliminar", event);
 		
-		return false;
-		
+	}
+	
+	public void mensajeError(String texto) {
+		org.zkoss.zul.Messagebox.Button b = Messagebox.show(texto, "Error",
+				new Messagebox.Button[] { Messagebox.Button.OK }, Messagebox.ERROR, null);
 	}
 	
 }
