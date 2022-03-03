@@ -25,21 +25,21 @@ public class UsuarioVM extends TemplateViewModel {
 	private Usuario usuarioSelected = null;
 
 	@Init(superclass = true)
-	public void initUsuarioRolVM() {
+	public void initUsuarioVM() {
 
 		cargarUsuarios();
 
 	}
 
 	@AfterCompose(superclass = true)
-	public void afterComposeUsuarioRolVM() {
+	public void afterComposeUsuarioVM() {
 
 	}
 
 	
 	private void cargarUsuarios() {
 
-		this.lUsuarios = this.r.getAllObjectsByCondicionOrder(Usuario.class.getName(), null, "usuarioid asc");
+		this.lUsuarios = this.reg.getAllObjectsByCondicionOrder(Usuario.class.getName(), null, "usuarioid asc");
 
 	}
 
@@ -59,7 +59,7 @@ public class UsuarioVM extends TemplateViewModel {
 
 		if (usuarioid != -1) {
 
-			this.usuarioSelected = this.r.getObjectById(Usuario.class.getName(), usuarioid);
+			this.usuarioSelected = this.reg.getObjectById(Usuario.class.getName(), usuarioid);
 
 		} else {
 
@@ -78,7 +78,7 @@ public class UsuarioVM extends TemplateViewModel {
 	@NotifyChange("lUsuarios")
 	public void guardar() {
 
-		this.r.saveObject(usuarioSelected, getCurrentUser().getAccount());
+		this.reg.saveObject(usuarioSelected, getCurrentUser().getAccount());
 
 		this.usuarioSelected = null;
 
@@ -93,7 +93,7 @@ public class UsuarioVM extends TemplateViewModel {
 	// Fin Seccion Modal
 	
 	@Command
-	public void borrarUsuarioMensaje(@BindingParam("usuario") Usuario u) {
+	public void borrarUsuarioConfirmacion(@BindingParam("usuario") Usuario u) {
 		
 		EventListener event = new EventListener () {
 
@@ -116,7 +116,7 @@ public class UsuarioVM extends TemplateViewModel {
 	
 	private void borrarUsuario (Usuario u) {
 		
-		this.r.deleteObject(u);
+		this.reg.deleteObject(u);
 		
 		this.cargarUsuarios();
 		

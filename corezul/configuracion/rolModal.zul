@@ -1,0 +1,29 @@
+<?page title="Rol" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Rol Crear/Ver/Editar" border="normal"
+		position="center,center" closable="true"
+		action="show: slideDown;hide: slideUp">
+
+		<vlayout>
+
+			<hlayout>
+				<hbox width="130px">
+					<label value="Rol: " style="font-weight:bold" />
+				</hbox>
+				<textbox value="@bind(vm.rolSelected.rol)"
+					width="150px" />
+			</hlayout>
+
+			<space height="10px" />
+
+			<hlayout>
+
+				<button label="Aceptar" onClick="@command('guardar')" />
+
+			</hlayout>
+
+		</vlayout>
+
+
+	</window>
+</zk>

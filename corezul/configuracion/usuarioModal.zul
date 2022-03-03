@@ -48,8 +48,6 @@
 		<hlayout>
 		
 			<button label="Aceptar" onClick="@command('guardar')" />
-			
-			<button label="Cancelar" />
 		
 		</hlayout>
 	

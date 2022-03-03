@@ -18,14 +18,14 @@ import com.doxacore.util.Register;
 
 public abstract class TemplateViewModel {
 	
-	protected Register r;
+	protected Register reg;
 	protected Component mainComponent;
 	
 
 	@Init(superclass = true)
 	public void initTemplateViewModel(@ContextParam(ContextType.VIEW) Component view) {
 		
-		this.r = new Register();
+		this.reg = new Register();
 		this.mainComponent = view;
 		
 	}
@@ -40,7 +40,7 @@ public abstract class TemplateViewModel {
 		
 		UsuarioCredencial usuarioCredencial = (UsuarioCredencial) Sessions.getCurrent().getAttribute("userCredential");
 		
-		Usuario currentUser = this.r.getObjectByColumnString(Usuario.class.getName(), "account", usuarioCredencial.getAccount());
+		Usuario currentUser = this.reg.getObjectByColumnString(Usuario.class.getName(), "account", usuarioCredencial.getAccount());
 		
 		return currentUser;
 		

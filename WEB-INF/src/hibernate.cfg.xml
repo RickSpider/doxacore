@@ -22,6 +22,10 @@
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
+        
+        <property name="log4j.logger.org.hibernate.SQL">false</property>
+		<property name="log4j.logger.org.hibernate">WARN</property>
+		<property name="org.hibernate">WARN</property>
 
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>

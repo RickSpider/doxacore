@@ -20,7 +20,7 @@ public class Rol extends Modelo implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long rolid;
 	
-	private String descripcion;
+	private String rol;
 
 	public long getRolid() {
 		return rolid;
@@ -30,12 +30,14 @@ public class Rol extends Modelo implements Serializable{
 		this.rolid = rolid;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getRol() {
+		return rol;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
+
+	
 	
 }

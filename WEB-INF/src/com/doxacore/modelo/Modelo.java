@@ -11,9 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 @MappedSuperclass
 public class Modelo{
-	
-	private long orden; 
-	
+
 	@CreationTimestamp 
     @Column(updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -25,6 +23,9 @@ public class Modelo{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modificacion;
 	private String modificacionUser;
+	
+	@Column(nullable=true)
+	private long orden; 
 	
 	public long getOrden() {
 		return orden;

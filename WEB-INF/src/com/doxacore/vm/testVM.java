@@ -22,7 +22,7 @@ public class testVM extends TemplateViewModel{
 	@Command
 	public void guardar() {
 
-		r.saveObject(user, "sys");
+		reg.saveObject(user, "sys");
 		
 	}
 

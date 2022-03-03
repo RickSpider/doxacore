@@ -43,6 +43,7 @@ public class MainVM {
         addPage("Main", "Blank", "/corezul/blank.zul");
         
         addPage("Configuracion", "Usuario", "/corezul/configuracion/usuario.zul");
+        addPage("Configuracion", "Rol", "/corezul/configuracion/rol.zul");
       
     }
  
