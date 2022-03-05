@@ -4,24 +4,24 @@
 		viewModel="@id('vm') @init('com.doxacore.configuracion.UsuarioVM')"
 		vflex="1" id="Body" apply="org.zkoss.bind.BindComposer">
 
-		<hlayout  vflex="1">
-			<groupbox width="650px" vflex="1">
+		<hlayout vflex="1" hflex="1">
+			<groupbox width="750px" vflex="1">
 				<caption label="Usuarios" />
-				
-				<hbox pack="end" >
-				
-					<button label="Agregar" iconSclass=" z-icon-plus"  onClick="@command('modalUsuarioAgregar')"/>
-				
+
+				<hbox pack="end">
+
+					<button label="Agregar" iconSclass=" z-icon-plus"
+						onClick="@command('modalUsuarioAgregar')" />
+
 				</hbox>
-				
+
 				<space height="5px" />
 
 				<listbox emptyMessage="lista vacía..." mold="paging"
-					vflex="1" model="@load(vm.lUsuarios)"
-					checkmark="true">
+					vflex="1" model="@load(vm.lUsuarios)" checkmark="true">
 
 					<listhead>
-					
+
 						<listheader width="30px" align="center" />
 						<listheader label="ID" align="right"
 							width="30px" />
@@ -30,7 +30,7 @@
 						<listheader label="Nombre Completo" align="left"
 							width="150px" />
 						<listheader label="Email" align="left"
-							width="150px" />
+							width="250px" />
 						<listheader label="activo" align="center"
 							width="50px" />
 						<listheader align="center" />
@@ -40,9 +40,9 @@
 
 					<template name="model">
 
-						<listitem>
+						<listitem onClick="@command('refrescarRoles', usuarioid = each.usuarioid )">
 
-							<listcell/>
+							<listcell  />
 							<listcell label="@load(each.usuarioid)" />
 							<listcell label="@load(each.account)" />
 							<listcell label="@load(each.fullName)" />
@@ -65,7 +65,8 @@
 									<button iconSclass="z-icon-edit"
 										onClick="@command('modalUsuario', usuarioid=each.usuarioid)" />
 									<button iconSclass="z-icon-trash-o"
-										style="background-color:red" onClick="@command('borrarUsuarioConfirmacion', usuario=each)"/>
+										style="background-color:red"
+										onClick="@command('borrarUsuarioConfirmacion', usuario=each)" />
 
 
 								</hlayout>
@@ -83,7 +84,69 @@
 				</listbox>
 
 			</groupbox>
-			
+
+			<groupbox vflex="1" width="550px">
+				<caption label="Roles por Usuario" />
+
+				<hbox pack="end">
+
+					<button label="Agregar" iconSclass=" z-icon-plus"
+						onClick="" />
+
+				</hbox>
+
+				<space height="5px" />
+
+				<listbox emptyMessage="lista vacía..." mold="paging"
+					vflex="1" model="@load(vm.lRolesUsuarios)" checkmark="true">
+
+					<listhead>
+
+						<listheader width="30px" align="center" />
+						<listheader label="ID" align="right"
+							width="30px" />
+						<listheader label="Rol" align="left"
+							width="150px" />
+						<listheader label="Descripción" align="left"
+							width="250px" />
+						<listheader align="center" />
+
+
+					</listhead>
+
+					<template name="model">
+
+						<listitem >
+
+							<listcell />
+							<listcell label="@load(each.usuariorolpk.rol.rolid)" />
+							<listcell label="@load(each.usuariorolpk.rol.rol)" />
+							<listcell label="@load(each.usuariorolpk.rol.descripcion)" />
+
+							<listcell>
+								<hlayout>
+
+									<button iconSclass="z-icon-trash-o"
+										style="background-color:red"
+										onClick="@command('borrarRolConfirmacion', rol=each)" />
+
+
+								</hlayout>
+
+
+							</listcell>
+
+
+						</listitem>
+
+
+					</template>
+
+
+				</listbox>
+
+			</groupbox>
+
 		</hlayout>
 
 	</window>

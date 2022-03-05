@@ -17,11 +17,14 @@ import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
 import com.doxacore.TemplateViewModel;
+import com.doxacore.modelo.Rol;
 import com.doxacore.modelo.Usuario;
+import com.doxacore.modelo.UsuarioRol;
 
 public class UsuarioVM extends TemplateViewModel {
 
 	private List<Usuario> lUsuarios = null;
+	private List<UsuarioRol> lRolesUsuarios = null;
 	private Usuario usuarioSelected = null;
 
 	@Init(superclass = true)
@@ -133,6 +136,25 @@ public class UsuarioVM extends TemplateViewModel {
 		BindUtils.postNotifyChange(null, null, this, "lUsuarios");
 
 	}
+	
+	//Seccion roles usuario
+	
+	@Command
+	@NotifyChange("lRolesUsuarios")
+	public void refrescarRoles(@BindingParam("usuarioid") long usuarioid) {
+		
+		this.lRolesUsuarios = this.reg.getAllObjectsByCondicionOrder(UsuarioRol.class.getName(), "usuarioid = "+usuarioid, "rolid desc");
+	
+	}
+	
+	@Command
+	public void borrarRolConfirmacion () {
+		
+		
+		
+	}
+	
+	//fin roles usuario 
 
 	public List<Usuario> getlUsuarios() {
 		return lUsuarios;
@@ -158,4 +180,13 @@ public class UsuarioVM extends TemplateViewModel {
 		this.editar = editar;
 	}
 
+	public List<UsuarioRol> getlRolesUsuarios() {
+		return lRolesUsuarios;
+	}
+
+	public void setlRolesUsuarios(List<UsuarioRol> lRolesUsuarios) {
+		this.lRolesUsuarios = lRolesUsuarios;
+	}
+
+	
 }

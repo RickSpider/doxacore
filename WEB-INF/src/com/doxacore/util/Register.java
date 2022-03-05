@@ -63,18 +63,20 @@ public class Register {
 		
 		Session sess =  currentSession();
 		
-		String wo = "";
+		StringBuffer wo = new StringBuffer();
 		
 		if (condicion != null) {
 			
-			wo = " where "+condicion;
+			wo.append(" where "+condicion);
 			
 		}
 		
 		if (order != null) {
 			
-			wo = " order by "+order;
+			wo.append(" order by "+order);
 		}
+		
+		System.out.println("================Este es el WO: "+wo+"================");
 
 		return sess.createQuery("from " + entityName + wo).list();
 			

@@ -21,6 +21,8 @@ public class Rol extends Modelo implements Serializable{
 	private long rolid;
 	
 	private String rol;
+	
+	private String descripcion;
 
 	public long getRolid() {
 		return rolid;
@@ -36,6 +38,14 @@ public class Rol extends Modelo implements Serializable{
 
 	public void setRol(String rol) {
 		this.rol = rol;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	

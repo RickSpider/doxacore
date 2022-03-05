@@ -5,7 +5,7 @@
 			vflex="1" id="Body" apply="org.zkoss.bind.BindComposer">
 
 			<hlayout vflex="1">
-				<groupbox width="650px" vflex="1">
+				<groupbox width="550px" vflex="1">
 					<caption label="Rol" />
 
 					<hbox pack="end">
@@ -27,6 +27,8 @@
 								width="30px" />
 							<listheader label="Rol" align="left"
 								width="100px" />
+							<listheader label="Descripción" align="left"
+							width="250px" />
 							<listheader align="center" />
 
 
@@ -39,6 +41,7 @@
 								<listcell />
 								<listcell label="@load(each.rolid)" />
 								<listcell label="@load(each.rol)" />
+								<listcell label="@load(each.descripcion)" />
 
 								<listcell>
 									<hlayout>

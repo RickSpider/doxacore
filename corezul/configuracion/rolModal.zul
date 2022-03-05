@@ -11,7 +11,17 @@
 					<label value="Rol: " style="font-weight:bold" />
 				</hbox>
 				<textbox value="@bind(vm.rolSelected.rol)"
+					width="150px" />					
+			</hlayout>
+			
+			<hlayout>
+			
+				<hbox width="130px">
+					<label value="Descripción: " style="font-weight:bold" />
+				</hbox>
+				<textbox value="@bind(vm.rolSelected.descripcion)"
 					width="150px" />
+			
 			</hlayout>
 
 			<space height="10px" />

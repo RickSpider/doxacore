@@ -25,12 +25,12 @@ public class Modelo{
 	private String modificacionUser;
 	
 	@Column(nullable=true)
-	private long orden; 
+	private Long orden; 
 	
-	public long getOrden() {
+	public Long getOrden() {
 		return orden;
 	}
-	public void setOrden(long orden) {
+	public void setOrden(Long orden) {
 		this.orden = orden;
 	}
 	public Date getCreado() {
