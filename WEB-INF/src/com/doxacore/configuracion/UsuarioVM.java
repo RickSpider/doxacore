@@ -36,7 +36,6 @@ public class UsuarioVM extends TemplateViewModel {
 
 	}
 
-	
 	private void cargarUsuarios() {
 
 		this.lUsuarios = this.reg.getAllObjectsByCondicionOrder(Usuario.class.getName(), null, "usuarioid asc");
@@ -46,6 +45,7 @@ public class UsuarioVM extends TemplateViewModel {
 	// Seccion modal
 
 	private Window modal;
+	private boolean editar = false;
 
 	@Command
 	public void modalUsuarioAgregar() {
@@ -60,6 +60,7 @@ public class UsuarioVM extends TemplateViewModel {
 		if (usuarioid != -1) {
 
 			this.usuarioSelected = this.reg.getObjectById(Usuario.class.getName(), usuarioid);
+			this.editar = true;
 
 		} else {
 
@@ -85,43 +86,52 @@ public class UsuarioVM extends TemplateViewModel {
 		this.cargarUsuarios();
 
 		this.modal.detach();
+
+		if (editar) {
+
+			Notification.show("El Usuario fue Actualizado.");
+			this.editar=false;
+
+		} else {
+
+			Notification.show("El Usuario fue agregado.");
+		}
+
 		
-		Notification.show("El Usuario fue agregado.");
 
 	}
 
 	// Fin Seccion Modal
-	
+
 	@Command
 	public void borrarUsuarioConfirmacion(@BindingParam("usuario") Usuario u) {
-		
-		EventListener event = new EventListener () {
+
+		EventListener event = new EventListener() {
 
 			@Override
 			public void onEvent(Event evt) throws Exception {
-				
+
 				if (evt.getName().equals(Messagebox.ON_YES)) {
-					
+
 					borrarUsuario(u);
-					
+
 				}
-				
+
 			}
 
 		};
-		
+
 		this.mensajeEliminar("El usuario sera eliminado. \n Continuar?", event);
 	}
-	
-	
-	private void borrarUsuario (Usuario u) {
-		
+
+	private void borrarUsuario(Usuario u) {
+
 		this.reg.deleteObject(u);
-		
+
 		this.cargarUsuarios();
-		
-		BindUtils.postNotifyChange(null,null,this,"lUsuarios");
-		
+
+		BindUtils.postNotifyChange(null, null, this, "lUsuarios");
+
 	}
 
 	public List<Usuario> getlUsuarios() {
@@ -138,6 +148,14 @@ public class UsuarioVM extends TemplateViewModel {
 
 	public void setUsuarioSelected(Usuario usuarioSelected) {
 		this.usuarioSelected = usuarioSelected;
+	}
+
+	public boolean isEditar() {
+		return editar;
+	}
+
+	public void setEditar(boolean editar) {
+		this.editar = editar;
 	}
 
 }

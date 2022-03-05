@@ -46,6 +46,7 @@ public class RolVM extends TemplateViewModel{
 	//seccion modal
 	
 	private Window modal;
+	private boolean editar = false;
 
 	@Command
 	public void modalRolAgregar() {
@@ -60,6 +61,7 @@ public class RolVM extends TemplateViewModel{
 		if (rolid != -1) {
 
 			this.rolSelected = this.reg.getObjectById(Rol.class.getName(), rolid);
+			this.editar = true;
 
 		} else {
 
@@ -86,7 +88,16 @@ public class RolVM extends TemplateViewModel{
 
 		this.modal.detach();
 		
-		Notification.show("El Rol fue agregado.");
+		if (editar) {
+			
+			Notification.show("El Rol fue Actualizado.");
+			this.editar = false;
+		}else {
+			
+			Notification.show("El Rol fue agregado.");
+		}
+		
+		
 
 	}
 
@@ -141,12 +152,12 @@ public class RolVM extends TemplateViewModel{
 		this.rolSelected = rolSelected;
 	}
 
-	public Window getModal() {
-		return modal;
+	public boolean isEditar() {
+		return editar;
 	}
 
-	public void setModal(Window modal) {
-		this.modal = modal;
+	public void setEditar(boolean editar) {
+		this.editar = editar;
 	}
 	
 	
