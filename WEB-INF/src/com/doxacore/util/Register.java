@@ -1,5 +1,6 @@
 package com.doxacore.util;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -16,7 +17,7 @@ public class Register {
      }
 
 	
-	public synchronized void saveObject(Modelo m, String Usuario) {
+	public synchronized <T extends Modelo> void saveObject(T m, String Usuario) {
 		
 	
 		 Session sess =  currentSession();
@@ -25,16 +26,21 @@ public class Register {
 			 
 			 m.setCreadoUser(Usuario);
 			 
-		 } 
+		 } else {
+			 
+			 m.setModificacion(new Date());
+
+		 }
 		 
 		 m.setModificacionUser(Usuario);
-
-		 sess.saveOrUpdate(m);
+		
+		 //sess.saveOrUpdate(m);
+		 sess.merge(m);
 		 
 		 sess.flush();
 	}
 	
-	public synchronized <T> T getObjectById(String entityName, long id) {
+	public synchronized <T extends Modelo> T getObjectById(String entityName, long id) {
 		
 		 Session sess =  currentSession();
 		 
@@ -42,7 +48,7 @@ public class Register {
 		
 	}
 	
-	public synchronized <T> T getObjectByColumnString(String entityName, String colummn, String value) {
+	public synchronized <T extends Modelo> T getObjectByColumnString(String entityName, String colummn, String value) {
 		
 		Session sess = currentSession();
 		
@@ -51,7 +57,7 @@ public class Register {
 		return query.uniqueResult();
 	}
 	
-	public synchronized <T> List<T> getAllObjects(String entityName) {
+	public synchronized <T extends Modelo> List<T> getAllObjects(String entityName) {
 		
 		Session sess =  currentSession();
 
@@ -59,7 +65,7 @@ public class Register {
 			
 	}
 	
-	public synchronized <T> List<T> getAllObjectsByCondicionOrder(String entityName, String condicion, String order) {
+	public synchronized <T extends Modelo> List<T> getAllObjectsByCondicionOrder(String entityName, String condicion, String order) {
 		
 		Session sess =  currentSession();
 		
@@ -76,18 +82,25 @@ public class Register {
 			wo.append(" order by "+order);
 		}
 		
-		System.out.println("================Este es el WO: "+wo+"================");
+		//System.out.println("================Este es el WO: "+wo+"================");
 
 		return sess.createQuery("from " + entityName + wo).list();
 			
 	}
 	
-	public synchronized void deleteObject(Modelo m) {
+	public synchronized <T extends Modelo> void deleteObject(T m) {
 		
 		Session sess = currentSession();
 		
 		sess.delete(m);
 		
+	}
+	
+	public synchronized List<Object[]> sqlNativo(String sql){
+		
+		Session sess = currentSession();
+		
+		return sess.createSQLQuery(sql).list();
 	}
 	
 	

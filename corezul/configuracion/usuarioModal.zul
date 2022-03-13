@@ -10,14 +10,14 @@
 				<hbox width = "130px">
 					<label value="Usuario: " style="font-weight:bold" />	
 				</hbox>
-				<textbox value="@bind(vm.usuarioSelected.account)" width="150px"/>
+				<textbox value="@bind(vm.usuarioSelected.account)" width="150px" disabled="@load(vm.editar)"/>
 			</hlayout>
 			
 			<hlayout>
 				<hbox width = "130px">
 					<label value="Nombre Completo: " style="font-weight:bold" />	
 				</hbox>
-				<textbox value="@bind(vm.usuarioSelected.fullName)" width="150px"/>
+				<textbox value="@bind(vm.usuarioSelected.fullName)" width="150px" placeholder="Nombre y Apellido"/>
 			</hlayout>
 			
 			<hlayout>
@@ -31,7 +31,7 @@
 				<hbox width = "130px">
 					<label value="Email: " style="font-weight:bold" />	
 				</hbox>
-				<textbox value="@bind(vm.usuarioSelected.email)" width="150px"/>
+				<textbox value="@bind(vm.usuarioSelected.email)" width="150px" placeholder="example@domain"/>
 			</hlayout>
 			
 			<hlayout>

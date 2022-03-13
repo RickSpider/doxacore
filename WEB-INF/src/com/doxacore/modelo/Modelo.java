@@ -10,7 +10,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @MappedSuperclass
-public class Modelo{
+public abstract class Modelo{
 
 	@CreationTimestamp 
     @Column(updatable = false)
@@ -26,6 +26,9 @@ public class Modelo{
 	
 	@Column(nullable=true)
 	private Long orden; 
+	
+	public abstract String getStringDatos(); 
+	public abstract Object[] getArrayObjectDatos();
 	
 	public Long getOrden() {
 		return orden;

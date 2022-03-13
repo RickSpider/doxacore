@@ -14,21 +14,22 @@ import javax.persistence.Table;
 @Table(name ="roles")
 public class Rol extends Modelo implements Serializable{
 
-	
+	private static final long serialVersionUID = 7196771350434502538L;
+
 	@Id
 	@Column(name ="ROLID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long rolid;
+	private Long rolid;
 	
 	private String rol;
 	
 	private String descripcion;
 
-	public long getRolid() {
+	public Long getRolid() {
 		return rolid;
 	}
 
-	public void setRolid(long rolid) {
+	public void setRolid(Long rolid) {
 		this.rolid = rolid;
 	}
 
@@ -46,6 +47,19 @@ public class Rol extends Modelo implements Serializable{
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	@Override
+	public String getStringDatos() {
+		return this.rolid + " " + this.rol + " " + this.descripcion;
+	}
+
+	@Override
+	public Object[] getArrayObjectDatos() {
+		
+		Object[] o = {this.rol, this.descripcion};
+		
+		return o;
 	}
 
 	

@@ -47,10 +47,10 @@
 									<hlayout>
 
 										<button iconSclass="z-icon-edit"
-											onClick="@command('modalRol', rolid=each.rolid)" />
+											onClick="@command('modalRol', rolid=each.rolid)" tooltiptext="Editar"/>
 										<button
 											iconSclass="z-icon-trash-o" style="background-color:red"
-											onClick="@command('borrarRolConfirmacion', rol=each)" />
+											onClick="@command('borrarRolConfirmacion', rol=each)" tooltiptext="Borrar"/>
 
 
 									</hlayout>
@@ -63,6 +63,16 @@
 
 
 						</template>
+						
+						<listfoot>					
+							<listfooter span="4" align="left">
+								<hlayout>
+									<label
+										value="@load(vm.lRoles.size())" />
+										<label value="items" />
+									</hlayout>
+							</listfooter>
+						</listfoot>
 
 
 					</listbox>

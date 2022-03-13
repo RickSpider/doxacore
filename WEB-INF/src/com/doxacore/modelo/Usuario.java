@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
@@ -19,15 +18,15 @@ import org.hibernate.annotations.ColumnDefault;
 @Entity
 @Table(name = "usuarios")
 public class Usuario extends Modelo implements Serializable, Cloneable {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 5250682956698973491L;
 
 	@Id
 	@Column(name = "USUARIOID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	private long usuarioid;
+	private Long usuarioid;
 
-	@Column(name = "account")
+	@Column(name = "account", unique = true)
 	private String account;
 	private String fullName;
 	private String password;
@@ -48,7 +47,8 @@ public class Usuario extends Modelo implements Serializable, Cloneable {
 		this.fullName = fullName;
 		this.email = email;
 	}
-
+	
+	
 	public String getAccount() {
 		return account;
 	}
@@ -116,11 +116,11 @@ public class Usuario extends Modelo implements Serializable, Cloneable {
 		return null;
 	}
 
-	public long getUsuarioid() {
+	public Long getUsuarioid() {
 		return usuarioid;
 	}
 
-	public void setUsuarioid(long usuarioid) {
+	public void setUsuarioid(Long usuarioid) {
 		this.usuarioid = usuarioid;
 	}
 
@@ -130,6 +130,22 @@ public class Usuario extends Modelo implements Serializable, Cloneable {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+
+	@Override
+	public String getStringDatos() {
+		
+		String aux = this.usuarioid + " " +this.account + " " + this.fullName ;
+		
+		return aux;
+	}
+
+	@Override
+	public Object[] getArrayObjectDatos() {
+		
+		Object[] o = {this.account, this.fullName, this.email};
+		
+		return o;
 	}
 
 }
