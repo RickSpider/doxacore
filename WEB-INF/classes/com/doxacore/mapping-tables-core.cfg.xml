@@ -1,5 +1,0 @@
-<!-- Una vez creada la tabla java se agrega aca para crear en la base de datos -->
-
-<mapping class="com.doxacore.modelo.Usuario" />
-<mapping class="com.doxacore.modelo.Rol" />
-<mapping class="com.doxacore.modelo.UsuarioRol" />
