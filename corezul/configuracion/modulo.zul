@@ -1,32 +1,32 @@
-<?page title="Roles" contentType="text/html;charset=UTF-8"?>
+<?page title="Modulos" contentType="text/html;charset=UTF-8"?>
 <zk>
-	<window title="Rol" border="normal"
-		viewModel="@id('vm') @init('com.doxacore.configuracion.RolVM')"
+<window title="Modulo" border="normal"
+		viewModel="@id('vm') @init('com.doxacore.configuracion.ModuloVM')"
 		vflex="1" id="Body" apply="org.zkoss.bind.BindComposer">
 
 		<hlayout vflex="1">
 			<groupbox width="550px" vflex="1">
-				<caption label="Rol" />
+				<caption label="Modulo" />
 
 				<vlayout hflex="1" vflex="1">
 
 					<hbox pack="end" hflex="1" >
 
 						<button label="Agregar"
-							iconSclass=" z-icon-plus" onClick="@command('modalRolAgregar')" />
+							iconSclass=" z-icon-plus" onClick="@command('modalModuloAgregar')" />
 
 					</hbox>
 
 
 					<listbox emptyMessage="lista vacía..." mold="paging"
-						vflex="1" model="@load(vm.lRoles)" checkmark="true">
+						vflex="1" model="@load(vm.lModulos)" checkmark="true">
 
 						<listhead>
 
 							<listheader width="30px" align="center" />
 							<listheader label="ID" align="right"
 								width="30px" />
-							<listheader label="Rol" align="left"
+							<listheader label="Modulo" align="left"
 								width="100px" />
 							<listheader label="Descripción" align="left"
 								width="250px" />
@@ -43,13 +43,13 @@
 							<auxheader>
 								<textbox
 									value="@bind(vm.filtroColumns[0])" instant="true"
-									onChange="@command('filtrarRol')" hflex="1" />
+									onChange="@command('filtrarModulo')" hflex="1" />
 							</auxheader>
 
 							<auxheader>
 								<textbox
 									value="@bind(vm.filtroColumns[1])" instant="true"
-									onChange="@command('filtrarRol')" hflex="1" />
+									onChange="@command('filtrarModulo')" hflex="1" />
 							</auxheader>
 
 							<auxheader />
@@ -60,8 +60,8 @@
 							<listitem>
 
 								<listcell />
-								<listcell label="@load(each.rolid)" />
-								<listcell label="@load(each.rol)" />
+								<listcell label="@load(each.moduloid)" />
+								<listcell label="@load(each.modulo)" />
 								<listcell
 									label="@load(each.descripcion)" />
 
@@ -69,11 +69,11 @@
 									<hlayout>
 
 										<button iconSclass="z-icon-edit"
-											onClick="@command('modalRol', rolid=each.rolid)"
+											onClick="@command('modalModulo', moduloid=each.moduloid)"
 											tooltiptext="Editar" />
 										<button
 											iconSclass="z-icon-trash-o" style="background-color:red"
-											onClick="@command('borrarRolConfirmacion', rol=each)"
+											onClick="@command('borrarModuloConfirmacion', modulo=each)"
 											tooltiptext="Borrar" />
 
 
@@ -92,7 +92,7 @@
 							<listfooter span="4" align="left">
 								<hlayout>
 									<label
-										value="@load(vm.lRoles.size())" />
+										value="@load(vm.lModulos.size())" />
 									<label value="items" />
 								</hlayout>
 							</listfooter>

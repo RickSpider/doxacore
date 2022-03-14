@@ -21,13 +21,15 @@ import com.doxacore.modelo.Rol;
 
 public class RolVM extends TemplateViewModel{
 	
-	private List<Rol> lRoles;  
+	private List<Rol> lRoles; 
+	private List<Rol> lRolesOri;
 	private Rol rolSelected;
 	
 	@Init(superclass = true)
 	public void initRolVM() {
 
 		cargarRoles();
+		inicializarFiltros();
 
 	}
 
@@ -40,8 +42,34 @@ public class RolVM extends TemplateViewModel{
 	private void cargarRoles() {
 
 		this.lRoles = this.reg.getAllObjectsByCondicionOrder(Rol.class.getName(), null, "Rolid asc");
+		this.lRolesOri = this.lRoles;
+	}
+	
+	//seccion filtro 
+	
+	private String filtroColumns[];
+	
+	private void inicializarFiltros(){
+		
+		this.filtroColumns = new String[2]; // se debe de iniciar el filtro deacuerdo a la cantidad declarada en el modelo
+		
+		for (int i = 0 ; i<this.filtroColumns.length; i++) {
+			
+			this.filtroColumns[i] = "";
+			
+		}
+		
+	}
+	
+	@Command
+	@NotifyChange("lRoles")
+	public void filtrarRol() {
+
+		this.lRoles = this.filtrarLT(this.filtroColumns, this.lRolesOri);
 
 	}
+	
+	//fin seccion 
 	
 	//seccion modal
 	
@@ -158,6 +186,14 @@ public class RolVM extends TemplateViewModel{
 
 	public void setEditar(boolean editar) {
 		this.editar = editar;
+	}
+
+	public String[] getFiltroColumns() {
+		return filtroColumns;
+	}
+
+	public void setFiltroColumns(String[] filtroColumns) {
+		this.filtroColumns = filtroColumns;
 	}
 	
 	

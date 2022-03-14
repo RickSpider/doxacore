@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 @Embeddable
 public class UsuarioRolPK implements Serializable {
 
+	private static final long serialVersionUID = -2651519002670965545L;
+
 	@ManyToOne
 	@JoinColumn(name="usuarioid")
 	private Usuario usuario;

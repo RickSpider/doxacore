@@ -21,6 +21,7 @@ public class Rol extends Modelo implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long rolid;
 	
+	@Column(unique = true)
 	private String rol;
 	
 	private String descripcion;

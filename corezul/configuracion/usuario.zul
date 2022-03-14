@@ -1,4 +1,4 @@
-<?page title="Usuario" contentType="text/html;charset=UTF-8"?>
+<?page title="Usuarios" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window title="Usuario" border="normal"
 		viewModel="@id('vm') @init('com.doxacore.configuracion.UsuarioVM')"
