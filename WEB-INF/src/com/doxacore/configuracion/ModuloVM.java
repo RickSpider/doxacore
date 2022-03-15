@@ -18,14 +18,18 @@ import org.zkoss.zul.Window;
 
 import com.doxacore.TemplateViewModel;
 import com.doxacore.modelo.Modulo;
+import com.doxacore.modelo.Operacion;
 import com.doxacore.modelo.Modulo;
 
-public class ModuloVM extends TemplateViewModel{
-	
-	private List<Modulo> lModulos; 
+public class ModuloVM extends TemplateViewModel {
+
+	private List<Modulo> lModulos;
 	private List<Modulo> lModulosOri;
 	private Modulo moduloSelected;
-	
+	private Modulo moduloSelectedOperacion;
+	private List<Operacion> lOperacionesModulos;
+	private Operacion operacionSelected;
+
 	@Init(superclass = true)
 	public void initModuloVM() {
 
@@ -38,30 +42,30 @@ public class ModuloVM extends TemplateViewModel{
 	public void afterComposeModuloVM() {
 
 	}
-	
 
 	private void cargarModulos() {
 
 		this.lModulos = this.reg.getAllObjectsByCondicionOrder(Modulo.class.getName(), null, "moduloid asc");
 		this.lModulosOri = this.lModulos;
 	}
-	
-	//seccion filtro 
-	
+
+	// seccion filtro
+
 	private String filtroColumns[];
-	
-	private void inicializarFiltros(){
-		
-		this.filtroColumns = new String[2]; // se debe de iniciar el filtro deacuerdo a la cantidad declarada en el modelo
-		
-		for (int i = 0 ; i<this.filtroColumns.length; i++) {
-			
+
+	private void inicializarFiltros() {
+
+		this.filtroColumns = new String[2]; // se debe de iniciar el filtro deacuerdo a la cantidad declarada en el
+											// modelo
+
+		for (int i = 0; i < this.filtroColumns.length; i++) {
+
 			this.filtroColumns[i] = "";
-			
+
 		}
-		
+
 	}
-	
+
 	@Command
 	@NotifyChange("lModulos")
 	public void filtrarModulo() {
@@ -69,132 +73,216 @@ public class ModuloVM extends TemplateViewModel{
 		this.lModulos = this.filtrarLT(this.filtroColumns, this.lModulosOri);
 
 	}
-	
-	//fin Seccion filtro
-	
-	//seccion modal
-	
-		private Window modal;
-		private boolean editar = false;
 
-		@Command
-		public void modalModuloAgregar() {
+	// fin Seccion filtro
 
-			modalModulo(-1);
+	// seccion modal
 
-		}
+	private Window modal;
+	private boolean editar = false;
 
-		@Command
-		public void modalModulo(@BindingParam("moduloid") long moduloid) {
+	@Command
+	public void modalModuloAgregar() {
 
-			if (moduloid != -1) {
+		modalModulo(-1);
 
-				this.moduloSelected = this.reg.getObjectById(Modulo.class.getName(), moduloid);
-				this.editar = true;
+	}
 
-			} else {
+	@Command
+	public void modalModulo(@BindingParam("moduloid") long moduloid) {
 
-				moduloSelected = new Modulo();
+		if (moduloid != -1) {
 
-			}
+			this.moduloSelected = this.reg.getObjectById(Modulo.class.getName(), moduloid);
+			this.editar = true;
 
-			modal = (Window) Executions.createComponents("/corezul/configuracion/moduloModal.zul", this.mainComponent,
-					null);
-			Selectors.wireComponents(modal, this, false);
-			modal.doModal();
+		} else {
+
+			moduloSelected = new Modulo();
 
 		}
 
-		@Command
-		@NotifyChange("lModulos")
-		public void guardar() {
+		modal = (Window) Executions.createComponents("/corezul/configuracion/moduloModal.zul", this.mainComponent,
+				null);
+		Selectors.wireComponents(modal, this, false);
+		modal.doModal();
 
-			this.reg.saveObject(moduloSelected, getCurrentUser().getAccount());
+	}
 
-			this.moduloSelected = null;
+	@Command
+	@NotifyChange("lModulos")
+	public void guardar() {
 
-			this.cargarModulos();
+		this.reg.saveObject(moduloSelected, getCurrentUser().getAccount());
 
-			this.modal.detach();
-			
-			if (editar) {
-				
-				Notification.show("El Modulo fue Actualizado.");
-				this.editar = false;
-			}else {
-				
-				Notification.show("El Modulo fue agregado.");
-			}
-			
-			
+		this.moduloSelected = null;
 
+		this.cargarModulos();
+
+		this.modal.detach();
+
+		if (editar) {
+
+			Notification.show("El Modulo fue Actualizado.");
+			this.editar = false;
+		} else {
+
+			Notification.show("El Modulo fue agregado.");
 		}
 
-		//fin modal
-		
-		@Command
-		public void borrarModuloConfirmacion(@BindingParam("modulo") Modulo modulo) {
-			
-			EventListener event = new EventListener () {
+	}
 
-				@Override
-				public void onEvent(Event evt) throws Exception {
-					
-					if (evt.getName().equals(Messagebox.ON_YES)) {
-						
-						borrarModulo(modulo);
-						
-					}
-					
+	// fin modal
+
+	@Command
+	public void borrarModuloConfirmacion(@BindingParam("modulo") Modulo modulo) {
+
+		EventListener event = new EventListener() {
+
+			@Override
+			public void onEvent(Event evt) throws Exception {
+
+				if (evt.getName().equals(Messagebox.ON_YES)) {
+
+					borrarModulo(modulo);
+
 				}
 
-			};
+			}
+
+		};
+
+		this.mensajeEliminar("El Modulo sera eliminado. \n Continuar?", event);
+	}
+
+	private void borrarModulo(Modulo modulo) {
+
+		this.reg.deleteObject(modulo);
+
+		this.cargarModulos();
+
+		BindUtils.postNotifyChange(null, null, this, "lModulos");
+
+	}
+
+	// Seccion Operacion
+
+	@Command
+	@NotifyChange("lOperacionesModulos")
+	public void refrescarOperaciones(@BindingParam("modulo") Modulo modulo) {
+
+		this.moduloSelectedOperacion = modulo;
+		this.lOperacionesModulos = this.reg.getAllObjectsByCondicionOrder(Operacion.class.getName(),
+				"moduloid = " + modulo.getModuloid(), "operacionid asc");
+
+	}
+	
+	@Command
+	public void modalOperacionAgregar() {
+
+		if (this.moduloSelectedOperacion == null) {
 			
-			this.mensajeEliminar("El Modulo sera eliminado. \n Continuar?", event);
+			this.mensajeInfo("Seleccione un modulo.");
+			return;
 		}
 		
+		modalOperacion(-1);
+
+	}
+	
+	@Command
+	public void modalOperacion(@BindingParam("operacionid") long operacionid) {
+
+		if (operacionid != -1) {
+
+			this.operacionSelected = this.reg.getObjectById(Operacion.class.getName(), operacionid);
+			this.editar = true;
+
+		} else {
+
+			this.operacionSelected = new Operacion();
+			this.operacionSelected.setModulo(this.moduloSelectedOperacion);
+
+		}
+
+		modal = (Window) Executions.createComponents("/corezul/configuracion/operacionModal.zul", this.mainComponent,
+				null);
+		Selectors.wireComponents(modal, this, false);
+		modal.doModal();
+
+	}
+	
+	@Command
+	@NotifyChange("lOperacionesModulos")
+	public void guardarOperacion() {
 		
-		private void borrarModulo (Modulo modulo) {
-			
-			this.reg.deleteObject(modulo);
-			
-			this.cargarModulos();
-			
-			BindUtils.postNotifyChange(null,null,this,"lModulos");
-			
+		this.save(operacionSelected);
+
+		this.operacionSelected = null;
+
+		this.refrescarOperaciones(this.moduloSelectedOperacion);
+
+		this.modal.detach();
+
+		if (editar) {
+
+			Notification.show("La Operación fue Actualizada.");
+			this.editar = false;
+		} else {
+
+			Notification.show("La Operación fue agregada.");
 		}
 
-		public List<Modulo> getlModulos() {
-			return lModulos;
-		}
+	}
 
-		public void setlModulos(List<Modulo> lModulos) {
-			this.lModulos = lModulos;
-		}
+	// fin seccion Operacion
 
-		public Modulo getModuloSelected() {
-			return moduloSelected;
-		}
+	public List<Modulo> getlModulos() {
+		return lModulos;
+	}
 
-		public void setModuloSelected(Modulo moduloSelected) {
-			this.moduloSelected = moduloSelected;
-		}
+	public void setlModulos(List<Modulo> lModulos) {
+		this.lModulos = lModulos;
+	}
 
-		public String[] getFiltroColumns() {
-			return filtroColumns;
-		}
+	public Modulo getModuloSelected() {
+		return moduloSelected;
+	}
 
-		public void setFiltroColumns(String[] filtroColumns) {
-			this.filtroColumns = filtroColumns;
-		}
+	public void setModuloSelected(Modulo moduloSelected) {
+		this.moduloSelected = moduloSelected;
+	}
 
-		public boolean isEditar() {
-			return editar;
-		}
+	public String[] getFiltroColumns() {
+		return filtroColumns;
+	}
 
-		public void setEditar(boolean editar) {
-			this.editar = editar;
-		}
-		
-		
+	public void setFiltroColumns(String[] filtroColumns) {
+		this.filtroColumns = filtroColumns;
+	}
+
+	public boolean isEditar() {
+		return editar;
+	}
+
+	public void setEditar(boolean editar) {
+		this.editar = editar;
+	}
+
+	public List<Operacion> getlOperacionesModulos() {
+		return lOperacionesModulos;
+	}
+
+	public void setlOperacionesModulos(List<Operacion> lOperacionesModulos) {
+		this.lOperacionesModulos = lOperacionesModulos;
+	}
+
+	public Operacion getOperacionSelected() {
+		return operacionSelected;
+	}
+
+	public void setOperacionSelected(Operacion operacionSelected) {
+		this.operacionSelected = operacionSelected;
+	}
+
 }

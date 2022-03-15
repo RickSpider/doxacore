@@ -57,7 +57,7 @@
 
 						<template name="model">
 
-							<listitem>
+							<listitem onClick="@command('refrescarOperaciones', modulo = each )" >
 
 								<listcell />
 								<listcell label="@load(each.moduloid)" />
@@ -98,6 +98,87 @@
 							</listfooter>
 						</listfoot>
 
+
+					</listbox>
+
+				</vlayout>
+
+			</groupbox>
+			
+			<groupbox vflex="1" hflex="1">
+				<caption label="Operaciones por Modulo" />
+
+				<vlayout hflex="1" vflex="1">
+
+					<hbox pack="end" hflex="1">
+
+						<button label="Agregar" iconSclass=" z-icon-plus"
+							onClick="@command('modalOperacionAgregar')" />  
+
+					</hbox>
+
+					<listbox emptyMessage="lista vacía..." mold="paging"
+						vflex="1" hflex="1" model="@load(vm.lOperacionesModulos)"
+						checkmark="true">
+
+						<listhead>
+
+							<listheader width="30px" align="center" />
+							<listheader label="ID" align="right"
+								width="30px" />
+							<listheader label="Operacion" align="left"
+								width="150px" />
+							<listheader label="Descripción"
+								align="left" />
+							<listheader label="Habilitado"
+								align="left" />
+							<listheader align="center" width="50px" />
+
+
+						</listhead>
+
+						<template name="model">
+
+							<listitem>
+
+								<listcell />
+								<listcell
+									label="@load(each.operacionid)" />
+								<listcell
+									label="@load(each.operacion)" />
+								<listcell
+									label="@load(each.descripcion)" />
+								<listcell
+									label="@load(each.habilitado)" />
+
+								<listcell>
+									<hlayout>
+
+										<button
+											iconSclass="z-icon-trash-o" style="background-color:red"
+											onClick="@command('borrarOperacionConfirmacion', operacion=each)"
+											tooltiptext="Borrar" />
+											
+									</hlayout>
+
+
+								</listcell>
+
+
+							</listitem>
+
+
+						</template>
+
+						<listfoot>
+							<listfooter span="4" align="left">
+								<hlayout>
+									<label
+										value="@load(vm.lOperacionesModulos.size())" />
+									<label value="items" />
+								</hlayout>
+							</listfooter>
+						</listfoot>
 
 					</listbox>
 

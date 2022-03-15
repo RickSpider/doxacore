@@ -185,7 +185,7 @@ public class UsuarioVM extends TemplateViewModel {
 
 		this.usuarioSelectedRol = usuario;
 		this.lRolesUsuarios = this.reg.getAllObjectsByCondicionOrder(UsuarioRol.class.getName(),
-				"usuarioid = " + usuario.getUsuarioid(), "rolid desc");
+				"usuarioid = " + usuario.getUsuarioid(), "rolid asc");
 		
 		this.buscarSelectedRol = null;
 		this.buscarRol="";

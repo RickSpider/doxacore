@@ -48,7 +48,7 @@ public abstract class TemplateViewModel {
 
 	}
 
-	protected void save(Modelo m) {
+	protected <T extends Modelo> void save(T m) {
 
 		this.reg.saveObject(m, getCurrentUser().getAccount());
 
