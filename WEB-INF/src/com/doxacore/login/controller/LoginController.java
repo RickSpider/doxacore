@@ -26,17 +26,17 @@ public class LoginController extends SelectorComposer<Component> {
     AuthenticationService authService = new AuthenticationService3Impl();
 
 
-    @Listen("onClick=#login; onOK=#loginWin")
+    @Listen("onClick=#login; onOK=#account; onOK=#password")
     public void doLogin(){
         String nm = account.getValue();
         String pd = password.getValue();
 
         if(!authService.login(nm,pd)){
-            message.setValue("account or password are not correct.");
+            message.setValue("Usuario o Password incorrecto.");
             return;
         }
         UsuarioCredencial cre= authService.getUserCredential();
-        message.setValue("Welcome, "+cre.getName());
+        message.setValue("Bienvenido, "+cre.getName());
         message.setSclass("");
 
         Executions.sendRedirect("/corezul/main/");
