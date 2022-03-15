@@ -24,7 +24,7 @@
 				<hbox width = "130px">
 					<label value="Password: " style="font-weight:bold" />	
 				</hbox>
-				<textbox value="@bind(vm.usuarioSelected.password)" width="150px"/>
+				<textbox value="@bind(vm.usuarioSelected.password)" type="password" width="150px"/>
 			</hlayout>
 			
 			<hlayout>

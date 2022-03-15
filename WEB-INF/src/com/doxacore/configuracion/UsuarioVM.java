@@ -1,5 +1,7 @@
 package com.doxacore.configuracion;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,6 +25,7 @@ import com.doxacore.modelo.Modelo;
 import com.doxacore.modelo.Rol;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.modelo.UsuarioRol;
+import com.doxacore.util.UtilMetodos;
 
 public class UsuarioVM extends TemplateViewModel {
 
@@ -109,21 +112,13 @@ public class UsuarioVM extends TemplateViewModel {
 	@Command
 	@NotifyChange("lUsuarios")
 	public void guardar() {
-
-		/*if (this.usuarioSelected.getUsuarioid() == null ) {
+		
+		if (this.usuarioSelected.getPassword().length() != 64) {
 			
-			this.usuarioSelected.setAccount(this.usuarioSelected.getAccount().toLowerCase());
-			
-			this.reg
-			
-			this.mensajeError("El usuario ya existe!.");
-			
-			return;
+			this.usuarioSelected.setPassword((UtilMetodos.getSHA256(this.usuarioSelected.getPassword())));		
 			
 		}
-		*/
-		
-		
+				
 		this.save(usuarioSelected);
 
 		this.usuarioSelected = null;
