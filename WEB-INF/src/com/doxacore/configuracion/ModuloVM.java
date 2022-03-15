@@ -234,6 +234,37 @@ public class ModuloVM extends TemplateViewModel {
 		}
 
 	}
+	
+	@Command
+	@NotifyChange("lOperacionesModulos")
+	public void borrarOperacionConfirmacion(@BindingParam("operacion") Operacion operacion) {
+
+		this.mensajeEliminar("El Modulo sera eliminado. \n Continuar?", new EventListener() {
+
+			@Override
+			public void onEvent(Event evt) throws Exception {
+
+				if (evt.getName().equals(Messagebox.ON_YES)) {
+
+					borrarOperacion(operacion);
+
+				}
+
+			}
+
+		});
+		
+	}
+	
+	private void borrarOperacion(Operacion operacion) {
+		
+		this.reg.deleteObject(operacion);
+
+		this.refrescarOperaciones(this.moduloSelectedOperacion);;
+
+		BindUtils.postNotifyChange(null, null, this, "lOperacionesModulos");
+		
+	}
 
 	// fin seccion Operacion
 
