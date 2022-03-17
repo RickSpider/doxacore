@@ -7,14 +7,7 @@
 
 <hibernate-configuration>
     <session-factory>
-     
-      
-    
-   <!--   <property name="connection.driver_class">org.postgresql.Driver</property>
-     <property name="connection.url">jdbc:postgresql://200.24.0.10:5432/doxacore</property>
-     <property name="connection.username">postgres</property>
-     <property name="connection.password">$DoxaPostgres!</property>   -->
-
+ 
       &hibernate-core;
   
       &mapping-tables-core;

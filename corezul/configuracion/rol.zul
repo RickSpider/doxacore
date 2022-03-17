@@ -57,8 +57,8 @@
 
 						<template name="model">
 
-							<listitem>
-
+							<listitem
+								onClick="@command('refrescarOperaciones', rol = each )">
 								<listcell />
 								<listcell label="@load(each.rolid)" />
 								<listcell label="@load(each.rol)" />
@@ -98,6 +98,136 @@
 							</listfooter>
 						</listfoot>
 
+
+					</listbox>
+
+				</vlayout>
+
+			</groupbox>
+			
+			<groupbox vflex="1" hflex="1">
+				<caption label="Operaciones por Rol" />
+
+				<vlayout hflex="1" vflex="1">
+
+					<hbox pack="end" hflex="1">
+
+						<bandbox id="bd" value = "@load(vm.buscarOperacion)" mold="rounded" autodrop="true"
+							width="250px" onClick="@command('generarListaBuscarOperacion')"
+							readonly="true">
+							<bandpopup>
+
+								<vbox>
+
+									<hbox>
+
+										<label value="Buscar:" />
+
+										<textbox instant="true"
+											value="@bind(vm.buscarOperacion)"
+											onChange="@command('filtrarOperacionBuscar')" />
+
+									</hbox>
+
+									<listbox height="250px"
+										width="450px" mold="paging" autopaging="true"
+										onSelect="bd.close()"
+										model="@load(vm.lOperacionesBuscar)">
+
+										<listhead>
+											<listheader label="ID"
+												width="30px" />
+											<listheader label="Operacion" />
+											<listheader
+												label="Descripción" />
+										</listhead>
+
+										<template name="model">
+
+											<listitem value="@load(each[1])" onClick="@command('onSelectOperacion', id = each[0])">
+
+												<listcell
+													label="@load(each[0])" />
+
+												<listcell 
+													label="@load(each[1])" />
+ 
+												<listcell
+													label="@load(each[2])" />
+
+											</listitem>
+
+										</template>
+										<listitem />
+									</listbox>
+
+								</vbox>
+							</bandpopup>
+						</bandbox>
+						
+						<button iconSclass=" z-icon-plus"
+							onClick="@command('agregarOperacion')"  />
+						
+					</hbox>
+
+					<listbox emptyMessage="lista vacía..." mold="paging"
+						vflex="1" hflex="1" model="@load(vm.lOperacionesRoles)"
+						checkmark="true">
+
+						<listhead>
+
+							<listheader width="30px" align="center" />
+							<listheader label="ID" align="right"
+								width="30px" />
+							<listheader label="Operacion" align="left"
+								width="150px" />
+							<listheader label="Descripción"
+								align="left" />
+							<listheader align="center" width="50px" />
+
+
+						</listhead>
+
+						<template name="model">
+
+							<listitem>
+
+								<listcell />
+								<listcell
+									label="@load(each.operacion.operacionid)" />
+								<listcell
+									label="@load(each.operacion.operacion)" />
+								<listcell
+									label="@load(each.operacion.descripcion)" />
+
+								<listcell>
+									<hlayout>
+
+										<button
+											iconSclass="z-icon-trash-o" style="background-color:red"
+											onClick="@command('borrarOperacionConfirmacion', RolOperacion=each)"
+											tooltiptext="Borrar" />
+											
+									</hlayout>
+
+
+								</listcell>
+
+
+							</listitem>
+
+
+						</template>
+
+						<listfoot>
+							<listfooter span="4" align="left">
+								<hlayout>
+									<label
+										value="@load(vm.lOperacionesRoles.size())" />
+									<label value="items" />
+								</hlayout>
+							</listfooter>
+						</listfoot>
 
 					</listbox>
 

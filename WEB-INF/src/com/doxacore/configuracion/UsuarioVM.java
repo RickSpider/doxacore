@@ -50,7 +50,7 @@ public class UsuarioVM extends TemplateViewModel {
 	}
 
 	private void cargarUsuarios() {
-
+ 
 		this.lUsuarios = this.reg.getAllObjectsByCondicionOrder(Usuario.class.getName(), null, "usuarioid asc");
 		this.lUsuariosOri = this.lUsuarios;
 

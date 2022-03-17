@@ -5,3 +5,4 @@
 <mapping class="com.doxacore.modelo.UsuarioRol" />
 <mapping class="com.doxacore.modelo.Modulo" />
 <mapping class="com.doxacore.modelo.Operacion" />
+<mapping class="com.doxacore.modelo.RolOperacion" />
