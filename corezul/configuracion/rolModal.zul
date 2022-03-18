@@ -1,7 +1,7 @@
 <?page title="rolModal" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window title="Rol Crear/Ver/Editar" border="normal"
-		position="center,center" closable="true"
+		position="center,center" closable="true" mode="modal"
 		action="show: slideDown;hide: slideUp">
 
 		<vlayout>

@@ -29,11 +29,11 @@ import com.doxacore.util.UtilMetodos;
 
 public class UsuarioVM extends TemplateViewModel {
 
-	private List<Usuario> lUsuarios = null;
-	private List<Usuario> lUsuariosOri = null;
-	private List<UsuarioRol> lRolesUsuarios = null;
-	private Usuario usuarioSelected = null;
-	private Usuario usuarioSelectedRol = null;
+	private List<Usuario> lUsuarios;
+	private List<Usuario> lUsuariosOri;
+	private List<UsuarioRol> lRolesUsuarios;
+	private Usuario usuarioSelected;
+	private Usuario usuarioSelectedRol;
 	private String filtroColumnsUsuario[];
 
 	@Init(superclass = true)
@@ -98,7 +98,7 @@ public class UsuarioVM extends TemplateViewModel {
 
 		} else {
 
-			usuarioSelected = new Usuario();
+			this.usuarioSelected = new Usuario();
 
 		}
 
@@ -223,9 +223,9 @@ public class UsuarioVM extends TemplateViewModel {
 
 	// seccion buscador
 
-	private List<Object[]> lRolesbuscarOri = null;
-	private List<Object[]> lRolesBuscar = null;
-	private Rol buscarSelectedRol = null;
+	private List<Object[]> lRolesbuscarOri;
+	private List<Object[]> lRolesBuscar;
+	private Rol buscarSelectedRol;
 	private String buscarRol = "";
 
 	@Command
