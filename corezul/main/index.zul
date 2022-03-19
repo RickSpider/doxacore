@@ -46,7 +46,7 @@
 
 		<include id="contentInclude" mode="instant" sclass="content"
 			currentPage="@ref(vm.currentPage)"
-			src="@load(currentPage.includeUri)" vflex="1" />
+			src="@load(currentPage.includeUri)" vflex="1" moduloName="@load(currentPage.data)" />
 
 
 

@@ -5,7 +5,7 @@
 		vflex="1" id="Body" apply="org.zkoss.bind.BindComposer">
 
 		<hlayout vflex="1">
-			<groupbox width="550px" vflex="1">
+			<groupbox width="850px" vflex="1">
 				<caption label="Modulo" />
 
 				<vlayout hflex="1" vflex="1">
@@ -30,6 +30,12 @@
 								width="100px" />
 							<listheader label="Descripción" align="left"
 								width="250px" />
+								
+							<listheader label="Path" align="left"
+								width="250px" />
+								
+							<listheader label="Habilitado" align="left"
+								width="70px" />
 							<listheader align="center" />
 
 
@@ -51,6 +57,10 @@
 									value="@bind(vm.filtroColumns[1])" instant="true"
 									onChange="@command('filtrarModulo')" hflex="1" />
 							</auxheader>
+							
+							<auxheader />
+							
+							<auxheader />
 
 							<auxheader />
 						</auxhead>
@@ -64,7 +74,23 @@
 								<listcell label="@load(each.modulo)" />
 								<listcell
 									label="@load(each.descripcion)" />
+									
+								<listcell
+									label="@load(each.path)" />
 
+								<listcell>
+
+									<if test="@load(each.habilitado)">
+										<label value="Si" />
+									</if>
+
+
+									<if test="@load(!each.habilitado)">
+										<label value="No" />
+									</if>
+
+								</listcell>
+								
 								<listcell>
 									<hlayout>
 

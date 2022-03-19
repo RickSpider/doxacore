@@ -3,12 +3,23 @@
 	<navbar id="navbar" orient="vertical" collapsed="false"
 		onSelect="@command('navigatePage', target=self.selectedItem.attributes['navigationPage'])">
 
-		<nav label="Main" iconSclass="z-icon-home"
+		<!-- <nav label="Main" iconSclass="z-icon-home"
 			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
 
-		<nav label="Configuracion" iconSclass="z-icon-group" 
+		<nav label="Configuracion" iconSclass="z-icon-gear " 
 			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
-	
+	 -->
+	 
+	 	<forEach
+	 	
+	 		items="@load(vm.menus)" var="m">
+	 		
+	 		<nav label="@load(m.title)" iconSclass="@load(m.icon) " badgeText="@load(vm.pageMap[self.label].values().size() )"
+			children="@load(vm.pageMap[self.label].values()) @template('navitem')" 
+			visible="@load(vm.menuVisible( vm.pageMap[self.label].values().size() ))"/>
+	 	
+	 	</forEach>
+	 
 
 		<template name="navitem" var="navigationPage">
 			<navitem label="@load(navigationPage.subTitle)"

@@ -1,9 +1,5 @@
 package com.doxacore.configuracion;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.zkoss.bind.BindUtils;
@@ -21,7 +17,6 @@ import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
 import com.doxacore.TemplateViewModel;
-import com.doxacore.modelo.Modelo;
 import com.doxacore.modelo.Rol;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.modelo.UsuarioRol;
@@ -46,7 +41,7 @@ public class UsuarioVM extends TemplateViewModel {
 
 	@AfterCompose(superclass = true)
 	public void afterComposeUsuarioVM() {
-
+		
 	}
 
 	private void cargarUsuarios() {

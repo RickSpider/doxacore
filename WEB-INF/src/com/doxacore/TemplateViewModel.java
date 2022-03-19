@@ -6,8 +6,11 @@ import java.util.List;
 import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
+import org.zkoss.bind.annotation.ExecutionArgParam;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Execution;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
@@ -23,18 +26,20 @@ public abstract class TemplateViewModel {
 
 	protected Register reg;
 	protected Component mainComponent;
+	protected String currentModulo;
 
 	@Init(superclass = true)
-	public void initTemplateViewModel(@ContextParam(ContextType.VIEW) Component view) {
+	public void initTemplateViewModel(@ContextParam(ContextType.VIEW) Component view, @ExecutionArgParam("moduloName") String moduloName ) {
 
 		this.reg = new Register();
 		this.mainComponent = view;
+		this.currentModulo = moduloName;
 
 	}
 
 	@AfterCompose(superclass = true)
 	public void afterComposeTemplateViewModel() {
-
+		
 	}
 
 	protected Usuario getCurrentUser() {
