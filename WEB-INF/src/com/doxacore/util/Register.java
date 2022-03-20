@@ -17,7 +17,7 @@ public class Register {
      }
 
 	
-	public synchronized <T extends Modelo> void saveObject(T m, String Usuario) {
+	public synchronized <T extends Modelo> T saveObject(T m, String Usuario) {
 		
 	
 		 Session sess =  currentSession();
@@ -35,9 +35,11 @@ public class Register {
 		 m.setModificacionUser(Usuario);
 		
 		 //sess.saveOrUpdate(m);
-		 sess.merge(m);
+		 m = (T) sess.merge(m);
 		 
 		 sess.flush();
+		 
+		 return m;
 	}
 	
 	public synchronized <T extends Modelo> T getObjectById(String entityName, long id) {

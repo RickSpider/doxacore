@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.doxacore.modelo.Usuario;
 import com.doxacore.util.Register;
+import com.doxacore.util.UtilMetodos;
 
 
 public class UserInfoService2Impl implements UserInfoService,Serializable{
@@ -31,6 +32,13 @@ public class UserInfoService2Impl implements UserInfoService,Serializable{
 	private void cargarListaUsuarios() {
 		
 		userList = r.getAllObjectsByCondicionOrder(Usuario.class.getName(), "activo = true", null);
+		
+		if (userList.size() == 0 ) {
+			
+			UtilMetodos.generarDatosInicio(r);
+			this.cargarListaUsuarios();
+			
+		}
 		
 	}
 	
