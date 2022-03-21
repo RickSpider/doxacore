@@ -83,6 +83,7 @@ public class RolVM extends TemplateViewModel{
 	@Command
 	public void modalRolAgregar() {
 
+		this.editar = false;
 		modalRol(-1);
 
 	}

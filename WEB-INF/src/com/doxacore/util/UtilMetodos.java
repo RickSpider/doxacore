@@ -58,39 +58,38 @@ public class UtilMetodos {
 		System.out.println("Creando Modulos");
 		System.out.println("Creando Modulo Usuario");
 		Modulo m1 = new Modulo();
-		m1.setModulo("Usuarios");
+		m1.setModulo("Usuario");
 		m1.setDescripcion("Modulo de carga de Usuarios");
 		m1.setPath("/corezul/configuracion/usuario.zul");
+		m1.setTitulo("Usuarios");
+		m1.setMenu("Configuracion");
 		m1.setHabilitado(true);
 		m1 = reg.saveObject(m1, "System");
 		
 		System.out.println("Creando Operaciones del modulo Usuarios");
 		Operacion op = new Operacion();
 		op.setOperacion("AbrirUsuarios");
+		op.setAbreModulo(true);
 		op.setDescripcion("Abrir Usuarios");
 		op.setModulo(m1);
-		op.setHabilitado(true);
 		op = reg.saveObject(op, "System");
 		
 		Operacion op2 = new Operacion();
 		op2.setOperacion("CrearUsuario");
 		op2.setDescripcion("Crear Usuario");
 		op2.setModulo(m1);
-		op2.setHabilitado(true);
 		op2 = reg.saveObject(op2, "System");
 		
 		Operacion op3 = new Operacion();
 		op3.setOperacion("EditarUsuario");
 		op3.setDescripcion("Editar Usuario");
 		op3.setModulo(m1);
-		op3.setHabilitado(true);
 		op3 = reg.saveObject(op3, "System");
 		
 		Operacion op4 = new Operacion();
 		op4.setOperacion("BorrarUsuario");
 		op4.setDescripcion("Borrar Usuario");
 		op4.setModulo(m1);
-		op4.setHabilitado(true);
 		op4 = reg.saveObject(op4, "System");	
 		
 		System.out.println("Asociando Operaciones con rol");
@@ -118,9 +117,11 @@ public class UtilMetodos {
 		
 		System.out.println("Creando Modulo Rol");
 		Modulo m2 = new Modulo();
-		m2.setModulo("Roles");
+		m2.setModulo("Rol");
 		m2.setDescripcion("Modulo de carga de Roles");
 		m2.setPath("/corezul/configuracion/rol.zul");
+		m2.setTitulo("Roles");
+		m2.setMenu("Configuracion");
 		m2.setHabilitado(true);
 		m2 = reg.saveObject(m2, "System");
 		
@@ -128,29 +129,26 @@ public class UtilMetodos {
 		Operacion op5 = new Operacion();
 		op5.setOperacion("AbrirRoles");
 		op5.setDescripcion("Abrir Roles");
+		op5.setAbreModulo(true);
 		op5.setModulo(m2);
-		op5.setHabilitado(true);
 		op5 = reg.saveObject(op5, "System");
 		
 		Operacion op6 = new Operacion();
 		op6.setOperacion("CrearRol");
 		op6.setDescripcion("Crear Rol");
 		op6.setModulo(m2);
-		op6.setHabilitado(true);
 		op6 = reg.saveObject(op6, "System");
 		
 		Operacion op7 = new Operacion();
 		op7.setOperacion("EditarRol");
 		op7.setDescripcion("Editar Rol");
 		op7.setModulo(m2);
-		op7.setHabilitado(true);
 		op7 = reg.saveObject(op7, "System");
 		
 		Operacion op8 = new Operacion();
 		op8.setOperacion("BorrarRol");
 		op8.setDescripcion("Borrar Rol");
 		op8.setModulo(m2);
-		op8.setHabilitado(true);
 		op8 = reg.saveObject(op8, "System");	
 		
 		System.out.println("Asociando Roles con Operacioens");
@@ -177,9 +175,11 @@ public class UtilMetodos {
 		
 		System.out.println("Creando Modulo Modulos");
 		Modulo m3 = new Modulo();
-		m3.setModulo("Modulos");
+		m3.setModulo("Modulo");
 		m3.setDescripcion("Modulo de carga de modulo");
 		m3.setPath("/corezul/configuracion/modulo.zul");
+		m3.setTitulo("Modulos");
+		m3.setMenu("Configuracion");
 		m3.setHabilitado(true);
 		m3 = reg.saveObject(m3, "System");
 		
@@ -187,29 +187,26 @@ public class UtilMetodos {
 		Operacion op9 = new Operacion();
 		op9.setOperacion("AbrirModulos");
 		op9.setDescripcion("Abrir Modulos");
+		op9.setAbreModulo(true);
 		op9.setModulo(m3);
-		op9.setHabilitado(true);
 		op9 = reg.saveObject(op9, "System");
 		
 		Operacion op10 = new Operacion();
 		op10.setOperacion("CrearModulo");
 		op10.setDescripcion("Crear Modulo");
 		op10.setModulo(m3);
-		op10.setHabilitado(true);
 		op10 = reg.saveObject(op10, "System");
 		
 		Operacion op11 = new Operacion();
 		op11.setOperacion("EditarModulo");
 		op11.setDescripcion("Editar Modulo");
 		op11.setModulo(m3);
-		op11.setHabilitado(true);
 		op11 = reg.saveObject(op11, "System");
 		
 		Operacion op12 = new Operacion();
 		op12.setOperacion("BorrarModulo");
 		op12.setDescripcion("Borrar Modulo");
 		op12.setModulo(m3);
-		op12.setHabilitado(true);
 		op12 = reg.saveObject(op12, "System");
 		
 		System.out.println("Asociando Roles con Operacioens");

@@ -79,6 +79,7 @@ public class UsuarioVM extends TemplateViewModel {
 	@Command
 	public void modalUsuarioAgregar() {
 
+		this.editar = false;
 		modalUsuario(-1);
 
 	}

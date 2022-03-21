@@ -9,9 +9,13 @@ import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
+import org.zkoss.zk.ui.Sessions;
 
+import com.doxacore.login.UsuarioCredencial;
 import com.doxacore.main.menu.NavigationPage;
 import com.doxacore.main.menu.NavigationTitle;
+import com.doxacore.modelo.Modulo;
+import com.doxacore.modelo.Usuario;
 import com.doxacore.util.Register;
 
 public class MainVM {
@@ -19,13 +23,25 @@ public class MainVM {
 	private List<NavigationTitle> menus = new ArrayList<NavigationTitle>();
 	private NavigationPage currentPage;
     private Map<String, Map<String, NavigationPage>> pageMap;
+    private Usuario currentUser;
+    private List<Modulo> lModulos;
     
     
     private Register reg = new Register();
      
     @Init
     public void init() {
-        initPageMap();
+       
+        
+        UsuarioCredencial usuarioCredencial = (UsuarioCredencial) Sessions.getCurrent().getAttribute("userCredential");
+
+		Usuario currentUser = this.reg.getObjectByColumnString(Usuario.class.getName(), "account",
+				usuarioCredencial.getAccount());
+		
+		this.lModulos = this.reg.getAllObjectsByCondicionOrder(Modulo.class.getName(), "habilitado = true AND menu is not null", null);
+		
+		initPageMap();
+        
         currentPage = pageMap.get("Main").get("Blank");
         
         pageMap.get("Main").values().size();
@@ -55,10 +71,17 @@ public class MainVM {
         addPage("Main", "Blank", "/corezul/blank.zul");
         
         
-        this.menus.add(new NavigationTitle("Configuracion", true, "z-icon-gear"));        
-        addPage("Configuracion", "Usuarios", "/corezul/configuracion/usuario.zul","Usuario");
+        this.menus.add(new NavigationTitle("Configuracion", true, "z-icon-gear"));   
+        
+        for (Modulo m : this.lModulos) {
+        	
+        	addPage(m.getMenu(), m.getTitulo(), m.getPath(),m.getModulo());
+        	
+        }
+        
+      /*  addPage("Configuracion", "Usuarios", "/corezul/configuracion/usuario.zul","Usuario");
         addPage("Configuracion", "Roles", "/corezul/configuracion/rol.zul","Rol");
-        addPage("Configuracion", "Modulos", "/corezul/configuracion/modulo.zul","Modulo");
+        addPage("Configuracion", "Modulos", "/corezul/configuracion/modulo.zul","Modulo");*/
       
     }
     

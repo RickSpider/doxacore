@@ -154,7 +154,7 @@
 								width="100px" />
 							<listheader label="Descripción"
 								align="left" />
-							<listheader label="Habilitado"
+							<listheader label="Abre Modulo"
 								align="left" />
 							<listheader align="center" width="100px" />
 
@@ -172,12 +172,12 @@
 									label="@load(each.descripcion)" />
 								<listcell>
 
-									<if test="@load(each.habilitado)">
+									<if test="@load(each.abreModulo)">
 										<label value="Si" />
 									</if>
 
 
-									<if test="@load(!each.habilitado)">
+									<if test="@load(!each.abreModulo)">
 										<label value="No" />
 									</if>
 

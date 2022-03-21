@@ -27,9 +27,13 @@ public class Modulo extends Modelo implements Serializable {
 	@Column(unique=true)
 	private String modulo;
 	
+	private String titulo;
+	
 	private String descripcion;
 	
 	private String path;
+	
+	private String menu;
 	
 	@ColumnDefault("false")
 	private boolean habilitado= false;
@@ -64,6 +68,14 @@ public class Modulo extends Modelo implements Serializable {
 		this.modulo = modulo;
 	}
 
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -80,6 +92,14 @@ public class Modulo extends Modelo implements Serializable {
 		this.path = path;
 	}
 
+	public String getMenu() {
+		return menu;
+	}
+
+	public void setMenu(String menu) {
+		this.menu = menu;
+	}
+
 	public boolean isHabilitado() {
 		return habilitado;
 	}
@@ -88,4 +108,5 @@ public class Modulo extends Modelo implements Serializable {
 		this.habilitado = habilitado;
 	}
 
+	
 }

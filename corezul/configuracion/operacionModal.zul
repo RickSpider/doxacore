@@ -26,9 +26,9 @@
 			
 			<hlayout>
 				<hbox width = "130px">
-					<label value="Habilitado: " style="font-weight:bold" />	
+					<label value="Abre Modulo " style="font-weight:bold" />	
 				</hbox>
-				<checkbox checked="@bind(vm.operacionSelected.habilitado)" />
+				<checkbox checked="@bind(vm.operacionSelected.abreModulo)" />
 			</hlayout>
 
 			<space height="10px" />

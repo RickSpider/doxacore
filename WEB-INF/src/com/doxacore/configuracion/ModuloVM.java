@@ -84,6 +84,7 @@ public class ModuloVM extends TemplateViewModel {
 	@Command
 	public void modalModuloAgregar() {
 
+		this.editar = false;
 		modalModulo(-1);
 
 	}

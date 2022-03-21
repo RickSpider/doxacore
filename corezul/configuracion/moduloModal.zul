@@ -27,6 +27,16 @@
 			<hlayout>
 			
 				<hbox width="130px">
+					<label value="Menu: " style="font-weight:bold" />
+				</hbox>
+				<textbox value="@bind(vm.moduloSelected.menu)"
+					width="150px" />
+			
+			</hlayout>			
+			
+			<hlayout>
+			
+				<hbox width="130px">
 					<label value="Path: " style="font-weight:bold" />
 				</hbox>
 				<textbox value="@bind(vm.moduloSelected.path)"

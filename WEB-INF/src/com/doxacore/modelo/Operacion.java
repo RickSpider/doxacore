@@ -35,8 +35,7 @@ public class Operacion extends Modelo implements Serializable {
 	private Modulo modulo;
 	
 	@ColumnDefault("false")
-	private boolean habilitado = false;
-	
+	private boolean abreModulo;
 
 	@Override
 	public String getStringDatos() {
@@ -82,14 +81,12 @@ public class Operacion extends Modelo implements Serializable {
 		this.modulo = modulo;
 	}
 
-	public boolean isHabilitado() {
-		return habilitado;
+	public Boolean getAbreModulo() {
+		return abreModulo;
 	}
 
-	public void setHabilitado(boolean habilitado) {
-		this.habilitado = habilitado;
+	public void setAbreModulo(Boolean abreModulo) {
+		this.abreModulo = abreModulo;
 	}
-
 	
-
 }
