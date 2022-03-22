@@ -268,12 +268,19 @@ public class RolVM extends TemplateViewModel{
 		
 		if (ids.length() > 0) {
 			
-			condicion = "operacionid not in ("+ids+") AND ";
+			condicion = "WHERE operacionid not in ("+ids+")";
 			
 		}
 		
 		this.lOperacionesBuscar = this.reg.sqlNativo(
-				"SELECT o.operacionid, o.operacion, o.descripcion FROM operaciones o WHERE "+condicion+"o.habilitado = true ORDER by o.operacionid asc;");
+				"SELECT "
+				+ "o.operacionid, "
+				+ "o.operacion, "
+				+ "o.descripcion "
+				+ "FROM operaciones o "
+				+condicion
+				+" ORDER by o.operacionid asc;");
+		
 		this.lOperacionesbuscarOri = this.lOperacionesBuscar;
 	}
 	
