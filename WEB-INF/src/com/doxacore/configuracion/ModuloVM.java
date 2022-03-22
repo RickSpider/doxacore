@@ -19,7 +19,6 @@ import org.zkoss.zul.Window;
 import com.doxacore.TemplateViewModel;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
-import com.doxacore.modelo.Modulo;
 
 public class ModuloVM extends TemplateViewModel {
 
