@@ -1,10 +1,12 @@
 package com.doxacore.main;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
- 
+import java.util.Set;
+
 import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
@@ -15,6 +17,7 @@ import com.doxacore.login.UsuarioCredencial;
 import com.doxacore.main.menu.NavigationPage;
 import com.doxacore.main.menu.NavigationTitle;
 import com.doxacore.modelo.Modulo;
+import com.doxacore.modelo.Operacion;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.util.Register;
 
@@ -24,27 +27,63 @@ public class MainVM {
 	private NavigationPage currentPage;
     private Map<String, Map<String, NavigationPage>> pageMap;
     private Usuario currentUser;
-    private List<Modulo> lModulos;
-    
-    
-    private Register reg = new Register();
+    private List<Modulo> lModulos = new ArrayList<Modulo>();
+     
+   // private static Register reg = new Register();
      
     @Init
     public void init() {
        
         
-        UsuarioCredencial usuarioCredencial = (UsuarioCredencial) Sessions.getCurrent().getAttribute("userCredential");
-
-		Usuario currentUser = this.reg.getObjectByColumnString(Usuario.class.getName(), "account",
-				usuarioCredencial.getAccount());
+      
 		
-		this.lModulos = this.reg.getAllObjectsByCondicionOrder(Modulo.class.getName(), "habilitado = true AND menu is not null", null);
-		
+    	initListaModulos();	
 		initPageMap();
         
         currentPage = pageMap.get("Main").get("Blank");
         
         pageMap.get("Main").values().size();
+    }
+    
+    private void initListaModulos(){
+    	
+    	Register reg = new Register();
+    	
+    	UsuarioCredencial usuarioCredencial = (UsuarioCredencial) Sessions.getCurrent().getAttribute("userCredential");
+    	
+    	List<Object[]> lUsuariosOperaciones = reg.sqlNativo(
+    			"select "
+    	    	+ "o.operacion, "
+    			+ "u.account "
+    			+ "from usuariosroles ur\n" + 
+    			"left join usuarios u on u.usuarioid = ur.usuarioid\n" + 
+    			"left join rolesoperaciones ro on ro.rolid = ur.rolid\n" + 
+    			"left join operaciones o on o.operacionid = ro.operacionid\n" + 
+    			"where o.abremodulo = true and u.account = '"+usuarioCredencial.getAccount()+"';");    	
+    	
+    	List <Operacion> lOperaciones = reg.getAllObjectsByCondicionOrder(Operacion.class.getName(), "abremodulo = true", null);
+    	
+    	for (Operacion o : lOperaciones) {
+    		
+    		if (o.getModulo().isHabilitado()) {
+    			
+    			for (Object [] obj : lUsuariosOperaciones) {
+    				
+    				if (o.getOperacion().compareTo(obj[0].toString()) == 0) {
+    					
+    					lModulos.add(o.getModulo());
+    					
+    				}
+    				
+    			}
+    			
+    			
+    			
+    		}    		
+    		
+    		
+    	}
+    	
     }
  
     @Command
@@ -73,7 +112,7 @@ public class MainVM {
         
         this.menus.add(new NavigationTitle("Configuracion", true, "z-icon-gear"));   
         
-        for (Modulo m : this.lModulos) {
+        for (Modulo m : lModulos) {
         	
         	addPage(m.getMenu(), m.getTitulo(), m.getPath(),m.getModulo());
         	
