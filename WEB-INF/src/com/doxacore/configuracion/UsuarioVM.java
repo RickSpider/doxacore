@@ -6,6 +6,7 @@ import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.ExecutionArgParam;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
@@ -20,7 +21,8 @@ import com.doxacore.TemplateViewModel;
 import com.doxacore.modelo.Rol;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.modelo.UsuarioRol;
-import com.doxacore.util.UtilMetodos;
+import com.doxacore.util.Params;
+import com.doxacore.util.UtilStaticMetodos;
 
 public class UsuarioVM extends TemplateViewModel {
 
@@ -30,10 +32,14 @@ public class UsuarioVM extends TemplateViewModel {
 	private Usuario usuarioSelected;
 	private Usuario usuarioSelectedRol;
 	private String filtroColumnsUsuario[];
+	
+	private boolean opCrearUsuario = false;
+	private boolean opEditarUsuario = false;
+	private boolean opBorrarUsuario = false;
 
 	@Init(superclass = true)
 	public void initUsuarioVM() {
-
+		
 		cargarUsuarios();
 		inicializarFiltros();
 
@@ -41,6 +47,15 @@ public class UsuarioVM extends TemplateViewModel {
 
 	@AfterCompose(superclass = true)
 	public void afterComposeUsuarioVM() {
+		
+	}
+	
+	@Override
+	protected void inicializarOperaciones() {
+		
+		this.opCrearUsuario = this.operacionHabilitada(Params.OP_CREAR_USUARIO);
+		this.opEditarUsuario = this.operacionHabilitada(Params.OP_EDITAR_USUARIO);
+		this.opBorrarUsuario = this.operacionHabilitada(Params.OP_BORRAR_USUARIO);
 		
 	}
 
@@ -111,7 +126,7 @@ public class UsuarioVM extends TemplateViewModel {
 		
 		if (this.usuarioSelected.getPassword().length() != 64) {
 			
-			this.usuarioSelected.setPassword((UtilMetodos.getSHA256(this.usuarioSelected.getPassword())));		
+			this.usuarioSelected.setPassword((UtilStaticMetodos.getSHA256(this.usuarioSelected.getPassword())));		
 			
 		}
 				
@@ -347,6 +362,30 @@ public class UsuarioVM extends TemplateViewModel {
 
 	public void setFiltroColumnsUsuario(String[] filtroColumnsUsuario) {
 		this.filtroColumnsUsuario = filtroColumnsUsuario;
+	}
+
+	public boolean isOpCrearUsuario() {
+		return opCrearUsuario;
+	}
+
+	public void setOpCrearUsuario(boolean opCrearUsuario) {
+		this.opCrearUsuario = opCrearUsuario;
+	}
+
+	public boolean isOpEditarUsuario() {
+		return opEditarUsuario;
+	}
+
+	public void setOpEditarUsuario(boolean opEditarUsuario) {
+		this.opEditarUsuario = opEditarUsuario;
+	}
+
+	public boolean isOpBorrarUsuario() {
+		return opBorrarUsuario;
+	}
+
+	public void setOpBorrarUsuario(boolean opBorrarUsuario) {
+		this.opBorrarUsuario = opBorrarUsuario;
 	}
 
 }

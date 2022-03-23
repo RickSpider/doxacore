@@ -11,7 +11,7 @@ import org.zkoss.zul.Textbox;
 import com.doxacore.login.UsuarioCredencial;
 import com.doxacore.login.servicios.AuthenticationService;
 import com.doxacore.login.servicios.AuthenticationService3Impl;
-import com.doxacore.util.UtilMetodos;
+import com.doxacore.util.UtilStaticMetodos;
 
 public class LoginController extends SelectorComposer<Component> {
 
@@ -30,7 +30,7 @@ public class LoginController extends SelectorComposer<Component> {
     @Listen("onClick=#login; onOK=#account; onOK=#password")
     public void doLogin(){
         String nm = account.getValue();
-        String pd = UtilMetodos.getSHA256(password.getValue());
+        String pd = UtilStaticMetodos.getSHA256(password.getValue());
 
         if(!authService.login(nm,pd)){
             message.setValue("Usuario o Password incorrecto.");

@@ -7,6 +7,7 @@ import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.ExecutionArgParam;
+import org.zkoss.bind.annotation.ExecutionParam;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Sessions;
@@ -15,26 +16,54 @@ import org.zkoss.zul.Messagebox;
 
 import com.doxacore.login.UsuarioCredencial;
 import com.doxacore.modelo.Modelo;
+import com.doxacore.modelo.Modulo;
+import com.doxacore.modelo.Operacion;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.util.Register;
+import com.doxacore.util.UtilControlOperaciones;
 
 public abstract class TemplateViewModel {
 
 	protected Register reg;
 	protected Component mainComponent;
-	protected String currentModulo;
-
-	@Init(superclass = true)
-	public void initTemplateViewModel(@ContextParam(ContextType.VIEW) Component view, @ExecutionArgParam("moduloName") String moduloName ) {
+	protected UtilControlOperaciones uco;
+	protected List<Operacion> lOperacionesModulo;
+	protected String currentModuloName;
+	protected List<Object[]> lUsuarioModuloOperaciones;
+	
+	
+	@Init
+	public void initTemplateViewModel(@ContextParam(ContextType.VIEW) Component view, @ExecutionParam("arg") String arg) {
 
 		this.reg = new Register();
+		this.uco = new UtilControlOperaciones();
 		this.mainComponent = view;
-		this.currentModulo = moduloName;
-
+		
+		this.currentModuloName = arg;
+		
+		System.out.println("EL CURRENT MODULO NAME ES "+currentModuloName);
+		
+		
+		Modulo currentModulo = this.reg.getObjectByColumnString(Modulo.class.getName(), "modulo", this.currentModuloName);
+		
+		this.lOperacionesModulo = uco.getOperacionesModulo(this.reg, currentModulo);
+		this.lUsuarioModuloOperaciones = uco.getUsuarioModuloOperacion(reg, getCurrentUser().getAccount(), currentModulo.getModulo());
+		this.inicializarOperaciones();
+		
 	}
 
-	@AfterCompose(superclass = true)
+	@AfterCompose
 	public void afterComposeTemplateViewModel() {
+		
+		
+
+	}
+	
+	protected abstract void inicializarOperaciones();
+	
+	protected boolean operacionHabilitada(String operacion) {
+		
+		return uco.operacionHabilitada(operacion, lOperacionesModulo, lUsuarioModuloOperaciones);
 		
 	}
 

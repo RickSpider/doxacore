@@ -42,6 +42,12 @@ public class RolVM extends TemplateViewModel{
 
 	}
 	
+	@Override
+	protected void inicializarOperaciones() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 	private void cargarRoles() {
 

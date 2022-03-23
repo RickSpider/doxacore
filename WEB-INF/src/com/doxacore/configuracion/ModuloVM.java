@@ -41,6 +41,12 @@ public class ModuloVM extends TemplateViewModel {
 	public void afterComposeModuloVM() {
 
 	}
+	
+	@Override
+	protected void inicializarOperaciones() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	private void cargarModulos() {
 
@@ -315,5 +321,7 @@ public class ModuloVM extends TemplateViewModel {
 	public void setOperacionSelected(Operacion operacionSelected) {
 		this.operacionSelected = operacionSelected;
 	}
+
+	
 
 }

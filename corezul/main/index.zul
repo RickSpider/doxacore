@@ -7,15 +7,12 @@
 
 	<style src="/css/main/style.css" />
 
-
-
-
 	<div id="container" sclass="vertical"
 		apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm')@init('com.doxacore.main.MainVM')">
 
+		<!-- <include id ="navbarMenu" src="/corezul/main/navbarMenu.zul" />  -->
 		<apply templateURI="/corezul/main/navbarMenu.zul" />
-
 
 		<div sclass="topbar">
 
@@ -26,7 +23,7 @@
 				<hbox
 					apply="com.doxacore.login.controller.LogoutController" hflex="1"
 					vflex="1" pack="end">
-										
+
 					<label value="${sessionScope.userCredential.name}"
 						if="${not sessionScope.userCredential.anonymous}" />
 
@@ -38,25 +35,13 @@
 			</hbox>
 
 
-
-
-
-
 		</div>
 
-		<include id="contentInclude" mode="instant" sclass="content"
+		<include id="contentInclude" sclass="content"
+			mode="defer"
 			currentPage="@ref(vm.currentPage)"
-			src="@load(currentPage.includeUri)" vflex="1" moduloName="@load(currentPage.data)" />
-
-
-
-
-
-
-		<!-- <apply templateURI="@load(vm.uriTemplate)" />  -->
-
-
-
+			arg="@load(currentPage.data.toString())"
+			src="@load(currentPage.includeUri)"  vflex="1" />
 
 	</div>
 

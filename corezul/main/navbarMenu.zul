@@ -2,13 +2,6 @@
 
 	<navbar id="navbar" orient="vertical" collapsed="false"
 		onSelect="@command('navigatePage', target=self.selectedItem.attributes['navigationPage'])">
-
-		<!-- <nav label="Main" iconSclass="z-icon-home"
-			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
-
-		<nav label="Configuracion" iconSclass="z-icon-gear " 
-			children="@load(vm.pageMap[self.label].values()) @template('navitem')" />
-	 -->
 	 
 	 	<forEach
 	 	

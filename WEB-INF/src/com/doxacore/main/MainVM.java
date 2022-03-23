@@ -9,6 +9,7 @@ import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
+import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Sessions;
 
 import com.doxacore.login.UsuarioCredencial;
@@ -17,6 +18,7 @@ import com.doxacore.main.menu.NavigationTitle;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
 import com.doxacore.util.Register;
+import com.doxacore.util.UtilMetodos;
 
 public class MainVM {
 
@@ -40,17 +42,14 @@ public class MainVM {
 
 		Register reg = new Register();
 
+		UtilMetodos utilMetodos = new UtilMetodos();
+
 		UsuarioCredencial usuarioCredencial = (UsuarioCredencial) Sessions.getCurrent().getAttribute("userCredential");
 
-		List<Object[]> lUsuariosOperaciones = reg.sqlNativo(
-				"select " 
-				+ "o.operacion, " 
-				+ "u.account "
-				+ "from usuariosroles ur\n" 
-				+ "left join usuarios u on u.usuarioid = ur.usuarioid\n"
-				+ "left join rolesoperaciones ro on ro.rolid = ur.rolid\n"
-				+ "left join operaciones o on o.operacionid = ro.operacionid\n"
-				+ "where o.abremodulo = true and u.account = '" + usuarioCredencial.getAccount() + "';");
+		String UsuarioOperacionesSQL = utilMetodos.getCoreSql("usuarioOperaciones.sql").replace("?1", "true")
+				.replace("?2", usuarioCredencial.getAccount());
+
+		List<Object[]> lUsuariosOperaciones = reg.sqlNativo(UsuarioOperacionesSQL);
 
 		List<Operacion> lOperaciones = reg.getAllObjectsByCondicionOrder(Operacion.class.getName(), "abremodulo = true",
 				null);
@@ -77,10 +76,11 @@ public class MainVM {
 
 	@Command
 	public void navigatePage(@BindingParam("target") NavigationPage targetPage) {
+
 		BindUtils.postNotifyChange(null, null, currentPage, "selected");
-		currentPage = targetPage;
-		System.out.println("El CurrentPage " + currentPage.getData());
+		this.currentPage = targetPage;
 		BindUtils.postNotifyChange(null, null, this, "currentPage");
+
 	}
 
 	public NavigationPage getCurrentPage() {
@@ -95,27 +95,20 @@ public class MainVM {
 		pageMap = new LinkedHashMap<String, Map<String, NavigationPage>>();
 
 		this.menus.add(new NavigationTitle("Main", true, "z-icon-home"));
-		addPage("Main", "page 1", "/corezul/main/test.zul");
+		addPage("Main", "page 1", "/corezul/main/test.zul", "DATO ANTES LALALLA");
 		addPage("Main", "Blank", "/corezul/blank.zul");
 
 		this.menus.add(new NavigationTitle("Configuracion", true, "z-icon-gear"));
 
 		for (Modulo m : lModulos) {
 
+			System.out.println("cargado Modulo " + m.getModulo());
 			addPage(m.getMenu(), m.getTitulo(), m.getPath(), m.getModulo());
 
 		}
 
-		/*
-		 * addPage("Configuracion", "Usuarios",
-		 * "/corezul/configuracion/usuario.zul","Usuario"); addPage("Configuracion",
-		 * "Roles", "/corezul/configuracion/rol.zul","Rol"); addPage("Configuracion",
-		 * "Modulos", "/corezul/configuracion/modulo.zul","Modulo");
-		 */
-
 	}
 
-	@Command
 	public boolean menuVisible(@BindingParam("size") int size) {
 
 		if (size == 0)

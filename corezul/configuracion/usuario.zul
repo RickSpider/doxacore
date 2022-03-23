@@ -14,7 +14,8 @@
 
 						<button label="Agregar"
 							iconSclass=" z-icon-plus"
-							onClick="@command('modalUsuarioAgregar')" />
+							onClick="@command('modalUsuarioAgregar')" 
+							disabled = "@load(!vm.opCrearUsuario)"/>
 
 					</hbox>
 
@@ -46,7 +47,7 @@
 							<auxheader>
 								<textbox
 									value="@bind(vm.filtroColumnsUsuario[0])" instant="true"
-									onChange="@command('filtrarUsuario')" hflex="1" />
+									onChange="@command('filtrarUsuario')" hflex="1"  />
 							</auxheader>
 
 							<auxheader>
@@ -94,11 +95,11 @@
 
 										<button iconSclass="z-icon-edit"
 											onClick="@command('modalUsuario', usuarioid=each.usuarioid)"
-											tooltiptext="Editar" />
+											tooltiptext="Editar" disabled = "@load(!vm.opEditarUsuario)"/>
 										<button
 											iconSclass="z-icon-trash-o" style="background-color:red"
 											onClick="@command('borrarUsuarioConfirmacion', usuario=each)"
-											tooltiptext="Borrar" />
+											tooltiptext="Borrar" disabled = "@load(!vm.opBorrarUsuario)"/>
 
 
 									</hlayout>

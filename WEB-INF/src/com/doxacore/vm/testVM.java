@@ -34,6 +34,12 @@ public class testVM extends TemplateViewModel{
 		this.user = user;
 	}
 
+	@Override
+	protected void inicializarOperaciones() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 }
