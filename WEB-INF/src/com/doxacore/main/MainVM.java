@@ -95,7 +95,6 @@ public class MainVM {
 		pageMap = new LinkedHashMap<String, Map<String, NavigationPage>>();
 
 		this.menus.add(new NavigationTitle("Main", true, "z-icon-home"));
-		addPage("Main", "page 1", "/corezul/main/test.zul", "DATO ANTES LALALLA");
 		addPage("Main", "Blank", "/corezul/blank.zul");
 
 		this.menus.add(new NavigationTitle("Configuracion", true, "z-icon-gear"));

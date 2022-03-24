@@ -13,10 +13,9 @@
 					<hbox pack="end" hflex="1" >
 
 						<button label="Agregar"
-							iconSclass=" z-icon-plus" onClick="@command('modalRolAgregar')" />
+							iconSclass=" z-icon-plus" onClick="@command('modalRolAgregar')" disabled="@load(!vm.opCrearRol)" />
 
 					</hbox>
-
 
 					<listbox emptyMessage="lista vacía..." mold="paging"
 						vflex="1" model="@load(vm.lRoles)" checkmark="true">
@@ -70,11 +69,11 @@
 
 										<button iconSclass="z-icon-edit"
 											onClick="@command('modalRol', rolid=each.rolid)"
-											tooltiptext="Editar" />
+											tooltiptext="Editar" disabled="@load(!vm.opEditarRol)"/>
 										<button
 											iconSclass="z-icon-trash-o" style="background-color:red"
 											onClick="@command('borrarRolConfirmacion', rol=each)"
-											tooltiptext="Borrar" />
+											tooltiptext="Borrar" disabled="@load(!vm.opBorrarRol)"/>
 
 
 									</hlayout>

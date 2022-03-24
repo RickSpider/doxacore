@@ -19,6 +19,7 @@ import org.zkoss.zul.Window;
 import com.doxacore.TemplateViewModel;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
+import com.doxacore.util.Params;
 
 public class ModuloVM extends TemplateViewModel {
 
@@ -28,6 +29,10 @@ public class ModuloVM extends TemplateViewModel {
 	private Modulo moduloSelectedOperacion;
 	private List<Operacion> lOperacionesModulos;
 	private Operacion operacionSelected;
+	
+	private boolean opCrearModulo;
+	private boolean opEditarModulo;
+	private boolean opBorrarModulo;
 
 	@Init(superclass = true)
 	public void initModuloVM() {
@@ -44,7 +49,10 @@ public class ModuloVM extends TemplateViewModel {
 	
 	@Override
 	protected void inicializarOperaciones() {
-		// TODO Auto-generated method stub
+		
+		this.opCrearModulo = this.operacionHabilitada(Params.OP_CREAR_MODULO);
+		this.opEditarModulo = this.operacionHabilitada(Params.OP_EDITAR_MODULO);
+		this.opBorrarModulo = this.operacionHabilitada(Params.OP_BORRAR_MODULO);
 		
 	}
 
@@ -88,6 +96,9 @@ public class ModuloVM extends TemplateViewModel {
 
 	@Command
 	public void modalModuloAgregar() {
+		
+		if (!this.opCrearModulo) 
+			return;
 
 		this.editar = false;
 		modalModulo(-1);
@@ -103,7 +114,10 @@ public class ModuloVM extends TemplateViewModel {
 			this.editar = true;
 
 		} else {
-
+			
+			if (!this.opEditarModulo)
+				return;
+			
 			moduloSelected = new Modulo();
 
 		}
@@ -142,6 +156,9 @@ public class ModuloVM extends TemplateViewModel {
 
 	@Command
 	public void borrarModuloConfirmacion(@BindingParam("modulo") Modulo modulo) {
+		
+		if(!this.opBorrarModulo)
+			return;
 
 		EventListener event = new EventListener() {
 
@@ -320,6 +337,30 @@ public class ModuloVM extends TemplateViewModel {
 
 	public void setOperacionSelected(Operacion operacionSelected) {
 		this.operacionSelected = operacionSelected;
+	}
+
+	public boolean isOpCrearModulo() {
+		return opCrearModulo;
+	}
+
+	public void setOpCrearModulo(boolean opCrearModulo) {
+		this.opCrearModulo = opCrearModulo;
+	}
+
+	public boolean isOpEditarModulo() {
+		return opEditarModulo;
+	}
+
+	public void setOpEditarModulo(boolean opEditarModulo) {
+		this.opEditarModulo = opEditarModulo;
+	}
+
+	public boolean isOpBorrarModulo() {
+		return opBorrarModulo;
+	}
+
+	public void setOpBorrarModulo(boolean opBorrarModulo) {
+		this.opBorrarModulo = opBorrarModulo;
 	}
 
 	

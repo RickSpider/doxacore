@@ -22,12 +22,17 @@ import com.doxacore.modelo.Rol;
 import com.doxacore.modelo.RolOperacion;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.modelo.UsuarioRol;
+import com.doxacore.util.Params;
 
 public class RolVM extends TemplateViewModel{
 	
 	private List<Rol> lRoles; 
 	private List<Rol> lRolesOri;
 	private Rol rolSelected;
+	
+	private boolean opCrearRol;
+	private boolean opEditarRol;
+	private boolean opBorrarRol;
 	
 	@Init(superclass = true)
 	public void initRolVM() {
@@ -44,7 +49,10 @@ public class RolVM extends TemplateViewModel{
 	
 	@Override
 	protected void inicializarOperaciones() {
-		// TODO Auto-generated method stub
+		
+		this.opCrearRol = this.operacionHabilitada(Params.OP_CREAR_ROL);
+		this.opEditarRol = this.operacionHabilitada(Params.OP_EDITAR_ROL);
+		this.opBorrarRol = this.operacionHabilitada(Params.OP_BORRAR_ROL);
 		
 	}
 	
@@ -89,6 +97,9 @@ public class RolVM extends TemplateViewModel{
 	@Command
 	public void modalRolAgregar() {
 
+		if(!this.opCrearRol)
+			return;
+
 		this.editar = false;
 		modalRol(-1);
 
@@ -104,6 +115,9 @@ public class RolVM extends TemplateViewModel{
 
 		} else {
 
+			if(!this.opEditarRol)
+				return;
+			
 			rolSelected = new Rol();
 
 		}
@@ -145,6 +159,9 @@ public class RolVM extends TemplateViewModel{
 	
 	@Command
 	public void borrarRolConfirmacion(@BindingParam("rol") Rol rol) {
+		
+		if (!this.opBorrarRol)
+			return;
 		
 		EventListener event = new EventListener () {
 
@@ -389,6 +406,30 @@ public class RolVM extends TemplateViewModel{
 
 	public void setlOperacionesRoles(List<RolOperacion> lOperacionesRoles) {
 		this.lOperacionesRoles = lOperacionesRoles;
+	}
+
+	public boolean isOpCrearRol() {
+		return opCrearRol;
+	}
+
+	public void setOpCrearRol(boolean opCrearRol) {
+		this.opCrearRol = opCrearRol;
+	}
+
+	public boolean isOpEditarRol() {
+		return opEditarRol;
+	}
+
+	public void setOpEditarRol(boolean opEditarRol) {
+		this.opEditarRol = opEditarRol;
+	}
+
+	public boolean isOpBorrarRol() {
+		return opBorrarRol;
+	}
+
+	public void setOpBorrarRol(boolean opBorrarRol) {
+		this.opBorrarRol = opBorrarRol;
 	}
 	
 	

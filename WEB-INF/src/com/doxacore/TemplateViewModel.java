@@ -28,9 +28,7 @@ public abstract class TemplateViewModel {
 	protected Component mainComponent;
 	protected UtilControlOperaciones uco;
 	protected List<Operacion> lOperacionesModulo;
-	protected String currentModuloName;
 	protected List<Object[]> lUsuarioModuloOperaciones;
-	
 	
 	@Init
 	public void initTemplateViewModel(@ContextParam(ContextType.VIEW) Component view, @ExecutionParam("arg") String arg) {
@@ -39,12 +37,9 @@ public abstract class TemplateViewModel {
 		this.uco = new UtilControlOperaciones();
 		this.mainComponent = view;
 		
-		this.currentModuloName = arg;
+		//System.out.println("EL CURRENT MODULO NAME ES "+currentModuloName);
 		
-		System.out.println("EL CURRENT MODULO NAME ES "+currentModuloName);
-		
-		
-		Modulo currentModulo = this.reg.getObjectByColumnString(Modulo.class.getName(), "modulo", this.currentModuloName);
+		Modulo currentModulo = this.reg.getObjectByColumnString(Modulo.class.getName(), "modulo", arg);
 		
 		this.lOperacionesModulo = uco.getOperacionesModulo(this.reg, currentModulo);
 		this.lUsuarioModuloOperaciones = uco.getUsuarioModuloOperacion(reg, getCurrentUser().getAccount(), currentModulo.getModulo());
@@ -54,8 +49,6 @@ public abstract class TemplateViewModel {
 
 	@AfterCompose
 	public void afterComposeTemplateViewModel() {
-		
-		
 
 	}
 	
@@ -91,7 +84,7 @@ public abstract class TemplateViewModel {
 
 	public void mensajeSiNo(String texto, String titulo, EventListener event) {
 
-		int b = Messagebox.show(texto, titulo, Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event);
+		Messagebox.show(texto, titulo, Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event);
 
 	}
 

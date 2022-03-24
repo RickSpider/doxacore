@@ -33,9 +33,9 @@ public class UsuarioVM extends TemplateViewModel {
 	private Usuario usuarioSelectedRol;
 	private String filtroColumnsUsuario[];
 	
-	private boolean opCrearUsuario = false;
-	private boolean opEditarUsuario = false;
-	private boolean opBorrarUsuario = false;
+	private boolean opCrearUsuario;
+	private boolean opEditarUsuario;
+	private boolean opBorrarUsuario;
 
 	@Init(superclass = true)
 	public void initUsuarioVM() {
@@ -93,6 +93,9 @@ public class UsuarioVM extends TemplateViewModel {
 
 	@Command
 	public void modalUsuarioAgregar() {
+		
+		if (!this.opCrearUsuario)
+			return;
 
 		this.editar = false;
 		modalUsuario(-1);
@@ -108,6 +111,9 @@ public class UsuarioVM extends TemplateViewModel {
 			this.editar = true;
 
 		} else {
+			
+			if(this.opEditarUsuario)
+				return;
 
 			this.usuarioSelected = new Usuario();
 
@@ -154,6 +160,9 @@ public class UsuarioVM extends TemplateViewModel {
 
 	@Command
 	public void borrarUsuarioConfirmacion(@BindingParam("usuario") Usuario u) {
+		
+		if(!this.opBorrarUsuario)
+			return;
 
 		EventListener event = new EventListener() {
 
