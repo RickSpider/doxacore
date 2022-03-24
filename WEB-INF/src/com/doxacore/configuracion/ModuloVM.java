@@ -109,14 +109,14 @@ public class ModuloVM extends TemplateViewModel {
 	public void modalModulo(@BindingParam("moduloid") long moduloid) {
 
 		if (moduloid != -1) {
+			
+			if (!this.opEditarModulo)
+				return;
 
 			this.moduloSelected = this.reg.getObjectById(Modulo.class.getName(), moduloid);
 			this.editar = true;
 
 		} else {
-			
-			if (!this.opEditarModulo)
-				return;
 			
 			moduloSelected = new Modulo();
 

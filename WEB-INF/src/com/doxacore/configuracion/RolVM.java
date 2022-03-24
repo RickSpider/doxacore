@@ -110,13 +110,13 @@ public class RolVM extends TemplateViewModel{
 
 		if (rolid != -1) {
 
+			if(!this.opEditarRol)
+				return;
+			
 			this.rolSelected = this.reg.getObjectById(Rol.class.getName(), rolid);
 			this.editar = true;
 
 		} else {
-
-			if(!this.opEditarRol)
-				return;
 			
 			rolSelected = new Rol();
 

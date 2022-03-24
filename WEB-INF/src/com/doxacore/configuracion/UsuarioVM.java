@@ -94,7 +94,7 @@ public class UsuarioVM extends TemplateViewModel {
 	@Command
 	public void modalUsuarioAgregar() {
 		
-		if (!this.opCrearUsuario)
+		if(!this.opCrearUsuario)
 			return;
 
 		this.editar = false;
@@ -106,14 +106,14 @@ public class UsuarioVM extends TemplateViewModel {
 	public void modalUsuario(@BindingParam("usuarioid") long usuarioid) {
 
 		if (usuarioid != -1) {
+			
+			if(!this.opEditarUsuario)
+				return;
 
 			this.usuarioSelected = this.reg.getObjectById(Usuario.class.getName(), usuarioid);
 			this.editar = true;
 
 		} else {
-			
-			if(this.opEditarUsuario)
-				return;
 
 			this.usuarioSelected = new Usuario();
 
