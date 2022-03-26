@@ -17,6 +17,16 @@
 			<hlayout>
 			
 				<hbox width="130px">
+					<label value="Titulo: " style="font-weight:bold" />
+				</hbox>
+				<textbox value="@bind(vm.moduloSelected.titulo)"
+					width="150px" />
+			
+			</hlayout>			
+			
+			<hlayout>
+			
+				<hbox width="130px">
 					<label value="Descripción: " style="font-weight:bold" />
 				</hbox>
 				<textbox value="@bind(vm.moduloSelected.descripcion)"
