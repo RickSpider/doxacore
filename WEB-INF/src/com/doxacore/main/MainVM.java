@@ -1,10 +1,15 @@
 package com.doxacore.main;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.ini4j.InvalidFileFormatException;
+import org.ini4j.Profile.Section;
+import org.ini4j.Wini;
 import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
@@ -18,6 +23,7 @@ import com.doxacore.main.menu.NavigationTitle;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
 import com.doxacore.util.Register;
+import com.doxacore.util.SystemInfo;
 import com.doxacore.util.UtilMetodos;
 
 public class MainVM {
@@ -28,7 +34,7 @@ public class MainVM {
 	private List<Modulo> lModulos = new ArrayList<Modulo>();
 
 	@Init
-	public void init() {
+	public void init() throws InvalidFileFormatException, IOException {
 
 		initListaModulos();
 		initPageMap();
@@ -90,14 +96,29 @@ public class MainVM {
 	public Map<String, Map<String, NavigationPage>> getPageMap() {
 		return pageMap;
 	}
+	
+	private String getMenuIni() {
+		
+		return SystemInfo.SISTEMA_PATH_ABSOLUTO + "/WEB-INF/menu.ini";
+		
+	}
 
-	private void initPageMap() {
+	private void initPageMap() throws InvalidFileFormatException, IOException {
 		pageMap = new LinkedHashMap<String, Map<String, NavigationPage>>();
 
-		this.menus.add(new NavigationTitle("Main", true, "z-icon-home"));
+		//this.menus.add(new NavigationTitle("Main", true, "z-icon-home"));
+		
+		Wini ini = new Wini(new File(this.getMenuIni()));
+		
+		for (Section s : ini.values()) {
+			
+			this.menus.add(new NavigationTitle(s.get("Title"), s.get("Icon")));
+			
+		}
+		
 		addPage("Main", "Blank", "/corezul/blank.zul");
 
-		this.menus.add(new NavigationTitle("Configuracion", true, "z-icon-gear"));
+		this.menus.add(new NavigationTitle("Configuracion", "z-icon-gear"));
 
 		for (Modulo m : lModulos) {
 

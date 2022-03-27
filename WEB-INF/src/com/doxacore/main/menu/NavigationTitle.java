@@ -5,7 +5,7 @@ public class NavigationTitle {
 	private String title;
 	private String icon;
 	
-	public NavigationTitle(String title, boolean visible, String icon) {
+	public NavigationTitle(String title, String icon) {
 		super();
 		this.title = title;
 		this.icon = icon;
