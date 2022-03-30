@@ -8,13 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.ini4j.InvalidFileFormatException;
-import org.ini4j.Profile.Section;
 import org.ini4j.Wini;
 import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
-import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Sessions;
 
 import com.doxacore.login.UsuarioCredencial;
@@ -97,28 +95,29 @@ public class MainVM {
 		return pageMap;
 	}
 	
-	private String getMenuIni() {
+	public String getDirectorioSistema() {
 		
-		return SystemInfo.SISTEMA_PATH_ABSOLUTO + "/WEB-INF/menu.ini";
+		String out = "";
+		
+		try {
+			Wini ini = new Wini(new File(SystemInfo.SISTEMA_PATH_ABSOLUTO + "/WEB-INF/sistema.ini"));
+			out =  "/"+ini.get("Sistema", "Nombre")+"/menu.zul";
+		} catch (InvalidFileFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return out;
 		
 	}
 
 	private void initPageMap() throws InvalidFileFormatException, IOException {
 		pageMap = new LinkedHashMap<String, Map<String, NavigationPage>>();
 
-		//this.menus.add(new NavigationTitle("Main", true, "z-icon-home"));
-		
-		Wini ini = new Wini(new File(this.getMenuIni()));
-		
-		for (Section s : ini.values()) {
-			
-			this.menus.add(new NavigationTitle(s.get("Title"), s.get("Icon")));
-			
-		}
-		
 		addPage("Main", "Blank", "/corezul/blank.zul");
-
-		this.menus.add(new NavigationTitle("Configuracion", "z-icon-gear"));
 
 		for (Modulo m : lModulos) {
 

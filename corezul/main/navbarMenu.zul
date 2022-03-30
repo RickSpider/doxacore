@@ -2,17 +2,12 @@
 
 	<navbar id="navbar" orient="vertical" collapsed="false"
 		onSelect="@command('navigatePage', target=self.selectedItem.attributes['navigationPage'])">
-	 
-	 	<forEach
-	 	
-	 		items="@load(vm.menus)" var="m">
-	 		
-	 		<nav label="@load(m.title)" iconSclass="@load(m.icon) " badgeText="@load(vm.pageMap[self.label].values().size() )"
+		
+		<apply templateURI="@load(vm.getDirectorioSistema())" />
+
+	 	<nav label="Configuracion" iconSclass="z-icon-gear" badgeText="@load(vm.pageMap[self.label].values().size() )"
 			children="@load(vm.pageMap[self.label].values()) @template('navitem')" 
 			visible="@load(vm.menuVisible( vm.pageMap[self.label].values().size() ))"/>
-	 	
-	 	</forEach>
-	 
 
 		<template name="navitem" var="navigationPage">
 			<navitem label="@load(navigationPage.subTitle)"
