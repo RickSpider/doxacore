@@ -1,10 +1,14 @@
 package com.doxacore.modelo;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name ="tipotipos")
 public class TipoTipo extends Modelo{
 	
 	@Id
@@ -48,8 +52,10 @@ public class TipoTipo extends Modelo{
 	}
 	@Override
 	public Object[] getArrayObjectDatos() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		Object[] o = {this.tipotipo, this.descripcion, this.sigla};
+		
+		return o;
 	}
 	
 	
