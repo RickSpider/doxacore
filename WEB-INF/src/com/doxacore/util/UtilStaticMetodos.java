@@ -151,7 +151,7 @@ public class UtilStaticMetodos {
 		op8.setModulo(m2);
 		op8 = reg.saveObject(op8, "System");	
 		
-		System.out.println("Asociando Roles con Operacioens");
+		System.out.println("Asociando Roles con Operaciones");
 		RolOperacion ro5 = new RolOperacion();
 		ro5.setRol(rolMaster);
 		ro5.setOperacion(op5);
@@ -171,6 +171,7 @@ public class UtilStaticMetodos {
 		ro8.setRol(rolMaster);
 		ro8.setOperacion(op8);
 		reg.saveObject(ro8, "System");
+		
 		
 		
 		System.out.println("Creando Modulo Modulos");
@@ -209,7 +210,7 @@ public class UtilStaticMetodos {
 		op12.setModulo(m3);
 		op12 = reg.saveObject(op12, "System");
 		
-		System.out.println("Asociando Roles con Operacioens");
+		System.out.println("Asociando Roles con Operaciones");
 		RolOperacion ro9 = new RolOperacion();
 		ro9.setRol(rolMaster);
 		ro9.setOperacion(op9);
@@ -229,6 +230,67 @@ public class UtilStaticMetodos {
 		ro12.setRol(rolMaster);
 		ro12.setOperacion(op12);
 		reg.saveObject(ro12, "System");
+		
+		
+		
+		System.out.println("Creando Modulo Tipotipos");
+		Modulo m4 = new Modulo();
+		m4.setModulo("Tipotipo");
+		m4.setDescripcion("Modulo de carga de Tipotipo");
+		m4.setPath("/corezul/configuracion/tipotipo.zul");
+		m4.setTitulo("Tipotipo");
+		m4.setMenu("Configuracion");
+		m4.setHabilitado(true);
+		m4 = reg.saveObject(m4, "System");
+		
+		System.out.println("Creando Operaciones del modulo Tipotipo");
+		Operacion op13 = new Operacion();
+		op13.setOperacion("AbrirTipotipos");
+		op13.setDescripcion("Abrir Tipotipos");
+		op13.setAbreModulo(true);
+		op13.setModulo(m4);
+		op13 = reg.saveObject(op13, "System");
+		
+		Operacion op14 = new Operacion();
+		op14.setOperacion("CrearTipotipo");
+		op14.setDescripcion("Crear Tipotipo");
+		op14.setModulo(m4);
+		op14 = reg.saveObject(op14, "System");
+		
+		Operacion op15 = new Operacion();
+		op15.setOperacion("EditarTipotipo");
+		op15.setDescripcion("Editar Tipotipo");
+		op15.setModulo(m4);
+		op15 = reg.saveObject(op15, "System");
+		
+		Operacion op16 = new Operacion();
+		op16.setOperacion("BorrarTipotipo");
+		op16.setDescripcion("Borrar Tipotipo");
+		op16.setModulo(m4);
+		op16 = reg.saveObject(op16, "System");
+		
+		
+		//Agregar operaciones a roles
+		System.out.println("Asociando Roles con Operaciones");
+		RolOperacion ro13 = new RolOperacion();
+		ro13.setRol(rolMaster);
+		ro13.setOperacion(op13);
+		reg.saveObject(ro13, "System");
+		
+		RolOperacion ro14 = new RolOperacion();
+		ro14.setRol(rolMaster);
+		ro14.setOperacion(op14);
+		reg.saveObject(ro14, "System");
+
+		RolOperacion ro15 = new RolOperacion();
+		ro15.setRol(rolMaster);
+		ro15.setOperacion(op15);
+		reg.saveObject(ro15, "System");
+		
+		RolOperacion ro16 = new RolOperacion();
+		ro16.setRol(rolMaster);
+		ro16.setOperacion(op16);
+		reg.saveObject(ro16, "System");
 		
 		
 		
