@@ -130,6 +130,8 @@ public class TipotipoVM extends TemplateViewModel{
 		@Command
 		@NotifyChange("lTipotipos")
 		public void guardar() {
+			
+			tipotipoSelected.setSigla(tipotipoSelected.getSigla().toUpperCase());
 
 			this.save(tipotipoSelected);
 
@@ -236,6 +238,8 @@ public class TipotipoVM extends TemplateViewModel{
 		@Command
 		@NotifyChange("lTiposTipotipos")
 		public void guardarTipo() {
+			
+			this.tipoSelected.setSigla(this.tipoSelected.getSigla().toUpperCase());
 			
 			this.save(tipoSelected);
 
