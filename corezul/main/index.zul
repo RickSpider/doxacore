@@ -10,9 +10,9 @@
 
 	<vlayout vflex="1">
 
-		<div sclass="topbar">
+		<hlayout sclass="topbar">
 
-			<hbox hflex="1">
+			<hlayout hflex="1">
 
 				PowerBy DoxaCORE
 
@@ -28,10 +28,10 @@
 
 				</hbox>
 
-			</hbox>
+			</hlayout>
 
 
-		</div>
+		</hlayout>
 
 		<div id="container" sclass="vertical"
 			apply="org.zkoss.bind.BindComposer"
