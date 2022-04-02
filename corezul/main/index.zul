@@ -5,13 +5,10 @@
 
 <zk xmlns:h="http://www.w3.org/1999/xhtml">
 
+
 	<style src="/css/main/style.css" />
 
-	<div id="container" sclass="vertical"
-		apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('vm')@init('com.doxacore.main.MainVM')">
-		
-		<apply templateURI="/corezul/main/navbarMenu.zul" />
+	<vlayout vflex="1">
 
 		<div sclass="topbar">
 
@@ -36,12 +33,22 @@
 
 		</div>
 
-		<include id="contentInclude" sclass="content"
-			mode="defer"
-			currentPage="@ref(vm.currentPage)"
-			arg="@load(currentPage.data.toString())"
-			src="@load(currentPage.includeUri)"  vflex="1" />
+		<div id="container" sclass="vertical"
+			apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm')@init('com.doxacore.main.MainVM')" vflex="1">
 
-	</div>
+
+			<apply templateURI="/corezul/main/navbarMenu.zul" />
+
+			<include id="contentInclude" sclass="content" mode="defer"
+				currentPage="@ref(vm.currentPage)"
+				arg="@load(currentPage.data.toString())"
+				src="@load(currentPage.includeUri)" vflex="1" />
+
+
+
+		</div>
+
+	</vlayout>
 
 </zk>
