@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name ="tipotipos")
-public class TipoTipo extends Modelo{
+public class Tipotipo extends Modelo{
 	
 	@Id
 	@Column(name ="tipotipoid")

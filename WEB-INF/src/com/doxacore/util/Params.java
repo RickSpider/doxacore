@@ -14,9 +14,9 @@ public class Params {
 	public static final String OP_EDITAR_MODULO = "EditarModulo";
 	public static final String OP_BORRAR_MODULO = "BorrarModulo";
 	
-	public static final String OP_CREAR_TIPOTIPO = "CrearTipoTipo";
-	public static final String OP_EDITAR_TIPOTIPO = "EditarTipoTipo";
-	public static final String OP_BORRAR_TIPOTIPO = "BorrarTipoTipo";
+	public static final String OP_CREAR_TIPOTIPO = "CrearTipotipo";
+	public static final String OP_EDITAR_TIPOTIPO = "EditarTipotipo";
+	public static final String OP_BORRAR_TIPOTIPO = "BorrarTipotipo";
 	
 
 }

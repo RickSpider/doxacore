@@ -1,12 +1,16 @@
 package com.doxacore.modelo;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name ="tipos")
 public class Tipo extends Modelo{
 
 	@Id
@@ -23,7 +27,7 @@ public class Tipo extends Modelo{
 	
 	@ManyToOne
 	@JoinColumn(name = "tipotipoid")
-	private TipoTipo tipotipo;
+	private Tipotipo tipotipo;
 	
 	public Long getTipoid() {
 		return tipoid;
@@ -57,11 +61,11 @@ public class Tipo extends Modelo{
 		this.sigla = sigla;
 	}
 
-	public TipoTipo getTipotipo() {
+	public Tipotipo getTipotipo() {
 		return tipotipo;
 	}
 
-	public void setTipotipo(TipoTipo tipotipo) {
+	public void setTipotipo(Tipotipo tipotipo) {
 		this.tipotipo = tipotipo;
 	}
 	

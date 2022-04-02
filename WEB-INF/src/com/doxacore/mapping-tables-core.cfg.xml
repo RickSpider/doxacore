@@ -6,5 +6,5 @@
 <mapping class="com.doxacore.modelo.Modulo" />
 <mapping class="com.doxacore.modelo.Operacion" />
 <mapping class="com.doxacore.modelo.RolOperacion" />
-<mapping class="com.doxacore.modelo.TipoTipo" />
+<mapping class="com.doxacore.modelo.Tipotipo" />
 <mapping class="com.doxacore.modelo.Tipo" />

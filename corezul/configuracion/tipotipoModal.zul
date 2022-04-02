@@ -11,7 +11,7 @@
 				<hbox width="130px">
 					<label value="Sigla: " style="font-weight:bold" />
 				</hbox>
-				<textbox value="@bind(vm.tipoTipoSelected.sigla)"  readonly="@load(vm.editar)"
+				<textbox value="@bind(vm.tipotipoSelected.sigla)"  readonly="@load(vm.editar)"
 					width="150px" />
 			
 			</hlayout>
@@ -20,7 +20,7 @@
 				<hbox width="130px">
 					<label value="TipoTipo: " style="font-weight:bold" />
 				</hbox>
-				<textbox value="@bind(vm.tipoTipoSelected.tipotipo)" 
+				<textbox value="@bind(vm.tipotipoSelected.tipotipo)" 
 					width="150px" />					
 			</hlayout>
 			
@@ -29,7 +29,7 @@
 				<hbox width="130px">
 					<label value="Descripcion: " style="font-weight:bold" />
 				</hbox>
-				<textbox value="@bind(vm.tipoTipoSelected.descripcion)"
+				<textbox value="@bind(vm.tipotipoSelected.descripcion)"
 					width="150px" />
 			
 			</hlayout>			
