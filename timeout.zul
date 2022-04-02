@@ -3,7 +3,7 @@
 	La página no está disponible. Esto se debe a que ha expirado el tiempo o se ha reiniciado el servidor, 
 	debe volver a iniciar sesión. 
 	
-	<a href="/corezul/login/login.zul" label="[Iniciar sesión]" autodisable="self" />
+	<a href="/doxacore/zul/login/login.zul" label="[Iniciar sesión]" autodisable="self" />
 	
 	</vbox>
 </window>
