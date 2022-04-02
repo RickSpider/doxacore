@@ -15,19 +15,7 @@ public class UserInfoService2Impl implements UserInfoService,Serializable{
 	
 	protected List<Usuario> userList = new ArrayList<Usuario>();  
 	Register r = new Register();
-	
-	/*static{
-	 
-		//userList.add(new Usuario("anonymous","1234","Anonymous","anonumous@your.com"));
-		//userList.add(new Usuario("admin","1234","Admin","admin@your.com"));
-		//userList.add(new Usuario("zkoss","1234","ZKOSS","info@zkoss.org"));
 		
-		
-		userList = r.getAllObjectsByCondicionOrder(Usuario.class.getName(), "activo = true", null);
-		
-	}*/
-	
-	
 	// algun dia cambiar este metodo por algo mas directo @Rick
 	private void cargarListaUsuarios() {
 		

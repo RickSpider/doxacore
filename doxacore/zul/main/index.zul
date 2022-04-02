@@ -38,7 +38,7 @@
 			viewModel="@id('vm')@init('com.doxacore.main.MainVM')" vflex="1">
 
 
-			<apply templateURI="/corezul/main/navbarMenu.zul" />
+			<apply templateURI="/doxacore/zul/main/navbarMenu.zul" />
 
 			<include id="contentInclude" sclass="content" mode="defer"
 				currentPage="@ref(vm.currentPage)"

@@ -117,7 +117,7 @@ public class MainVM {
 	private void initPageMap() throws InvalidFileFormatException, IOException {
 		pageMap = new LinkedHashMap<String, Map<String, NavigationPage>>();
 
-		addPage("Main", "Blank", "/corezul/blank.zul");
+		addPage("Main", "Blank", "/doxacore/zul/blank.zul");
 
 		for (Modulo m : lModulos) {
 

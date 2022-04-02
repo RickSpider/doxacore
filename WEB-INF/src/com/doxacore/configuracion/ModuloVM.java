@@ -122,7 +122,7 @@ public class ModuloVM extends TemplateViewModel {
 
 		}
 
-		modal = (Window) Executions.createComponents("/corezul/configuracion/moduloModal.zul", this.mainComponent,
+		modal = (Window) Executions.createComponents("/doxacore/zul/configuracion/moduloModal.zul", this.mainComponent,
 				null);
 		Selectors.wireComponents(modal, this, false);
 		modal.doModal();
@@ -228,7 +228,7 @@ public class ModuloVM extends TemplateViewModel {
 
 		}
 
-		modal = (Window) Executions.createComponents("/corezul/configuracion/operacionModal.zul", this.mainComponent,
+		modal = (Window) Executions.createComponents("/doxacore/zul/configuracion/operacionModal.zul", this.mainComponent,
 				null);
 		Selectors.wireComponents(modal, this, false);
 		modal.doModal();

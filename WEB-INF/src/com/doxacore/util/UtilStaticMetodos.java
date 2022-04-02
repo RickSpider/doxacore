@@ -60,7 +60,7 @@ public class UtilStaticMetodos {
 		Modulo m1 = new Modulo();
 		m1.setModulo("Usuario");
 		m1.setDescripcion("Modulo de carga de Usuarios");
-		m1.setPath("/corezul/configuracion/usuario.zul");
+		m1.setPath("/doxacore/zul/configuracion/usuario.zul");
 		m1.setTitulo("Usuarios");
 		m1.setMenu("Configuracion");
 		m1.setHabilitado(true);
@@ -119,7 +119,7 @@ public class UtilStaticMetodos {
 		Modulo m2 = new Modulo();
 		m2.setModulo("Rol");
 		m2.setDescripcion("Modulo de carga de Roles");
-		m2.setPath("/corezul/configuracion/rol.zul");
+		m2.setPath("/doxacore/zul/configuracion/rol.zul");
 		m2.setTitulo("Roles");
 		m2.setMenu("Configuracion");
 		m2.setHabilitado(true);
@@ -178,7 +178,7 @@ public class UtilStaticMetodos {
 		Modulo m3 = new Modulo();
 		m3.setModulo("Modulo");
 		m3.setDescripcion("Modulo de carga de modulo");
-		m3.setPath("/corezul/configuracion/modulo.zul");
+		m3.setPath("/doxacore/zul/configuracion/modulo.zul");
 		m3.setTitulo("Modulos");
 		m3.setMenu("Configuracion");
 		m3.setHabilitado(true);
@@ -237,7 +237,7 @@ public class UtilStaticMetodos {
 		Modulo m4 = new Modulo();
 		m4.setModulo("Tipotipo");
 		m4.setDescripcion("Modulo de carga de Tipotipo");
-		m4.setPath("/corezul/configuracion/tipotipo.zul");
+		m4.setPath("/doxacore/zul/configuracion/tipotipo.zul");
 		m4.setTitulo("Tipotipo");
 		m4.setMenu("Configuracion");
 		m4.setHabilitado(true);

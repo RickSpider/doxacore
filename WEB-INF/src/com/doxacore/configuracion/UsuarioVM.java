@@ -119,7 +119,7 @@ public class UsuarioVM extends TemplateViewModel {
 
 		}
 
-		modal = (Window) Executions.createComponents("/corezul/configuracion/usuarioModal.zul", this.mainComponent,
+		modal = (Window) Executions.createComponents("/doxacore/zul/configuracion/usuarioModal.zul", this.mainComponent,
 				null);
 		Selectors.wireComponents(modal, this, false);
 		modal.doModal();

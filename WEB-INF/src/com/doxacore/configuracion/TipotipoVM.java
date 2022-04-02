@@ -120,7 +120,7 @@ public class TipotipoVM extends TemplateViewModel{
 
 			}
 
-			modal = (Window) Executions.createComponents("/corezul/configuracion/tipotipoModal.zul", this.mainComponent,
+			modal = (Window) Executions.createComponents("/doxacore/zul/configuracion/tipotipoModal.zul", this.mainComponent,
 					null);
 			Selectors.wireComponents(modal, this, false);
 			modal.doModal();
@@ -226,7 +226,7 @@ public class TipotipoVM extends TemplateViewModel{
 
 			}
 
-			modal = (Window) Executions.createComponents("/corezul/configuracion/tipoModal.zul", this.mainComponent,
+			modal = (Window) Executions.createComponents("/doxacore/zul/configuracion/tipoModal.zul", this.mainComponent,
 					null);
 			Selectors.wireComponents(modal, this, false);
 			modal.doModal();

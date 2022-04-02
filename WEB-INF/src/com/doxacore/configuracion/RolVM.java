@@ -122,7 +122,7 @@ public class RolVM extends TemplateViewModel{
 
 		}
 
-		modal = (Window) Executions.createComponents("/corezul/configuracion/rolModal.zul", this.mainComponent,
+		modal = (Window) Executions.createComponents("/doxacore/zul/configuracion/rolModal.zul", this.mainComponent,
 				null);
 		Selectors.wireComponents(modal, this, false);
 		modal.doModal();

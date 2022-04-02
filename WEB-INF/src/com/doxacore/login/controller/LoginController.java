@@ -40,8 +40,8 @@ public class LoginController extends SelectorComposer<Component> {
         message.setValue("Bienvenido, "+cre.getName());
         message.setSclass("");
 
-        Executions.sendRedirect("/corezul/main/");
-        //Executions.sendRedirect("/corezul/sidebar/");
+        Executions.sendRedirect("/doxacore/zul/main/");
+        //Executions.sendRedirect("/doxacore/zul/sidebar/");
 
     }
 }

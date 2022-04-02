@@ -16,7 +16,7 @@ public class UtilMetodos {
 	
 	public String getCoreSql(String fileName) {
 		
-		return this.getSql("/coresql/", fileName);
+		return this.getSql("/doxacore/sql/", fileName);
 		
 	}
 
