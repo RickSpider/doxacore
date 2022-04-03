@@ -36,6 +36,8 @@ public class UsuarioVM extends TemplateViewModel {
 	private boolean opCrearUsuario;
 	private boolean opEditarUsuario;
 	private boolean opBorrarUsuario;
+	private boolean opAgregarRol;
+	private boolean opQuitarRol;
 
 	@Init(superclass = true)
 	public void initUsuarioVM() {
@@ -56,6 +58,8 @@ public class UsuarioVM extends TemplateViewModel {
 		this.opCrearUsuario = this.operacionHabilitada(Params.OP_CREAR_USUARIO);
 		this.opEditarUsuario = this.operacionHabilitada(Params.OP_EDITAR_USUARIO);
 		this.opBorrarUsuario = this.operacionHabilitada(Params.OP_BORRAR_USUARIO);
+		this.opAgregarRol = this.operacionHabilitada(Params.OP_AGREGAR_ROL);
+		this.opQuitarRol = this.operacionHabilitada(Params.OP_QUITAR_ROL);
 		
 	}
 
@@ -210,6 +214,13 @@ public class UsuarioVM extends TemplateViewModel {
 	@Command
 	public void borrarRolConfirmacion(@BindingParam("usuariorol") UsuarioRol ru) {
 		
+		if (!this.opQuitarRol) {
+			
+			this.mensajeError("No tienes permisos para Borrar Roles a un Usuario.");
+			
+			return;
+			
+		}
 		
 		this.mensajeEliminar("El Rol "+ru.getRol().getRol()+" sera removido del Usuario "+ru.getUsuario().getAccount()+" \n Continuar?",  
 				new EventListener() {
@@ -283,6 +294,12 @@ public class UsuarioVM extends TemplateViewModel {
 	@Command
 	@NotifyChange({"lRolesUsuarios","buscarRol"})
 	public void agregarRol() {
+		
+		if (!this.opAgregarRol) {
+			
+			this.mensajeError("No tienes permiso para agregar un Rol al Usuario. ");
+			return;
+		}
 		
 		if (this.buscarSelectedRol == null) {
 			
@@ -395,6 +412,22 @@ public class UsuarioVM extends TemplateViewModel {
 
 	public void setOpBorrarUsuario(boolean opBorrarUsuario) {
 		this.opBorrarUsuario = opBorrarUsuario;
+	}
+
+	public boolean isOpAgregarRol() {
+		return opAgregarRol;
+	}
+
+	public void setOpAgregarRol(boolean opAgregarRol) {
+		this.opAgregarRol = opAgregarRol;
+	}
+
+	public boolean isOpQuitarRol() {
+		return opQuitarRol;
+	}
+
+	public void setOpQuitarRol(boolean opQuitarRol) {
+		this.opQuitarRol = opQuitarRol;
 	}
 
 }

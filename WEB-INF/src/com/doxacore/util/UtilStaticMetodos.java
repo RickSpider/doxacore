@@ -90,7 +90,19 @@ public class UtilStaticMetodos {
 		op4.setOperacion("BorrarUsuario");
 		op4.setDescripcion("Borrar Usuario");
 		op4.setModulo(m1);
-		op4 = reg.saveObject(op4, "System");	
+		op4 = reg.saveObject(op4, "System");
+		
+		Operacion op4x1 = new Operacion();
+		op4x1.setOperacion("AgregarRol");
+		op4x1.setDescripcion("Agregar Rol");
+		op4x1.setModulo(m1);
+		op4x1 = reg.saveObject(op4x1, "System");
+		
+		Operacion op4x2 = new Operacion();
+		op4x2.setOperacion("QuitarRol");
+		op4x2.setDescripcion("Quitar Rol");
+		op4x2.setModulo(m1);
+		op4x2 = reg.saveObject(op4x2, "System");
 		
 		System.out.println("Asociando Operaciones con rol");
 		
@@ -113,6 +125,16 @@ public class UtilStaticMetodos {
 		ro4.setRol(rolMaster);
 		ro4.setOperacion(op4);
 		reg.saveObject(ro4, "System");
+		
+		RolOperacion ro4x1 = new RolOperacion();
+		ro4x1.setRol(rolMaster);
+		ro4x1.setOperacion(op4x1);
+		reg.saveObject(ro4x1, "System");
+		
+		RolOperacion ro4x2 = new RolOperacion();
+		ro4x2.setRol(rolMaster);
+		ro4x2.setOperacion(op4x2);
+		reg.saveObject(ro4x2, "System");
 		
 		
 		System.out.println("Creando Modulo Rol");
@@ -151,6 +173,18 @@ public class UtilStaticMetodos {
 		op8.setModulo(m2);
 		op8 = reg.saveObject(op8, "System");	
 		
+		Operacion op8x1 = new Operacion();
+		op8x1.setOperacion("AgregarOperacion");
+		op8x1.setDescripcion("Agregar Operacion");
+		op8x1.setModulo(m2);
+		op8x1 = reg.saveObject(op8x1, "System");
+		
+		Operacion op8x2 = new Operacion();
+		op8x2.setOperacion("QuitarOperacion");
+		op8x2.setDescripcion("Quitar Operacion");
+		op8x2.setModulo(m2);
+		op8x2 = reg.saveObject(op8x2, "System");
+		
 		System.out.println("Asociando Roles con Operaciones");
 		RolOperacion ro5 = new RolOperacion();
 		ro5.setRol(rolMaster);
@@ -171,6 +205,16 @@ public class UtilStaticMetodos {
 		ro8.setRol(rolMaster);
 		ro8.setOperacion(op8);
 		reg.saveObject(ro8, "System");
+		
+		RolOperacion ro8x1 = new RolOperacion();
+		ro8x1.setRol(rolMaster);
+		ro8x1.setOperacion(op8x1);
+		reg.saveObject(ro8x1, "System");
+		
+		RolOperacion ro8x2 = new RolOperacion();
+		ro8x2.setRol(rolMaster);
+		ro8x2.setOperacion(op8x2);
+		reg.saveObject(ro8x2, "System");
 		
 		
 		
@@ -210,6 +254,24 @@ public class UtilStaticMetodos {
 		op12.setModulo(m3);
 		op12 = reg.saveObject(op12, "System");
 		
+		Operacion op12x1 = new Operacion();
+		op12x1.setOperacion("CrearOperacion");
+		op12x1.setDescripcion("Crear Operacion");
+		op12x1.setModulo(m3);
+		op12x1 = reg.saveObject(op12x1, "System");
+		
+		Operacion op12x2 = new Operacion();
+		op12x2.setOperacion("BorrarOperacion");
+		op12x2.setDescripcion("Borrar Operacion");
+		op12x2.setModulo(m3);
+		op12x2 = reg.saveObject(op12x2, "System");
+		
+		Operacion op12x3 = new Operacion();
+		op12x3.setOperacion("EditarOperacion");
+		op12x3.setDescripcion("Editar Operacion");
+		op12x3.setModulo(m3);
+		op12x3 = reg.saveObject(op12x3, "System");
+		
 		System.out.println("Asociando Roles con Operaciones");
 		RolOperacion ro9 = new RolOperacion();
 		ro9.setRol(rolMaster);
@@ -230,6 +292,21 @@ public class UtilStaticMetodos {
 		ro12.setRol(rolMaster);
 		ro12.setOperacion(op12);
 		reg.saveObject(ro12, "System");
+		
+		RolOperacion ro12x1 = new RolOperacion();
+		ro12x1.setRol(rolMaster);
+		ro12x1.setOperacion(op12x1);
+		reg.saveObject(ro12x1, "System");
+		
+		RolOperacion ro12x2 = new RolOperacion();
+		ro12x2.setRol(rolMaster);
+		ro12x2.setOperacion(op12x2);
+		reg.saveObject(ro12x2, "System");
+		
+		RolOperacion ro12x3 = new RolOperacion();
+		ro12x3.setRol(rolMaster);
+		ro12x3.setOperacion(op12x3);
+		reg.saveObject(ro12x3, "System");
 		
 		
 		
@@ -269,6 +346,25 @@ public class UtilStaticMetodos {
 		op16.setModulo(m4);
 		op16 = reg.saveObject(op16, "System");
 		
+		Operacion op16x1 = new Operacion();
+		op16x1.setOperacion("CrearTipo");
+		op16x1.setDescripcion("Crear Tipo");
+		op16x1.setModulo(m4);
+		op16x1 = reg.saveObject(op16x1, "System");
+		
+		Operacion op16x2 = new Operacion();
+		op16x2.setOperacion("BorrarTipo");
+		op16x2.setDescripcion("Borrar Tipo");
+		op16x2.setModulo(m4);
+		op16x2 = reg.saveObject(op16x2, "System");
+		
+		Operacion op16x3 = new Operacion();
+		op16x3.setOperacion("EditarTipo");
+		op16x3.setDescripcion("Editar Tipo");
+		op16x3.setModulo(m4);
+		op16x3 = reg.saveObject(op16x3, "System");
+		
+		
 		
 		//Agregar operaciones a roles
 		System.out.println("Asociando Roles con Operaciones");
@@ -291,6 +387,21 @@ public class UtilStaticMetodos {
 		ro16.setRol(rolMaster);
 		ro16.setOperacion(op16);
 		reg.saveObject(ro16, "System");
+		
+		RolOperacion ro16x1 = new RolOperacion();
+		ro16x1.setRol(rolMaster);
+		ro16x1.setOperacion(op16x1);
+		reg.saveObject(ro16x1, "System");
+		
+		RolOperacion ro16x2 = new RolOperacion();
+		ro16x2.setRol(rolMaster);
+		ro16x2.setOperacion(op16x2);
+		reg.saveObject(ro16x2, "System");
+		
+		RolOperacion ro16x3 = new RolOperacion();
+		ro16x3.setRol(rolMaster);
+		ro16x3.setOperacion(op16x3);
+		reg.saveObject(ro16x3, "System");
 		
 		
 		

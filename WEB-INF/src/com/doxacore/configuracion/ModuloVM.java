@@ -33,6 +33,10 @@ public class ModuloVM extends TemplateViewModel {
 	private boolean opCrearModulo;
 	private boolean opEditarModulo;
 	private boolean opBorrarModulo;
+	
+	private boolean opCrearOperacion;
+	private boolean opEditarOperacion;
+	private boolean opBorrarOperacion;
 
 	@Init(superclass = true)
 	public void initModuloVM() {
@@ -53,6 +57,10 @@ public class ModuloVM extends TemplateViewModel {
 		this.opCrearModulo = this.operacionHabilitada(Params.OP_CREAR_MODULO);
 		this.opEditarModulo = this.operacionHabilitada(Params.OP_EDITAR_MODULO);
 		this.opBorrarModulo = this.operacionHabilitada(Params.OP_BORRAR_MODULO);
+		
+		this.opCrearOperacion = this.operacionHabilitada(Params.OP_CREAR_OPERACION);
+		this.opEditarOperacion = this.operacionHabilitada(Params.OP_EDITAR_OPERACION);
+		this.opBorrarOperacion = this.operacionHabilitada(Params.OP_BORRAR_OPERACION);
 		
 	}
 
@@ -202,6 +210,12 @@ public class ModuloVM extends TemplateViewModel {
 	
 	@Command
 	public void modalOperacionAgregar() {
+		
+		if (!this.opCrearOperacion) {
+			this.mensajeError("No tienes permisos para Crear Operaciones.");
+			return;
+		}
+			
 
 		if (this.moduloSelectedOperacion == null) {
 			
@@ -217,6 +231,14 @@ public class ModuloVM extends TemplateViewModel {
 	public void modalOperacion(@BindingParam("operacionid") long operacionid) {
 
 		if (operacionid != -1) {
+			
+			if (!this.opEditarOperacion) {
+				
+				this.mensajeError("No tiees permiso para editar la Operacion.");
+				
+				return;
+				
+			}
 
 			this.operacionSelected = this.reg.getObjectById(Operacion.class.getName(), operacionid);
 			this.editar = true;
@@ -261,6 +283,12 @@ public class ModuloVM extends TemplateViewModel {
 	@Command
 	@NotifyChange("lOperacionesModulos")
 	public void borrarOperacionConfirmacion(@BindingParam("operacion") Operacion operacion) {
+		
+		if (!this.opBorrarOperacion) {
+			
+			this.mensajeError("No tienes permiso para borrar la operacion.");
+			return;
+		}
 
 		this.mensajeEliminar("El Modulo sera eliminado. \n Continuar?", new EventListener() {
 
@@ -361,6 +389,30 @@ public class ModuloVM extends TemplateViewModel {
 
 	public void setOpBorrarModulo(boolean opBorrarModulo) {
 		this.opBorrarModulo = opBorrarModulo;
+	}
+
+	public boolean isOpCrearOperacion() {
+		return opCrearOperacion;
+	}
+
+	public void setOpCrearOperacion(boolean opCrearOperacion) {
+		this.opCrearOperacion = opCrearOperacion;
+	}
+
+	public boolean isOpEditarOperacion() {
+		return opEditarOperacion;
+	}
+
+	public void setOpEditarOperacion(boolean opEditarOperacion) {
+		this.opEditarOperacion = opEditarOperacion;
+	}
+
+	public boolean isOpBorrarOperacion() {
+		return opBorrarOperacion;
+	}
+
+	public void setOpBorrarOperacion(boolean opBorrarOperacion) {
+		this.opBorrarOperacion = opBorrarOperacion;
 	}
 
 	

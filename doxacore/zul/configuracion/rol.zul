@@ -165,7 +165,7 @@
 						</bandbox>
 						
 						<button iconSclass=" z-icon-plus"
-							onClick="@command('agregarOperacion')"  />
+							onClick="@command('agregarOperacion')"  disabled="@load(!vm.opAgregarOperacion)"/>
 						
 					</hbox>
 
@@ -205,7 +205,7 @@
 										<button
 											iconSclass="z-icon-trash-o" style="background-color:red"
 											onClick="@command('borrarOperacionConfirmacion', RolOperacion=each)"
-											tooltiptext="Borrar" />
+											tooltiptext="Borrar" disabled="@load(!vm.opQuitarOperacion)" />
 											
 									</hlayout>
 

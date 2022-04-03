@@ -124,7 +124,7 @@
 					<hbox pack="end" hflex="1">
 
 						<button label="Agregar" iconSclass=" z-icon-plus"
-							onClick="@command('modalTipoAgregar')" />  
+							onClick="@command('modalTipoAgregar')" disabled="@load(!vm.opCrearTipo)" />  
 
 					</hbox>
 
@@ -165,11 +165,11 @@
 									
 										<button iconSclass="z-icon-edit"
 											onClick="@command('modalTipo', tipoid=each.tipoid)"
-											tooltiptext="Editar" />
+											tooltiptext="Editar" disabled="@load(!vm.opEditarTipo)"/>
 										<button
 											iconSclass="z-icon-trash-o" style="background-color:red"
 											onClick="@command('borrarTipoConfirmacion', tipo=each)"
-											tooltiptext="Borrar" />
+											tooltiptext="Borrar" disabled="@load(!vm.opBorrarTipo)"/>
 											
 									</hlayout>
 

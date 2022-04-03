@@ -5,18 +5,30 @@ public class Params {
 	public static final String OP_CREAR_USUARIO = "CrearUsuario";
 	public static final String OP_EDITAR_USUARIO = "EditarUsuario";
 	public static final String OP_BORRAR_USUARIO = "BorrarUsuario";
+	public static final String OP_AGREGAR_ROL = "AgregarRol";
+	public static final String OP_QUITAR_ROL = "QuitarRol";
 	
 	public static final String OP_CREAR_ROL = "CrearRol";
 	public static final String OP_EDITAR_ROL = "EditarRol";
 	public static final String OP_BORRAR_ROL = "BorrarRol";
+	public static final String OP_AGREGAR_OPERACION = "AgregarOperacion";
+	public static final String OP_QUITAR_OPERACION = "QuitarOperacion";
 	
 	public static final String OP_CREAR_MODULO = "CrearModulo";
 	public static final String OP_EDITAR_MODULO = "EditarModulo";
 	public static final String OP_BORRAR_MODULO = "BorrarModulo";
 	
+	public static final String OP_CREAR_OPERACION = "CrearOperacion";
+	public static final String OP_EDITAR_OPERACION = "EditarOperacion";
+	public static final String OP_BORRAR_OPERACION = "BorrarOperacion";
+	
 	public static final String OP_CREAR_TIPOTIPO = "CrearTipotipo";
 	public static final String OP_EDITAR_TIPOTIPO = "EditarTipotipo";
 	public static final String OP_BORRAR_TIPOTIPO = "BorrarTipotipo";
+	
+	public static final String OP_CREAR_TIPO = "CrearTipo";
+	public static final String OP_EDITAR_TIPO = "EditarTipo";
+	public static final String OP_BORRAR_TIPO = "BorrarTipo";
 	
 
 }

@@ -33,6 +33,8 @@ public class RolVM extends TemplateViewModel{
 	private boolean opCrearRol;
 	private boolean opEditarRol;
 	private boolean opBorrarRol;
+	private boolean opAgregarOperacion;
+	private boolean opQuitarOperacion;
 	
 	@Init(superclass = true)
 	public void initRolVM() {
@@ -53,6 +55,8 @@ public class RolVM extends TemplateViewModel{
 		this.opCrearRol = this.operacionHabilitada(Params.OP_CREAR_ROL);
 		this.opEditarRol = this.operacionHabilitada(Params.OP_EDITAR_ROL);
 		this.opBorrarRol = this.operacionHabilitada(Params.OP_BORRAR_ROL);
+		this.opAgregarOperacion = this.operacionHabilitada(Params.OP_AGREGAR_OPERACION);
+		this.opQuitarOperacion = this.operacionHabilitada(Params.OP_QUITAR_OPERACION);
 		
 	}
 	
@@ -213,6 +217,13 @@ public class RolVM extends TemplateViewModel{
 	@Command
 	public void borrarOperacionConfirmacion(@BindingParam("RolOperacion") RolOperacion ro) {
 		
+		if (!this.opQuitarOperacion) {
+			
+			this.mensajeError("No Tienes Permisos para Quitar Operaciones al Rol");
+			return;
+			
+		}
+		
 		
 		this.mensajeEliminar("La Operacion "+ro.getOperacion().getOperacion()+" sera removido del Rol "+ro.getRol().getRol()+" \n Continuar?",  
 				new EventListener() {
@@ -319,6 +330,13 @@ public class RolVM extends TemplateViewModel{
 	@Command
 	@NotifyChange({"lOperacionesRoles","buscarOperacion"})
 	public void agregarOperacion() {
+		
+		if (!this.opAgregarOperacion) {
+			
+			this.mensajeError("No Tienes Permisos para agregar Operaciones al Rol");
+			return;
+			
+		}
 		
 		if (this.buscarSelectedOperacion == null) {
 			
@@ -430,6 +448,22 @@ public class RolVM extends TemplateViewModel{
 
 	public void setOpBorrarRol(boolean opBorrarRol) {
 		this.opBorrarRol = opBorrarRol;
+	}
+
+	public boolean isOpAgregarOperacion() {
+		return opAgregarOperacion;
+	}
+
+	public void setOpAgregarOperacion(boolean opAgregarOperacion) {
+		this.opAgregarOperacion = opAgregarOperacion;
+	}
+
+	public boolean isOpQuitarOperacion() {
+		return opQuitarOperacion;
+	}
+
+	public void setOpQuitarOperacion(boolean opQuitarOperacion) {
+		this.opQuitarOperacion = opQuitarOperacion;
 	}
 	
 	

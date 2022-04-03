@@ -138,7 +138,7 @@
 					<hbox pack="end" hflex="1">
 
 						<button label="Agregar" iconSclass=" z-icon-plus"
-							onClick="@command('modalOperacionAgregar')" />  
+							onClick="@command('modalOperacionAgregar')" disbaled="@load(!vm.opCrearOperacion)"/>  
 
 					</hbox>
 
@@ -188,11 +188,11 @@
 									
 										<button iconSclass="z-icon-edit"
 											onClick="@command('modalOperacion', operacionid=each.operacionid)"
-											tooltiptext="Editar" />
+											tooltiptext="Editar" disable="@load(!vm.opEditarOperacion)"/>
 										<button
 											iconSclass="z-icon-trash-o" style="background-color:red"
 											onClick="@command('borrarOperacionConfirmacion', operacion=each)"
-											tooltiptext="Borrar" />
+											tooltiptext="Borrar" disabled="@load(!vm.opBorrarOperacion)"/>
 											
 									</hlayout>
 

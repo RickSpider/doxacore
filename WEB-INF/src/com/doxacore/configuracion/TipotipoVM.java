@@ -34,6 +34,10 @@ public class TipotipoVM extends TemplateViewModel{
 	private boolean opEditarTipotipo;
 	private boolean opBorrarTipotipo;
 	
+	private boolean opCrearTipo;
+	private boolean opEditarTipo;
+	private boolean opBorrarTipo;
+	
 	@Init(superclass = true)
 	public void initTipotipoVM() {
 
@@ -53,6 +57,11 @@ public class TipotipoVM extends TemplateViewModel{
 		this.opCrearTipotipo = this.operacionHabilitada(Params.OP_CREAR_TIPOTIPO);
 		this.opEditarTipotipo = this.operacionHabilitada(Params.OP_EDITAR_TIPOTIPO);
 		this.opBorrarTipotipo = this.operacionHabilitada(Params.OP_BORRAR_TIPOTIPO);
+		
+
+		this.opCrearTipo = this.operacionHabilitada(Params.OP_CREAR_TIPO);
+		this.opEditarTipo = this.operacionHabilitada(Params.OP_EDITAR_TIPO);
+		this.opBorrarTipo = this.operacionHabilitada(Params.OP_BORRAR_TIPO);
 		
 	}
 	
@@ -202,6 +211,13 @@ public class TipotipoVM extends TemplateViewModel{
 		
 		@Command
 		public void modalTipoAgregar() {
+			
+			if (!this.opCrearTipo) {
+				
+				this.mensajeError("No tienes permiso para Crear un Tipo.");
+				return;
+				
+			}
 
 			if (this.tipotipoSelectedTipo == null) {
 				
@@ -217,6 +233,13 @@ public class TipotipoVM extends TemplateViewModel{
 		public void modalTipo(@BindingParam("tipoid") long tipoid) {
 
 			if (tipoid != -1) {
+				
+				if (!this.opEditarTipo) {
+					
+					this.mensajeError("No tienes permiso para editar el Tipo.");
+					return;
+					
+				}
 
 				this.tipoSelected = this.reg.getObjectById(Tipo.class.getName(), tipoid);
 				this.editar = true;
@@ -263,6 +286,13 @@ public class TipotipoVM extends TemplateViewModel{
 		@Command
 		@NotifyChange("lTiposTipotipos")
 		public void borrarTipoConfirmacion(@BindingParam("tipo") Tipo tipo) {
+			
+			if (!this.opBorrarTipo) {
+				
+				this.mensajeError("No tienes permiso para borrar el Tipo.");
+				return;
+				
+			}
 
 			this.mensajeEliminar("El Tipo sera eliminado. \n Continuar?", new EventListener() {
 
@@ -372,6 +402,30 @@ public class TipotipoVM extends TemplateViewModel{
 
 		public void setTipoSelected(Tipo tipoSelected) {
 			this.tipoSelected = tipoSelected;
+		}
+
+		public boolean isOpCrearTipo() {
+			return opCrearTipo;
+		}
+
+		public void setOpCrearTipo(boolean opCrearTipo) {
+			this.opCrearTipo = opCrearTipo;
+		}
+
+		public boolean isOpEditarTipo() {
+			return opEditarTipo;
+		}
+
+		public void setOpEditarTipo(boolean opEditarTipo) {
+			this.opEditarTipo = opEditarTipo;
+		}
+
+		public boolean isOpBorrarTipo() {
+			return opBorrarTipo;
+		}
+
+		public void setOpBorrarTipo(boolean opBorrarTipo) {
+			this.opBorrarTipo = opBorrarTipo;
 		}
 		
 		
