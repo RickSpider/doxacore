@@ -21,6 +21,7 @@ import com.doxacore.modelo.Operacion;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.util.Register;
 import com.doxacore.util.UtilControlOperaciones;
+import com.doxacore.util.UtilMetodos;
 
 public abstract class TemplateViewModel {
 
@@ -29,12 +30,14 @@ public abstract class TemplateViewModel {
 	protected UtilControlOperaciones uco;
 	protected List<Operacion> lOperacionesModulo;
 	protected List<Object[]> lUsuarioModuloOperaciones;
+	protected UtilMetodos um;
 	
 	@Init
 	public void initTemplateViewModel(@ContextParam(ContextType.VIEW) Component view, @ExecutionParam("arg") String arg) {
 
 		this.reg = new Register();
 		this.uco = new UtilControlOperaciones();
+		this.um = new UtilMetodos();
 		this.mainComponent = view;
 		
 		//System.out.println("EL CURRENT MODULO NAME ES "+currentModuloName);

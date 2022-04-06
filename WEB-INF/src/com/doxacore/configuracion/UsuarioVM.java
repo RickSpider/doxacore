@@ -21,8 +21,14 @@ import com.doxacore.TemplateViewModel;
 import com.doxacore.modelo.Rol;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.modelo.UsuarioRol;
+import com.doxacore.report.CustomDataSource;
+import com.doxacore.report.ReportConfig;
 import com.doxacore.util.Params;
+import com.doxacore.util.SystemInfo;
 import com.doxacore.util.UtilStaticMetodos;
+
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class UsuarioVM extends TemplateViewModel {
 
@@ -330,10 +336,38 @@ public class UsuarioVM extends TemplateViewModel {
 
 	}
 	
-	
 
 	// fins buscador
 
+	private ReportConfig reportConfig = null;
+	
+	@Command
+	public void generarReporte() {
+		
+		String usuarioReportSQL = this.um.getSql("usuarioReporte.sql");
+		
+		List<Object[]> data = this.reg.sqlNativo(usuarioReportSQL);
+		String[] columns = {"usuarioid", "account", "email"};
+		
+	
+		
+		CustomDataSource cds = new CustomDataSource(data, columns);
+		reportConfig = new ReportConfig("/reportTemplate/usuarioReport.jasper");
+		reportConfig.setDataSource(cds);
+		
+		
+		modal = (Window) Executions.createComponents("/doxacore/zul/report/reportModal.zul", this.mainComponent,
+				null);
+		Selectors.wireComponents(modal, this, false);
+		modal.doModal();
+	}
+	
+	public ReportConfig getReportConfig() {
+		
+		return this.reportConfig;
+	}
+	
+	
 	public List<Usuario> getlUsuarios() {
 		return lUsuarios;
 	}

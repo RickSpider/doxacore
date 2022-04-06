@@ -11,6 +11,11 @@
 				<vlayout hflex="1" vflex="1">
 
 					<hbox pack="end" hflex="1">
+					
+						<button label="Reporte"
+							onClick="@command('generarReporte')" 
+							/>
+					
 
 						<button label="Agregar"
 							iconSclass=" z-icon-plus"
