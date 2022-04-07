@@ -28,9 +28,17 @@ public class CustomDataSource implements JRDataSource{
 		
 		for (int i = 0; i<columns.length ; i++) {
 			
-			if (columns[0].compareTo(fieldName)==0) {
+			
+			
+			if (columns[i].compareTo(fieldName)==0) {
+				
+				System.out.println("column: "+columns[i]);
+				System.out.println("fieldName: "+fieldName);
+				
 				
 				value = data.get(index)[i];
+				
+				System.out.println("cargue value: "+value.toString());
 				
 				break;
 			}

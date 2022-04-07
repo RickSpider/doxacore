@@ -4,11 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.criterion.Order;
 import org.hibernate.query.Query;
+import org.hibernate.type.StandardBasicTypes;
 
 import com.doxacore.modelo.Modelo;
-import com.doxacore.modelo.Usuario;
+
 
 public class Register {
 	
@@ -103,6 +103,13 @@ public class Register {
 		Session sess = currentSession();
 		
 		return sess.createSQLQuery(sql).list();
+	}
+	
+	public synchronized List<Object[]> sqlNativo(String sql, String columnIdName){
+		
+		Session sess = currentSession();
+		
+		return sess.createSQLQuery(sql).addScalar(columnIdName, StandardBasicTypes.LONG).list();
 	}
 	
 	

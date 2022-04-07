@@ -6,7 +6,6 @@ import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
-import org.zkoss.bind.annotation.ExecutionArgParam;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
@@ -24,11 +23,8 @@ import com.doxacore.modelo.UsuarioRol;
 import com.doxacore.report.CustomDataSource;
 import com.doxacore.report.ReportConfig;
 import com.doxacore.util.Params;
-import com.doxacore.util.SystemInfo;
 import com.doxacore.util.UtilStaticMetodos;
 
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.view.JasperViewer;
 
 public class UsuarioVM extends TemplateViewModel {
 
@@ -341,15 +337,14 @@ public class UsuarioVM extends TemplateViewModel {
 
 	private ReportConfig reportConfig = null;
 	
-	@Command
+	@Command("generarReporte")
+	@NotifyChange("reportConfig")
 	public void generarReporte() {
 		
 		String usuarioReportSQL = this.um.getSql("usuarioReporte.sql");
 		
 		List<Object[]> data = this.reg.sqlNativo(usuarioReportSQL);
 		String[] columns = {"usuarioid", "account", "email"};
-		
-	
 		
 		CustomDataSource cds = new CustomDataSource(data, columns);
 		reportConfig = new ReportConfig("/reportTemplate/usuarioReport.jasper");
@@ -362,10 +357,7 @@ public class UsuarioVM extends TemplateViewModel {
 		modal.doModal();
 	}
 	
-	public ReportConfig getReportConfig() {
-		
-		return this.reportConfig;
-	}
+
 	
 	
 	public List<Usuario> getlUsuarios() {
@@ -462,6 +454,14 @@ public class UsuarioVM extends TemplateViewModel {
 
 	public void setOpQuitarRol(boolean opQuitarRol) {
 		this.opQuitarRol = opQuitarRol;
+	}
+
+	public ReportConfig getReportConfig() {
+		return reportConfig;
+	}
+
+	public void setReportConfig(ReportConfig reportConfig) {
+		this.reportConfig = reportConfig;
 	}
 
 }
