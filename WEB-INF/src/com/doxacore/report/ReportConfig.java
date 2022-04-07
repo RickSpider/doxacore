@@ -3,6 +3,11 @@ package com.doxacore.report;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.select.Selectors;
+import org.zkoss.zul.Window;
+
 import com.doxacore.util.SystemInfo;
 
 import net.sf.jasperreports.engine.JRDataSource;
@@ -10,14 +15,17 @@ import net.sf.jasperreports.engine.JRParameter;
 
 public class ReportConfig {
 
-	private String source = "/reportTemplate/jasperreport.jasper";
+	private Component view;
+	private String source = "/reportTemplate/";
    // private Map<String, Object> parameters;
     private JRDataSource dataSource;
-   
- 
-    public ReportConfig(String source) {
-    	this.source = source;
-       /* parameters = new HashMap<String, Object>();
+    
+    public ReportConfig(Component view,String source, JRDataSource dataSource) {
+    	this.source += source;
+    	this.view = view;
+    	this.dataSource= dataSource;
+       
+    	/* parameters = new HashMap<String, Object>();
         parameters.put("ReportTitle", "Address Report");
         parameters.put("DataFile", "CustomDataSource from java xx");*/
     }
@@ -25,6 +33,16 @@ public class ReportConfig {
  
     public String getSource() {
         return source;
+    }
+    
+    public void showReport() {
+    	
+    	Window modal = (Window) Executions.createComponents("/doxacore/zul/report/reportModal.zul", this.view,
+				null);
+		Selectors.wireComponents(modal, this, false);
+		modal.doModal();
+    	
+    	
     }
  
    /* public Map<String, Object> getParameters() {

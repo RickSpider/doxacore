@@ -347,18 +347,10 @@ public class UsuarioVM extends TemplateViewModel {
 		String[] columns = {"usuarioid", "account", "email"};
 		
 		CustomDataSource cds = new CustomDataSource(data, columns);
-		reportConfig = new ReportConfig("/reportTemplate/usuarioReport.jasper");
-		reportConfig.setDataSource(cds);
-		
-		
-		modal = (Window) Executions.createComponents("/doxacore/zul/report/reportModal.zul", this.mainComponent,
-				null);
-		Selectors.wireComponents(modal, this, false);
-		modal.doModal();
-	}
-	
+		reportConfig = new ReportConfig(this.mainComponent, "usuarioReport.jasper", cds);
+		reportConfig.showReport();
 
-	
+	}
 	
 	public List<Usuario> getlUsuarios() {
 		return lUsuarios;
@@ -458,10 +450,6 @@ public class UsuarioVM extends TemplateViewModel {
 
 	public ReportConfig getReportConfig() {
 		return reportConfig;
-	}
-
-	public void setReportConfig(ReportConfig reportConfig) {
-		this.reportConfig = reportConfig;
 	}
 
 }
