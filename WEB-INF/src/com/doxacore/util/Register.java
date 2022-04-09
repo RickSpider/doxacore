@@ -105,12 +105,4 @@ public class Register {
 		return sess.createSQLQuery(sql).list();
 	}
 	
-	public synchronized List<Object[]> sqlNativo(String sql, String columnIdName){
-		
-		Session sess = currentSession();
-		
-		return sess.createSQLQuery(sql).addScalar(columnIdName, StandardBasicTypes.LONG).list();
-	}
-	
-	
 }

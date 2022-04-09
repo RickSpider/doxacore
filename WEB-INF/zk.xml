@@ -5,8 +5,9 @@
 <zk>
 	<device-config>
 		<device-type>ajax</device-type>
-		<timeout-uri>/timeout.zul</timeout-uri><!-- An empty URL can cause the 
-			browser to reload the same URL -->
+		<automatic-timeout>true</automatic-timeout>
+		<timeout-uri>/timeout.zul</timeout-uri>
+		<session-timeout>3600000</session-timeout>
 	</device-config>
 
 	<listener>
