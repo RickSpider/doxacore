@@ -37,9 +37,9 @@ public class MainVM {
 		initListaModulos();
 		initPageMap();
 
-		currentPage = pageMap.get("Main").get("Blank");
+		//currentPage = pageMap.get("Main").get("Blank");
 
-		pageMap.get("Main").values().size();
+		//pageMap.get("Main").values().size();
 	}
 
 	private void initListaModulos() {
@@ -117,7 +117,7 @@ public class MainVM {
 	private void initPageMap() throws InvalidFileFormatException, IOException {
 		pageMap = new LinkedHashMap<String, Map<String, NavigationPage>>();
 
-		addPage("Main", "Blank", "/doxacore/zul/blank.zul");
+		//addPage("Main", "Blank", "/doxacore/zul/blank.zul");
 
 		for (Modulo m : lModulos) {
 
