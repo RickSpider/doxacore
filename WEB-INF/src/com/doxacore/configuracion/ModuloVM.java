@@ -19,6 +19,8 @@ import org.zkoss.zul.Window;
 import com.doxacore.TemplateViewModel;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
+import com.doxacore.modelo.Rol;
+import com.doxacore.modelo.RolOperacion;
 import com.doxacore.util.Params;
 
 public class ModuloVM extends TemplateViewModel {
@@ -261,9 +263,7 @@ public class ModuloVM extends TemplateViewModel {
 	@NotifyChange("lOperacionesModulos")
 	public void guardarOperacion() {
 		
-		this.save(operacionSelected);
-
-		this.operacionSelected = null;
+		operacionSelected = this.save(operacionSelected);
 
 		this.refrescarOperaciones(this.moduloSelectedOperacion);
 
@@ -274,9 +274,22 @@ public class ModuloVM extends TemplateViewModel {
 			Notification.show("La Operación fue Actualizada.");
 			this.editar = false;
 		} else {
+			
+			//agregar al rol master la nueva operacion
+			
+			Rol rol = this.reg.getObjectByColumnString(Rol.class.getName(), "rol", "Master");
+			
+			RolOperacion ro = new RolOperacion();
+			
+			ro.setRol(rol);
+			ro.setOperacion(operacionSelected);
+			
+			this.save(ro);
 
 			Notification.show("La Operación fue agregada.");
 		}
+		
+		this.operacionSelected = null;
 
 	}
 	
