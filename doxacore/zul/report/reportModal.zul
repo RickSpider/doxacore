@@ -2,7 +2,7 @@
 <zk>
 	<window title="Reporte" border="normal"
 		position="center,center" closable="true"
-		action="show: slideDown;hide: slideUp" width= "800px" height="860px">
+		action="show: slideDown;hide: slideUp" width= "80%" height="80%">
 		
 		<jasperreport id="report"
         src="@load(vm.reportConfig.source)"
