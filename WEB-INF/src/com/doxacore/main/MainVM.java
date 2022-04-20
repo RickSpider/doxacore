@@ -101,7 +101,7 @@ public class MainVM {
 		
 		try {
 			Wini ini = new Wini(new File(SystemInfo.SISTEMA_PATH_ABSOLUTO + "/WEB-INF/sistema.ini"));
-			out =  "/"+ini.get("Sistema", "Nombre")+"/menu.zul";
+			out =  "/"+ini.get("Sistema", "Directorio")+"/menu.zul";
 		} catch (InvalidFileFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
