@@ -32,7 +32,7 @@ public class Pais extends Modelo implements Serializable {
 
 	@Override
 	public String getStringDatos() {
-		return this.paisid + " " + this.pais;
+		return this.paisid + " " + this.pais + " " + this.gentilicio;
 	}
 
 	public Long getPaisid() {

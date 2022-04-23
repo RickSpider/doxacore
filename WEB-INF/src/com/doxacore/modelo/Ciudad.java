@@ -25,20 +25,20 @@ public class Ciudad extends Modelo implements Serializable {
 	private String ciudad;
 	
 	@ManyToOne
-	@JoinColumn(name = "paisid")
-	private Pais pais;
+	@JoinColumn(name = "departamentoid")
+	private Departamento departamento;
 
 	@Override
 	public Object[] getArrayObjectDatos() {
 		
-		Object[] o = {this.ciudad};
+		Object[] o = {this.ciudad, this.departamento.getDepartamento(),  this.departamento.getPais().getPais()};
 		
 		return o;
 	}
 
 	@Override
 	public String getStringDatos() {
-		return this.ciudadid + " " + this.ciudad + " " + this.pais.getPais();
+		return this.ciudadid + " " + this.ciudad + " " + this.departamento.getDepartamento() + " " + this.departamento.getPais().getPais();
 	}
 
 	public Long getCiudadid() {
@@ -57,14 +57,13 @@ public class Ciudad extends Modelo implements Serializable {
 		this.ciudad = ciudad;
 	}
 
-	public Pais getPais() {
-		return pais;
+	public Departamento getDepartamento() {
+		return departamento;
 	}
 
-	public void setPais(Pais pais) {
-		this.pais = pais;
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
-	
 
-	
+
 }
