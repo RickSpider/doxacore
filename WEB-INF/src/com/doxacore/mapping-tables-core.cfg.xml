@@ -8,3 +8,5 @@
 <mapping class="com.doxacore.modelo.RolOperacion" />
 <mapping class="com.doxacore.modelo.Tipotipo" />
 <mapping class="com.doxacore.modelo.Tipo" />
+<mapping class="com.doxacore.modelo.Pais" />
+<mapping class="com.doxacore.modelo.Ciudad" />
