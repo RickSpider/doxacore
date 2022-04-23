@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.doxacore.modelo.Usuario;
+import com.doxacore.util.CargarPaisDepartamentoCiudad;
 import com.doxacore.util.Register;
 import com.doxacore.util.UtilStaticMetodos;
 
@@ -24,6 +25,7 @@ public class UserInfoService2Impl implements UserInfoService,Serializable{
 		if (userList.size() == 0 ) {
 			
 			UtilStaticMetodos.generarDatosInicio(r);
+			CargarPaisDepartamentoCiudad.cargarPDC(r);
 			this.cargarListaUsuarios();
 			
 		}
