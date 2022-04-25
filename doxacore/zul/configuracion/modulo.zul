@@ -149,12 +149,9 @@
 						<listhead>
 
 							<listheader width="30px" align="center" />
-							<listheader label="Operacion" align="left"
-								width="100px" />
-							<listheader label="Descripción"
-								align="left" />
-							<listheader label="Abre Modulo"
-								align="left" />
+							<listheader label="Operacion" align="left" />
+							<listheader label="Descripción"	align="left" />
+							<listheader label="Abre Modulo"	align="left" />
 							<listheader align="center" width="100px" />
 
 
