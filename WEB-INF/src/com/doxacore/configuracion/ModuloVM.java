@@ -225,6 +225,8 @@ public class ModuloVM extends TemplateViewModel {
 			return;
 		}
 		
+		this.editar = false;
+		
 		modalOperacion(-1);
 
 	}
