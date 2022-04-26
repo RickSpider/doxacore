@@ -225,6 +225,7 @@ public class TipotipoVM extends TemplateViewModel{
 				return;
 			}
 			
+			this.editar = false;			
 			modalTipo(-1);
 
 		}
