@@ -110,7 +110,7 @@ public abstract class TemplateViewModel {
 
 	protected List<Object[]> filtrarListaObject(String filtro, List<Object[]> listOri) {
 
-		System.out.println("VOY A FILTRAR " + listOri.size());
+		//System.out.println("VOY A FILTRAR " + listOri.size());
 
 		List<Object[]> aux = new ArrayList<Object[]>();
 
