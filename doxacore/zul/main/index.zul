@@ -13,12 +13,18 @@
 		<hlayout sclass="topbar">
 
 			<hlayout hflex="1">
+			
+				<hbox vflex="1" hflex="1" pack="start">
+				
+					<label value="PowerBy DoxaCORE"/>
+				
+				</hbox>
 
-				PowerBy DoxaCORE
+				
 
 				<hbox
-					apply="com.doxacore.login.controller.LogoutController" hflex="1"
-					vflex="1" pack="end">
+					apply="com.doxacore.login.controller.LogoutController" 
+					vflex="1" hflex="1" pack="end">
 
 					<label value="${sessionScope.userCredential.name}"
 						if="${not sessionScope.userCredential.anonymous}" />
