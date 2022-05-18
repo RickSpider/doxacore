@@ -32,6 +32,8 @@ public class UsuarioRolPK implements Serializable {
 		this.rol = rol;
 	}
 	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 }

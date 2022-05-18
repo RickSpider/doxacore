@@ -58,5 +58,9 @@ public class UsuarioRol extends Modelo implements Serializable{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

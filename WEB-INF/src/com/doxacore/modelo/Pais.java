@@ -59,8 +59,8 @@ public class Pais extends Modelo implements Serializable {
 		this.gentilicio = gentilicio;
 	}
 
-	
-	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

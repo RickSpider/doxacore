@@ -65,5 +65,9 @@ public class Ciudad extends Modelo implements Serializable {
 		this.departamento = departamento;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 
 }

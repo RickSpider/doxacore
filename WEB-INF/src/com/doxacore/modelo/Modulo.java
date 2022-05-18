@@ -11,8 +11,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
 
-import com.doxacore.TemplateViewModel;
-
 @Entity
 @Table(name ="modulos")
 public class Modulo extends Modelo implements Serializable {
@@ -106,6 +104,10 @@ public class Modulo extends Modelo implements Serializable {
 
 	public void setHabilitado(boolean habilitado) {
 		this.habilitado = habilitado;
+	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	

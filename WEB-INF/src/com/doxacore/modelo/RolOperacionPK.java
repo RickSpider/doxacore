@@ -38,4 +38,7 @@ public class RolOperacionPK implements Serializable {
 		this.operacion = operacion;
 	}
 	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

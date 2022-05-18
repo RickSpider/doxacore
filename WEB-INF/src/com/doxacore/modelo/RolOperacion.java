@@ -54,5 +54,7 @@ public class RolOperacion extends Modelo implements Serializable {
 		return null;
 	}
 	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

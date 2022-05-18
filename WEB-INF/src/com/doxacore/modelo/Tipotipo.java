@@ -1,5 +1,7 @@
 package com.doxacore.modelo;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name ="tipotipos")
-public class Tipotipo extends Modelo{
+public class Tipotipo extends Modelo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1455281298223200338L;
 	@Id
 	@Column(name ="tipotipoid")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -58,7 +64,9 @@ public class Tipotipo extends Modelo{
 		return o;
 	}
 	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 
 }

@@ -1,5 +1,7 @@
 package com.doxacore.modelo;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name ="tipos")
-public class Tipo extends Modelo{
+public class Tipo extends Modelo implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5708926064943615784L;
 
 	@Id
 	@Column(name ="tipoid")
@@ -79,6 +86,10 @@ public class Tipo extends Modelo{
 	public Object[] getArrayObjectDatos() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

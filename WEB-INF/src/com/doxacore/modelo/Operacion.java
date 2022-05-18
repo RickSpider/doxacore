@@ -89,4 +89,8 @@ public class Operacion extends Modelo implements Serializable {
 		this.abreModulo = abreModulo;
 	}
 	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }

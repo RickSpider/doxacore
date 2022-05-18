@@ -147,5 +147,9 @@ public class Usuario extends Modelo implements Serializable, Cloneable {
 		
 		return o;
 	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

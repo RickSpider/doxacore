@@ -62,6 +62,8 @@ public class Departamento extends Modelo implements Serializable{
 		this.pais = pais;
 	}
 	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 }

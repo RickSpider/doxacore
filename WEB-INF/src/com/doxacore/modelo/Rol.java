@@ -63,6 +63,8 @@ public class Rol extends Modelo implements Serializable{
 		return o;
 	}
 
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 }
