@@ -22,9 +22,9 @@
 
 						<listhead>
 
-							<listheader width="30px" align="center" />
+							<listheader hflex="min" align="center" />
 							<listheader label="ID" align="right"
-								width="30px" />
+								hflex="min" />
 							<listheader label="Rol" align="left"
 								width="100px" />
 							<listheader label="Descripción" align="left"
@@ -135,7 +135,7 @@
 
 										<listhead>
 											<listheader label="ID"
-												width="30px" />
+												hflex="min" />
 											<listheader label="Operacion" />
 											<listheader
 												label="Descripción" />
@@ -175,9 +175,9 @@
 
 						<listhead>
 
-							<listheader width="30px" align="center" />
+							<listheader hflex="min" align="center" />
 							<listheader label="ID" align="right"
-								width="30px" />
+								hflex="min" />
 							<listheader label="Operacion" align="left"
 								width="150px" />
 							<listheader label="Descripción"
