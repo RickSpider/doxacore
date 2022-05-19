@@ -33,8 +33,8 @@ public class RolVM extends TemplateViewModel{
 	private boolean opCrearRol;
 	private boolean opEditarRol;
 	private boolean opBorrarRol;
-	private boolean opAgregarOperacion;
-	private boolean opQuitarOperacion;
+	private boolean opAgregarRolOperacion;
+	private boolean opQuitarRolOperacion;
 	
 	@Init(superclass = true)
 	public void initRolVM() {
@@ -55,8 +55,8 @@ public class RolVM extends TemplateViewModel{
 		this.opCrearRol = this.operacionHabilitada(Params.OP_CREAR_ROL);
 		this.opEditarRol = this.operacionHabilitada(Params.OP_EDITAR_ROL);
 		this.opBorrarRol = this.operacionHabilitada(Params.OP_BORRAR_ROL);
-		this.opAgregarOperacion = this.operacionHabilitada(Params.OP_AGREGAR_OPERACION);
-		this.opQuitarOperacion = this.operacionHabilitada(Params.OP_QUITAR_OPERACION);
+		this.opAgregarRolOperacion = this.operacionHabilitada(Params.OP_AGREGAR_ROL_OPERACION);
+		this.opQuitarRolOperacion = this.operacionHabilitada(Params.OP_QUITAR_ROL_OPERACION);
 		
 	}
 	
@@ -217,7 +217,7 @@ public class RolVM extends TemplateViewModel{
 	@Command
 	public void borrarOperacionConfirmacion(@BindingParam("RolOperacion") RolOperacion ro) {
 		
-		if (!this.opQuitarOperacion) {
+		if (!this.opQuitarRolOperacion) {
 			
 			this.mensajeError("No Tienes Permisos para Quitar Operaciones al Rol");
 			return;
@@ -331,7 +331,7 @@ public class RolVM extends TemplateViewModel{
 	@NotifyChange({"lOperacionesRoles","buscarOperacion"})
 	public void agregarOperacion() {
 		
-		if (!this.opAgregarOperacion) {
+		if (!this.opAgregarRolOperacion) {
 			
 			this.mensajeError("No Tienes Permisos para agregar Operaciones al Rol");
 			return;
@@ -450,21 +450,23 @@ public class RolVM extends TemplateViewModel{
 		this.opBorrarRol = opBorrarRol;
 	}
 
-	public boolean isOpAgregarOperacion() {
-		return opAgregarOperacion;
+	public boolean isOpAgregarRolOperacion() {
+		return opAgregarRolOperacion;
 	}
 
-	public void setOpAgregarOperacion(boolean opAgregarOperacion) {
-		this.opAgregarOperacion = opAgregarOperacion;
+	public void setOpAgregarRolOperacion(boolean opAgregarRolOperacion) {
+		this.opAgregarRolOperacion = opAgregarRolOperacion;
 	}
 
-	public boolean isOpQuitarOperacion() {
-		return opQuitarOperacion;
+	public boolean isOpQuitarRolOperacion() {
+		return opQuitarRolOperacion;
 	}
 
-	public void setOpQuitarOperacion(boolean opQuitarOperacion) {
-		this.opQuitarOperacion = opQuitarOperacion;
+	public void setOpQuitarRolOperacion(boolean opQuitarRolOperacion) {
+		this.opQuitarRolOperacion = opQuitarRolOperacion;
 	}
+
+	
 	
 	
 	

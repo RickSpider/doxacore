@@ -93,14 +93,14 @@ public class UtilStaticMetodos {
 		op4 = reg.saveObject(op4, "System");
 		
 		Operacion op4x1 = new Operacion();
-		op4x1.setOperacion("AgregarRol");
-		op4x1.setDescripcion("Agregar Rol");
+		op4x1.setOperacion("AgregarUsuarioRol");
+		op4x1.setDescripcion("Agregar Usuario Rol");
 		op4x1.setModulo(m1);
 		op4x1 = reg.saveObject(op4x1, "System");
 		
 		Operacion op4x2 = new Operacion();
-		op4x2.setOperacion("QuitarRol");
-		op4x2.setDescripcion("Quitar Rol");
+		op4x2.setOperacion("QuitarUsuarioRol");
+		op4x2.setDescripcion("Quitar Usuario Rol");
 		op4x2.setModulo(m1);
 		op4x2 = reg.saveObject(op4x2, "System");
 		
@@ -174,14 +174,14 @@ public class UtilStaticMetodos {
 		op8 = reg.saveObject(op8, "System");	
 		
 		Operacion op8x1 = new Operacion();
-		op8x1.setOperacion("AgregarOperacion");
-		op8x1.setDescripcion("Agregar Operacion");
+		op8x1.setOperacion("AgregarRolOperacion");
+		op8x1.setDescripcion("Agregar Rol Operacion");
 		op8x1.setModulo(m2);
 		op8x1 = reg.saveObject(op8x1, "System");
 		
 		Operacion op8x2 = new Operacion();
-		op8x2.setOperacion("QuitarOperacion");
-		op8x2.setDescripcion("Quitar Operacion");
+		op8x2.setOperacion("QuitarRolOperacion");
+		op8x2.setDescripcion("Quitar Rol Operacion");
 		op8x2.setModulo(m2);
 		op8x2 = reg.saveObject(op8x2, "System");
 		

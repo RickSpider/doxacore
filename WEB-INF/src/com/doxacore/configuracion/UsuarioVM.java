@@ -38,8 +38,8 @@ public class UsuarioVM extends TemplateViewModel {
 	private boolean opCrearUsuario;
 	private boolean opEditarUsuario;
 	private boolean opBorrarUsuario;
-	private boolean opAgregarRol;
-	private boolean opQuitarRol;
+	private boolean opAgregarUsuarioRol;
+	private boolean opQuitarUsuarioRol;
 
 	@Init(superclass = true)
 	public void initUsuarioVM() {
@@ -60,8 +60,8 @@ public class UsuarioVM extends TemplateViewModel {
 		this.opCrearUsuario = this.operacionHabilitada(Params.OP_CREAR_USUARIO);
 		this.opEditarUsuario = this.operacionHabilitada(Params.OP_EDITAR_USUARIO);
 		this.opBorrarUsuario = this.operacionHabilitada(Params.OP_BORRAR_USUARIO);
-		this.opAgregarRol = this.operacionHabilitada(Params.OP_AGREGAR_ROL);
-		this.opQuitarRol = this.operacionHabilitada(Params.OP_QUITAR_ROL);
+		this.opAgregarUsuarioRol = this.operacionHabilitada(Params.OP_AGREGAR_USUARIO_ROL);
+		this.opQuitarUsuarioRol = this.operacionHabilitada(Params.OP_QUITAR_USUARIO_ROL);
 		
 	}
 
@@ -216,7 +216,7 @@ public class UsuarioVM extends TemplateViewModel {
 	@Command
 	public void borrarRolConfirmacion(@BindingParam("usuariorol") UsuarioRol ru) {
 		
-		if (!this.opQuitarRol) {
+		if (!this.opQuitarUsuarioRol) {
 			
 			this.mensajeError("No tienes permisos para Borrar Roles a un Usuario.");
 			
@@ -297,7 +297,7 @@ public class UsuarioVM extends TemplateViewModel {
 	@NotifyChange({"lRolesUsuarios","buscarRol"})
 	public void agregarRol() {
 		
-		if (!this.opAgregarRol) {
+		if (!this.opAgregarUsuarioRol) {
 			
 			this.mensajeError("No tienes permiso para agregar un Rol al Usuario. ");
 			return;
@@ -432,24 +432,26 @@ public class UsuarioVM extends TemplateViewModel {
 		this.opBorrarUsuario = opBorrarUsuario;
 	}
 
-	public boolean isOpAgregarRol() {
-		return opAgregarRol;
-	}
-
-	public void setOpAgregarRol(boolean opAgregarRol) {
-		this.opAgregarRol = opAgregarRol;
-	}
-
-	public boolean isOpQuitarRol() {
-		return opQuitarRol;
-	}
-
-	public void setOpQuitarRol(boolean opQuitarRol) {
-		this.opQuitarRol = opQuitarRol;
-	}
-
 	public ReportConfig getReportConfig() {
 		return reportConfig;
 	}
+
+	public boolean isOpAgregarUsuarioRol() {
+		return opAgregarUsuarioRol;
+	}
+
+	public void setOpAgregarUsuarioRol(boolean opAgregarUsuarioRol) {
+		this.opAgregarUsuarioRol = opAgregarUsuarioRol;
+	}
+
+	public boolean isOpQuitarUsuarioRol() {
+		return opQuitarUsuarioRol;
+	}
+
+	public void setOpQuitarUsuarioRol(boolean opQuitarUsuarioRol) {
+		this.opQuitarUsuarioRol = opQuitarUsuarioRol;
+	}
+	
+	
 
 }
