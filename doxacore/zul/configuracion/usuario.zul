@@ -142,7 +142,7 @@
 							onClick="@command('modalBuscarRol')" />  -->
 
 						<bandbox id="bd" value = "@load(vm.buscarRol)" mold="rounded" autodrop="true"
-							width="250px" onClick="@command('generarListaBuscarRol')"
+							width="250px" onOpen="@command('generarListaBuscarRol')"
 							readonly="true">
 							<bandpopup>
 

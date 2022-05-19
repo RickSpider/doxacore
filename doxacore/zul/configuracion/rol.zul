@@ -112,7 +112,7 @@
 					<hbox pack="end" hflex="1">
 
 						<bandbox id="bd" value = "@load(vm.buscarOperacion)" mold="rounded" autodrop="true"
-							width="250px" onClick="@command('generarListaBuscarOperacion')"
+							width="250px" onOpen="@command('generarListaBuscarOperacion')"
 							readonly="true">
 							<bandpopup>
 
