@@ -121,7 +121,7 @@ public class MainVM {
 
 		for (Modulo m : lModulos) {
 
-			System.out.println("cargado Modulo " + m.getModulo());
+			//System.out.println("cargado Modulo " + m.getModulo());
 			addPage(m.getMenu(), m.getTitulo(), m.getPath(), m.getModulo());
 
 		}
