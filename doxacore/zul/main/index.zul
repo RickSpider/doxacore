@@ -12,25 +12,32 @@
 
 		<hlayout sclass="topbar">
 
-			<hlayout hflex="1">
+			<hlayout hflex="100%"
+				 >
 			
-				<hbox vflex="1" hflex="1" pack="start">
+				<hbox vflex="1" hflex="1" pack="start" align="center">
 				
 					<label value="PowerBy DoxaCORE"/>
 				
 				</hbox>
 
 				
+				<hbox vflex="1" hflex="1" pack="center" align="center"
+					apply="org.zkoss.bind.BindComposer"
+					viewModel="@id('vm')@init('com.doxacore.util.SystemInfo')">
+				
+					<label value="@load(vm.sistemaNombre)"/>
+				
+				</hbox>
 
 				<hbox
-					apply="com.doxacore.login.controller.LogoutController" 
-					vflex="1" hflex="1" pack="end">
+					apply="com.doxacore.login.controller.LogoutController"
+					vflex="1" hflex="1" pack="end" align="center">
 
-					<label value="${sessionScope.userCredential.name}"
-						 />
-
-					<label id="logout" value="Logout"
-						/>
+					<label value="${sessionScope.userCredential.name}" />
+					
+					<label id="logout" value="Logout" />
+					
 
 				</hbox>
 

@@ -37,9 +37,9 @@ public class MainVM {
 		initListaModulos();
 		initPageMap();
 
-		//currentPage = pageMap.get("Main").get("Blank");
+		// currentPage = pageMap.get("Main").get("Blank");
 
-		//pageMap.get("Main").values().size();
+		// pageMap.get("Main").values().size();
 	}
 
 	private void initListaModulos() {
@@ -94,34 +94,21 @@ public class MainVM {
 	public Map<String, Map<String, NavigationPage>> getPageMap() {
 		return pageMap;
 	}
-	
+
 	public String getDirectorioSistema() {
 		
-		String out = "";
-		
-		try {
-			Wini ini = new Wini(new File(SystemInfo.SISTEMA_PATH_ABSOLUTO + "/WEB-INF/sistema.ini"));
-			out =  "/"+ini.get("Sistema", "Directorio")+"/menu.zul";
-		} catch (InvalidFileFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return out;
-		
+		return SystemInfo.SISTEMA_PATH_DIRECTORIO;
+
 	}
 
 	private void initPageMap() throws InvalidFileFormatException, IOException {
 		pageMap = new LinkedHashMap<String, Map<String, NavigationPage>>();
 
-		//addPage("Main", "Blank", "/doxacore/zul/blank.zul");
+		// addPage("Main", "Blank", "/doxacore/zul/blank.zul");
 
 		for (Modulo m : lModulos) {
 
-			//System.out.println("cargado Modulo " + m.getModulo());
+			// System.out.println("cargado Modulo " + m.getModulo());
 			addPage(m.getMenu(), m.getTitulo(), m.getPath(), m.getModulo());
 
 		}
