@@ -5,7 +5,7 @@
 		vflex="1" id="Body" apply="org.zkoss.bind.BindComposer">
 
 		<hlayout vflex="1">
-			<groupbox width="750px" vflex="1">
+			<groupbox hflex="1" vflex="1">
 				<caption label="Modulo" />
 
 				<vlayout hflex="1" vflex="1">
@@ -26,17 +26,11 @@
 							<listheader hflex="min" align="center" />
 							<listheader label="ID" align="right"
 								hflex="min" />
-							<listheader label="Modulo" align="left"
-								width="100px" />
-							<listheader label="Descripción" align="left"
-								width="200px" />
-								
-							<listheader label="Path" align="left"
-								width="200px" />
-								
-							<listheader label="Habilitado" align="left"
-								width="70px" />
-							<listheader align="center" />
+							<listheader label="Modulo" align="left"/>
+							<listheader label="Descripción" align="left" />
+							<listheader label="Path" align="left" />
+							<listheader label="Habilitado" align="left" hflex="min" />
+							<listheader align="center" hflex="min"/>
 
 
 						</listhead>
@@ -152,7 +146,7 @@
 							<listheader label="Operacion" align="left" />
 							<listheader label="Descripción"	align="left" />
 							<listheader label="Abre Modulo"	align="left" />
-							<listheader align="center" width="100px" />
+							<listheader align="center" hflex="min" />
 
 
 						</listhead>

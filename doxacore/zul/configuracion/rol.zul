@@ -5,7 +5,7 @@
 		vflex="1" id="Body" apply="org.zkoss.bind.BindComposer">
 
 		<hlayout vflex="1">
-			<groupbox width="550px" vflex="1">
+			<groupbox hflex="1" vflex="1">
 				<caption label="Rol" />
 
 				<vlayout hflex="1" vflex="1">
@@ -23,13 +23,10 @@
 						<listhead>
 
 							<listheader hflex="min" align="center" />
-							<listheader label="ID" align="right"
-								hflex="min" />
-							<listheader label="Rol" align="left"
-								width="100px" />
-							<listheader label="Descripción" align="left"
-								width="250px" />
-							<listheader align="center" />
+							<listheader label="ID" align="right" hflex="min" />
+							<listheader label="Rol" align="left" />
+							<listheader label="Descripción" align="left" />
+							<listheader align="center" hflex="min"/>
 
 
 						</listhead>
@@ -176,14 +173,10 @@
 						<listhead>
 
 							<listheader hflex="min" align="center" />
-							<listheader label="ID" align="right"
-								hflex="min" />
-							<listheader label="Operacion" align="left"
-								width="150px" />
-							<listheader label="Descripción"
-								align="left" />
-							<listheader align="center" width="50px" />
-
+							<listheader label="ID" align="right" hflex="min" />
+							<listheader label="Operacion" align="left" />
+							<listheader label="Descripción" align="left" />
+							<listheader align="center" hflex="min" />
 
 						</listhead>
 
