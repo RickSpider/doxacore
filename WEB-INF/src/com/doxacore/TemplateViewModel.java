@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.zkoss.bind.annotation.AfterCompose;
+import org.zkoss.bind.annotation.BindingParam;
+import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.ExecutionArgParam;
@@ -12,6 +14,7 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Messagebox;
 
 import com.doxacore.login.UsuarioCredencial;
@@ -215,5 +218,13 @@ public abstract class TemplateViewModel {
 
 		return aux;
 	}
+	
+	@Command
+	public void lastPageListBox(@BindingParam("listbox") Listbox listbox) {
+
+		listbox.setActivePage(listbox.getPageCount() - 1);
+
+	}
+	
 
 }
