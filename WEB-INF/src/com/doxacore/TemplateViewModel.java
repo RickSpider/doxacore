@@ -219,8 +219,8 @@ public abstract class TemplateViewModel {
 		return aux;
 	}
 	
-	@Command
-	public void lastPageListBox(@BindingParam("listbox") Listbox listbox) {
+	
+	protected void lastPageListBox(Listbox listbox) {
 
 		listbox.setActivePage(listbox.getPageCount() - 1);
 
