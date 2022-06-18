@@ -50,11 +50,18 @@ public class Register {
 		
 	}
 	
-	public synchronized <T extends Modelo> T getObjectByColumnString(String entityName, String colummn, String value) {
+	public synchronized <T extends Modelo> T getObjectByCondicion(String entityName, String condicion) {
+		
+		Session sess =  currentSession();
+		
+		return (T) sess.createQuery("from " + entityName + " where " + condicion ).uniqueResult();
+	}
+	
+	public synchronized <T extends Modelo> T getObjectByColumnString(String entityName, String column, String value) {
 		
 		Session sess = currentSession();
 		
-		Query<T> query = sess.createQuery("from "+ entityName +" where " +colummn+ "=:value" ).setParameter("value", value);
+		Query<T> query = sess.createQuery("from "+ entityName +" where " +column+ "=:value" ).setParameter("value", value);
 		
 		return query.uniqueResult();
 	}
