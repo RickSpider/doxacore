@@ -17,7 +17,7 @@
 
 					</hbox>
 
-					<listbox emptyMessage="lista vacía..." mold="paging"
+					<listbox emptyMessage="lista vacía..." mold="paging" autopaging="true"
 						vflex="1" model="@load(vm.lRoles)" checkmark="true">
 
 						<listhead>
@@ -127,7 +127,7 @@
 
 									<listbox height="250px"
 										width="450px" mold="paging" autopaging="true"
-										onSelect="bd.close()"
+										onSelect="bd.close()" 
 										model="@load(vm.lOperacionesBuscar)">
 
 										<listhead>
@@ -166,7 +166,7 @@
 						
 					</hbox>
 
-					<listbox emptyMessage="lista vacía..." mold="paging"
+					<listbox emptyMessage="lista vacía..." mold="paging" autopaging="true"
 						vflex="1" hflex="1" model="@load(vm.lOperacionesRoles)"
 						checkmark="true">
 
