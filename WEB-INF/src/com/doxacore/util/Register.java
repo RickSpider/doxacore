@@ -12,6 +12,12 @@ import com.doxacore.modelo.Modelo;
 
 public class Register {
 	
+	public static String JOIN = "join";
+	public static String LEFT_JOIN = "left join";
+	public static String RIGHT_JOIN = "rigth join";
+	public static String INNER_JOIN = "inner join";
+	public static String FULL_OUTER_JOIN = "full outer join";
+	
 	 private Session currentSession() {
          return HibernateUtil.getSessionFactory().getCurrentSession();
      }
@@ -94,6 +100,71 @@ public class Register {
 		//System.out.println("================Este es el WO: "+wo+"================");
 
 		return sess.createQuery("from " + entityName + wo).list();
+			
+	}
+	
+	public synchronized <T extends Modelo> List<T> getAllObjectsByJoinCondicionOrder(String entityName, String joinType ,String[] joinCondicion, String[] condicion ,String[] order) {
+		
+		Session sess =  currentSession();
+		
+		StringBuffer wo = new StringBuffer();
+				
+		
+		if (joinCondicion != null) {
+		
+			for (int i = 0; i< joinCondicion.length ;i++)	{
+					
+				wo.append(" "+joinType+" "+joinCondicion[i]+"\n");
+					
+			}			
+
+			
+		}
+		
+		if (condicion != null) {
+			
+			if (condicion.length > 1) {
+				
+				wo.append("\n where ");
+				
+				for (int i = 0; i< condicion.length ;i++)	{
+					
+					wo.append(" and "+condicion[i]+" ");
+						
+				}	
+				
+			}else {
+				
+				wo.append("\n where "+condicion[0]);
+				
+			}
+			
+		}
+
+		
+		if (order != null) {
+			
+			if (order.length > 1) {
+				
+				wo.append("\n order ");
+				
+				for (int i = 0; i< order.length ;i++)	{
+					
+					wo.append(", "+order[i]+" ");
+						
+				}	
+				
+			}else {
+				
+				wo.append("\n order by "+order[0]);
+				
+			}
+			
+		}
+		
+		System.out.println("================Este es el WO: "+wo+"================");
+
+		return sess.createQuery("from " + entityName +" en "+wo).list();
 			
 	}
 	
