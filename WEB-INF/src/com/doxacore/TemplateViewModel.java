@@ -150,6 +150,74 @@ public abstract class TemplateViewModel {
 		return aux;
 	}
 	
+	protected List<Object[]> filtrarListaObject(String[] filtro, List<Object[]> listOri){
+		
+		List<Object[]> aux = new ArrayList<Object[]>();
+
+		StringBuffer sbContent = new StringBuffer();
+
+		for (int i = 0; i < filtro.length; i++) {
+
+			sbContent.append(filtro[i]);
+
+		}
+
+		if (sbContent.toString().length() == 0) {
+
+			return listOri;
+
+		}
+
+		for (Object[] x : listOri) {
+
+			boolean[] existe = new boolean[filtro.length];
+			
+			for (int i = 0; i < filtro.length; i++) {
+
+				if (filtro[i].length() > 0) {
+
+					if (x[i].toString().toUpperCase().contains(filtro[i].toUpperCase())) {
+
+						existe[i] = true;
+
+					} else {
+						
+						existe[i] = false;
+
+					}
+
+
+				}else {
+					
+					existe[i]=true;
+					
+				}
+			}
+			
+			boolean filtrar = true;
+			
+			for (int i = 0; i<filtro.length;i++) {
+				
+				if (!existe[i]) {
+					
+					filtrar = false;
+					break;
+				}
+				
+			}
+			
+			if (filtrar) {
+				
+				aux.add(x);
+				
+			}
+
+		}
+
+		return aux;
+		
+	}
+	
 	protected <T extends Modelo> List<T> filtrarLT(String[] filtro, List<T> lmOri) {
 
 		List<T> aux = new ArrayList<T>();
