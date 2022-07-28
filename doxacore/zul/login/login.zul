@@ -13,12 +13,14 @@
 	<vlayout>
 		<div class="sidenav">
 			<div class="login-main-text">
-				<h:h2>
+			
+				<image src="/logo.png" style=" width: 80%; height: auto;" />
+				<!-- <h:h2>
 					DoxaCore
 					<h:br />
 					Login Page
 				</h:h2>
-				<h:p>Inicio de sesion de Usuario.</h:p>
+				<h:p>Inicio de sesion de Usuario.</h:p> -->
 			</div>
 		</div>
 
