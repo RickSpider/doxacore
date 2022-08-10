@@ -24,7 +24,7 @@ public class UtilMetodos {
 		
 		String path = SystemInfo.SISTEMA_PATH_ABSOLUTO + folderPath + fileName;
 		
-		System.out.println("Este el el getSql "+path);
+		//System.out.println("Este el el getSql "+path);
 
 		StringBuffer sb = new StringBuffer();
 
