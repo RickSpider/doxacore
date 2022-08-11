@@ -72,6 +72,15 @@ public class Register {
 		return query.uniqueResult();
 	}
 	
+	public synchronized <T extends Modelo> T getObjectBySigla(String entityName, String sigla) {
+		
+		Session sess = currentSession();
+		
+		Query<T> query = sess.createQuery("from "+ entityName +" where sigla=:value" ).setParameter("value", sigla);
+		
+		return query.uniqueResult();
+	}
+	
 	public synchronized <T extends Modelo> List<T> getAllObjects(String entityName) {
 		
 		Session sess =  currentSession();
