@@ -45,6 +45,8 @@ public class Register {
 		 
 		 sess.flush();
 		 
+		 sess.clear();
+		 
 		 return m;
 	}
 	
