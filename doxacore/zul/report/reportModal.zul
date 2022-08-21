@@ -6,7 +6,7 @@
 		
 		<jasperreport id="report"
         src="@load(vm.reportConfig.source)"
-       
+       	parameters="@load(vm.reportConfig.parameters)"
         datasource="@load(vm.reportConfig.dataSource)"/>
 	
 		

@@ -17,17 +17,22 @@ public class ReportConfig {
 
 	private Component view;
 	private String source = "/reportTemplate/";
-   // private Map<String, Object> parameters;
+	private Map<String, Object> parameters;
     private JRDataSource dataSource;
+    
+    public ReportConfig(Component view,String source, JRDataSource dataSource, Map<String, Object> parameters) {
+    	this.source += source;
+    	this.view = view;
+    	this.dataSource= dataSource;    
+    	this.parameters = parameters;
+   
+    }
     
     public ReportConfig(Component view,String source, JRDataSource dataSource) {
     	this.source += source;
     	this.view = view;
     	this.dataSource= dataSource;
-       
-    	/* parameters = new HashMap<String, Object>();
-        parameters.put("ReportTitle", "Address Report");
-        parameters.put("DataFile", "CustomDataSource from java xx");*/
+  
     }
   
  
@@ -45,10 +50,10 @@ public class ReportConfig {
     	
     }
  
-   /* public Map<String, Object> getParameters() {
+    public Map<String, Object> getParameters() {
         return parameters;
     }
- */
+ 
     public JRDataSource getDataSource() {
         return dataSource;
     }
