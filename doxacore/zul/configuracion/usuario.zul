@@ -12,11 +12,6 @@
 
 					<hbox pack="end" hflex="1">
 					
-						<button label="Reporte"
-							onClick="@command('generarReporte')" 
-							/>
-					
-
 						<button label="Agregar"
 							iconSclass=" z-icon-plus"
 							onClick="@command('modalUsuarioAgregar')" 

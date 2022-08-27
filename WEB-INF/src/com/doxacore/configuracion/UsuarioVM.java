@@ -20,8 +20,6 @@ import com.doxacore.TemplateViewModel;
 import com.doxacore.modelo.Rol;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.modelo.UsuarioRol;
-import com.doxacore.report.CustomDataSource;
-import com.doxacore.report.ReportConfig;
 import com.doxacore.util.Params;
 import com.doxacore.util.UtilStaticMetodos;
 
@@ -332,26 +330,6 @@ public class UsuarioVM extends TemplateViewModel {
 
 	}
 	
-
-	// fins buscador
-
-	private ReportConfig reportConfig = null;
-	
-	@Command("generarReporte")
-	@NotifyChange("reportConfig")
-	public void generarReporte() {
-		
-		String usuarioReportSQL = this.um.getSql("usuarioReporte.sql");
-		
-		List<Object[]> data = this.reg.sqlNativo(usuarioReportSQL);
-		String[] columns = {"usuarioid", "account", "email"};
-		
-		CustomDataSource cds = new CustomDataSource(data, columns);
-		reportConfig = new ReportConfig(this.mainComponent, "usuarioReport.jasper", cds);
-		reportConfig.showReport();
-
-	}
-	
 	public List<Usuario> getlUsuarios() {
 		return lUsuarios;
 	}
@@ -430,10 +408,6 @@ public class UsuarioVM extends TemplateViewModel {
 
 	public void setOpBorrarUsuario(boolean opBorrarUsuario) {
 		this.opBorrarUsuario = opBorrarUsuario;
-	}
-
-	public ReportConfig getReportConfig() {
-		return reportConfig;
 	}
 
 	public boolean isOpAgregarUsuarioRol() {
