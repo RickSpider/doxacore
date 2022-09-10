@@ -9,6 +9,7 @@ public class UsuarioCredencial implements Serializable{
 	
 	String account;
 	String name;
+	String extra;
 	
 	Set<String> roles = new HashSet<String>();
 
@@ -50,5 +51,15 @@ public class UsuarioCredencial implements Serializable{
 	public void addRole(String role){
 		roles.add(role);
 	}
+
+	public String getExtra() {
+		return extra;
+	}
+
+	public void setExtra(String extra) {
+		this.extra = extra;
+	}
+
+
 
 }

@@ -2,6 +2,11 @@ package com.doxacore.util;
 
 public class Params {
 	
+	public static String CLASE_INICIO ="com.?.inicio.Inicio"; 
+	public static String CLASE_INICIO_BEFORELOGIN = "beforeLogin";
+	public static String CLASE_INICIO_AFTERLOGIN = "afterLogin";
+	
+	//Finals
 	public static final String OP_CREAR_USUARIO = "CrearUsuario";
 	public static final String OP_EDITAR_USUARIO = "EditarUsuario";
 	public static final String OP_BORRAR_USUARIO = "BorrarUsuario";

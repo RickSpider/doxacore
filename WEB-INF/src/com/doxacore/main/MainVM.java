@@ -1,6 +1,5 @@
 package com.doxacore.main;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -8,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.ini4j.InvalidFileFormatException;
-import org.ini4j.Wini;
 import org.zkoss.bind.BindUtils;
+import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
@@ -20,6 +19,7 @@ import com.doxacore.main.menu.NavigationPage;
 import com.doxacore.main.menu.NavigationTitle;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
+import com.doxacore.util.Params;
 import com.doxacore.util.Register;
 import com.doxacore.util.SystemInfo;
 import com.doxacore.util.UtilMetodos;
@@ -30,23 +30,26 @@ public class MainVM {
 	private NavigationPage currentPage;
 	private Map<String, Map<String, NavigationPage>> pageMap;
 	private List<Modulo> lModulos = new ArrayList<Modulo>();
+	private UtilMetodos utilMetodos = new UtilMetodos();
 
 	@Init
 	public void init() throws InvalidFileFormatException, IOException {
-
+		
 		initListaModulos();
 		initPageMap();
-
 		// currentPage = pageMap.get("Main").get("Blank");
 
 		// pageMap.get("Main").values().size();
+	}
+	
+	@AfterCompose
+	public void afterCompose() {
+
 	}
 
 	private void initListaModulos() {
 
 		Register reg = new Register();
-
-		UtilMetodos utilMetodos = new UtilMetodos();
 
 		UsuarioCredencial usuarioCredencial = (UsuarioCredencial) Sessions.getCurrent().getAttribute("userCredential");
 

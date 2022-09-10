@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class UtilMetodos {
 	
@@ -17,6 +19,41 @@ public class UtilMetodos {
 	public String getCoreSql(String fileName) {
 		
 		return this.getSql("/doxacore/sql/", fileName);
+		
+	}
+	
+	public void ejecutarMetodo(String clase, String metodo){
+		
+		try {
+			
+			Class c = Class.forName(clase);
+			Object o = c.newInstance();
+			
+			Method method = c.getDeclaredMethod(metodo);
+			method.invoke(o);
+			
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
