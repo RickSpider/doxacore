@@ -20,7 +20,6 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/gmapsz.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/gson.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/iceblue_c.jar"/>
-	<classpathentry kind="lib" path="WEB-INF/lib/itext.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jasperreports.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/javassist.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jcommon.jar"/>
@@ -54,7 +53,6 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/FastInfoset-1.2.15.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/hibernate-commons-annotations-5.1.2.Final.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/hibernate-core-5.6.0.Final.jar"/>
-	<classpathentry kind="lib" path="WEB-INF/lib/hibernate-jpamodelgen-5.6.0.Final.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/istack-commons-runtime-3.0.7.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jandex-2.2.3.Final.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/javax.activation-api-1.2.0.jar"/>
@@ -66,5 +64,33 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/postgresql-42.3.1.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/stax-ex-1.8.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/txw2-2.3.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/c3p0-0.9.5.5.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/hibernate-c3p0-5.6.0.Final.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/mchange-commons-java-0.2.19.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/ini4j-0.5.4.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/itext.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/args4j.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/closure-compiler-externs.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/closure-compiler-unshaded.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-codec.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/error_prone_annotations.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/guava.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jsinterop-annotations.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jsr305.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/protobuf-java.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-ooxml-5.2.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/log4j-api-2.17.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-5.2.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-excelant-5.2.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-javadoc-5.2.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-ooxml-full-5.2.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-ooxml-lite-5.2.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-scratchpad-5.2.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/xmlbeans-5.0.3.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-compress-1.21.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/curvesapi-1.07.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>
