@@ -6,13 +6,21 @@ import com.doxacore.modelo.Departamento;
 import com.doxacore.modelo.Pais;
 
 public class CargarPaisDepartamentoCiudad {
-
-	public static void cargarPDC(Register reg) {
+	
+	public static Pais cargarPais(Register reg) {
 		
 		Pais pais = new Pais();
 		pais.setPais("Paraguay");
 		pais.setGentilicio("Paraguayo/a");
 		pais = reg.saveObject(pais, "System");
+		
+		return pais;
+		
+	}
+
+	public static void cargarDC(Register reg, Pais pais) {
+		
+	
 		
 		String datos = "ASUNCION,ASUNCION;" + 
 				"CONCEPCION,CONCEPCION;" + 

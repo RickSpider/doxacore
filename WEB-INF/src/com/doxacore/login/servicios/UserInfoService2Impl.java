@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.doxacore.modelo.Departamento;
+import com.doxacore.modelo.Pais;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.util.CargarPaisDepartamentoCiudad;
 import com.doxacore.util.Register;
@@ -25,8 +27,31 @@ public class UserInfoService2Impl implements UserInfoService,Serializable{
 		if (userList.size() == 0 ) {
 			
 			UtilStaticMetodos.generarDatosInicio(r);
-			CargarPaisDepartamentoCiudad.cargarPDC(r);
+			//
 			this.cargarListaUsuarios();
+			
+		}
+		
+		List<Pais> paises = r.getAllObjects(Pais.class.getName());
+		
+		Pais p;
+		
+		if (paises.size() == 0) {
+			
+			p = CargarPaisDepartamentoCiudad.cargarPais(r);
+			
+		}else {
+			
+			p = r.getObjectById(Pais.class.getName(), 1);
+			
+		}
+		
+		
+		List<Departamento> departamentos = r.getAllObjects(Departamento.class.getName());
+		
+		if (departamentos.size() == 0) {
+			
+			CargarPaisDepartamentoCiudad.cargarDC(r,p);
 			
 		}
 		
