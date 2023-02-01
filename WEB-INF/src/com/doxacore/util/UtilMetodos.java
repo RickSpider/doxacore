@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Calendar;
+import java.util.Date;
 
 public class UtilMetodos {
 	
@@ -91,6 +93,24 @@ public class UtilMetodos {
 
 		return sb.toString();
 
+	}
+	
+	/**
+	 * 
+	 * Calcular fecha sumar, restar, hors, dias, semanas, meses, años.
+	 * 
+	 * @param fecha
+	 * @param dato utilizar variables Estataicas de calendar Ej: Calendar.Calendar.HOUR
+	 * @param cantidad
+	 * @return
+	 */
+	public Date calcularFecha(Date fecha, int dato, int cantidad) {
+		
+		Calendar c = Calendar.getInstance();
+		c.setTime(fecha);
+		c.add(dato, cantidad);
+
+		return c.getTime();
 	}
 
 }
