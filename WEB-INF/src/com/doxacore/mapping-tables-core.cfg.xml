@@ -11,3 +11,4 @@
 <mapping class="com.doxacore.modelo.Pais" />
 <mapping class="com.doxacore.modelo.Departamento" />
 <mapping class="com.doxacore.modelo.Ciudad" />
+<mapping class="com.doxacore.modelo.Auditoria" />
