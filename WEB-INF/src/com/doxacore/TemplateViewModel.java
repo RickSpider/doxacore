@@ -21,7 +21,10 @@ import com.doxacore.login.UsuarioCredencial;
 import com.doxacore.modelo.Modelo;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
+import com.doxacore.modelo.Rol;
 import com.doxacore.modelo.Usuario;
+import com.doxacore.modelo.UsuarioRol;
+import com.doxacore.util.Params;
 import com.doxacore.util.Register;
 import com.doxacore.util.UtilControlOperaciones;
 import com.doxacore.util.UtilMetodos;
@@ -75,6 +78,37 @@ public abstract class TemplateViewModel {
 
 		return currentUser;
 
+	}
+	
+	protected List<Rol> getRolesCurrentUser(){
+		
+		List<UsuarioRol> lur = this.reg.getAllObjectsByCondicionOrder(UsuarioRol.class.getName(), "usuarioid = "+this.getCurrentUser().getUsuarioid(), "rolid asc");
+		
+		List<Rol> lr = new ArrayList<Rol>();
+		
+		for (UsuarioRol x : lur) {
+			
+			lr.add(x.getRol());
+			
+		}
+		
+		return lr;
+		
+	}
+	
+	protected boolean isUserRolMaster() {
+		
+		Rol r = this.reg.getObjectByColumnString(Rol.class.getName(), "rol", Params.ROL_MASTER);
+		
+		UsuarioRol ur = this.reg.getObjectByCondicion(UsuarioRol.class.getName(), "usuarioid = "+this.getCurrentUser().getUsuarioid()+" AND rolid = "+r.getRolid());
+		
+		if (ur == null) {
+			
+			return false;
+		}
+		
+		return true;
+		
 	}
 
 	protected <T extends Modelo> T save(T m) {

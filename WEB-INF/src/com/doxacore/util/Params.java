@@ -6,7 +6,7 @@ public class Params {
 	public static String CLASE_INICIO_BEFORELOGIN = "beforeLogin";
 	public static String CLASE_INICIO_AFTERLOGIN = "afterLogin";
 	
-	//Finals
+	//Operaciones
 	public static final String OP_CREAR_USUARIO = "CrearUsuario";
 	public static final String OP_EDITAR_USUARIO = "EditarUsuario";
 	public static final String OP_BORRAR_USUARIO = "BorrarUsuario";
@@ -34,6 +34,9 @@ public class Params {
 	public static final String OP_CREAR_TIPO = "CrearTipo";
 	public static final String OP_EDITAR_TIPO = "EditarTipo";
 	public static final String OP_BORRAR_TIPO = "BorrarTipo";
+	
+	//Rol
+	public static final String ROL_MASTER = "Master";
 	
 
 }
