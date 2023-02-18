@@ -405,23 +405,47 @@ public class UtilStaticMetodos {
 		ro16x3.setOperacion(op16x3);
 		reg.saveObject(ro16x3, "System");
 		
+		//Modulo Sistema Propiedad
+				System.out.println("Creando Modulo Sistema Propiedad");
+				Modulo sp = new Modulo();
+				sp.setModulo("Info");
+				sp.setDescripcion("Modulo de Sistema Propiedad");
+				sp.setPath("/doxacore/zul/configuracion/sistemaPropiedad.zul");
+				sp.setTitulo("SistemaPropiedad");
+				sp.setMenu("Configuracion");
+				sp.setHabilitado(true);
+				sp = reg.saveObject(sp, "System");
+				
+				System.out.println("Creando Operaciones del modulo Tipotipo");
+				Operacion op17x1 = new Operacion();
+				op17x1.setOperacion("AbrirInfo");
+				op17x1.setDescripcion("Abrir Info");
+				op17x1.setAbreModulo(true);
+				op17x1.setModulo(sp);
+				op17x1 = reg.saveObject(op17x1, "System");
+				
+				RolOperacion ro17x1 = new RolOperacion();
+				ro17x1.setRol(rolMaster);
+				ro17x1.setOperacion(op17x1);
+				reg.saveObject(ro17x1, "System");
+		
 		//Modulo Info
 		System.out.println("Creando Modulo Info");
-		Modulo m5 = new Modulo();
-		m5.setModulo("Info");
-		m5.setDescripcion("Modulo de Informacion");
-		m5.setPath("/doxacore/zul/configuracion/info.zul");
-		m5.setTitulo("Info");
-		m5.setMenu("Configuracion");
-		m5.setHabilitado(true);
-		m5 = reg.saveObject(m5, "System");
+		Modulo info = new Modulo();
+		info.setModulo("Info");
+		info.setDescripcion("Modulo de Informacion");
+		info.setPath("/doxacore/zul/configuracion/info.zul");
+		info.setTitulo("Info");
+		info.setMenu("Configuracion");
+		info.setHabilitado(true);
+		info = reg.saveObject(info, "System");
 		
 		System.out.println("Creando Operaciones del modulo Tipotipo");
 		Operacion op17 = new Operacion();
 		op17.setOperacion("AbrirInfo");
 		op17.setDescripcion("Abrir Info");
 		op17.setAbreModulo(true);
-		op17.setModulo(m5);
+		op17.setModulo(info);
 		op17 = reg.saveObject(op17, "System");
 		
 		RolOperacion ro17 = new RolOperacion();

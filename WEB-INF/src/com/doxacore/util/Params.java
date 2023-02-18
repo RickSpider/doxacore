@@ -35,6 +35,10 @@ public class Params {
 	public static final String OP_EDITAR_TIPO = "EditarTipo";
 	public static final String OP_BORRAR_TIPO = "BorrarTipo";
 	
+	public static final String OP_CREAR_SISTEMAPROPIEDAD = "CrearSistemaPropiedad";
+	public static final String OP_EDITAR_SISTEMAPROPIEDAD = "EditarSistemaPropiedad";
+	public static final String OP_BORRAR_SISTEMAPROPIEDAD = "BorrarSistemaPropiedad";
+	
 	//Rol
 	public static final String ROL_MASTER = "Master";
 	
