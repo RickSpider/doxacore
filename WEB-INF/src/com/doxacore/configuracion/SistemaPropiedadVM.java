@@ -104,14 +104,14 @@ public class SistemaPropiedadVM extends TemplateViewModel{
 	}
 
 	@Command
-	public void modalSistemaPropiedad(@BindingParam("sistemaPropiedadid") long sistemaPropiedadid) {
+	public void modalSistemaPropiedad(@BindingParam("sistemapropiedadid") long sistemapropiedadid) {
 
-		if (sistemaPropiedadid != -1) {
+		if (sistemapropiedadid != -1) {
 
 			if(!this.opEditarSistemaPropiedad)
 				return;
 			
-			this.sistemaPropiedadSelected = this.reg.getObjectById(SistemaPropiedad.class.getName(), sistemaPropiedadid);
+			this.sistemaPropiedadSelected = this.reg.getObjectById(SistemaPropiedad.class.getName(), sistemapropiedadid);
 			this.editar = true;
 
 		} else {

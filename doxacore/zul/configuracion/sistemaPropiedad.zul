@@ -70,7 +70,7 @@
 									<hlayout>
 																						
 										<button iconSclass="z-icon-edit"
-											onClick="@command('modalSistemaPropiedad', sistemaPropiedadid=each.sistemaPropiedadid)"
+											onClick="@command('modalSistemaPropiedad', sistemapropiedadid=each.sistemapropiedadid)"
 											tooltiptext="Editar" disabled="@load(!vm.opEditarSistemaPropiedad)"/>
 											
 										<button
