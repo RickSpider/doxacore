@@ -22,6 +22,7 @@ import com.doxacore.modelo.Modelo;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
 import com.doxacore.modelo.Rol;
+import com.doxacore.modelo.SistemaPropiedad;
 import com.doxacore.modelo.Usuario;
 import com.doxacore.modelo.UsuarioRol;
 import com.doxacore.util.Params;
@@ -326,6 +327,14 @@ public abstract class TemplateViewModel {
 
 		listbox.setActivePage(listbox.getPageCount() - 1);
 
+	}
+	
+	protected SistemaPropiedad getSistemaPropiedad(String clave) {
+		
+		SistemaPropiedad sp = this.reg.getObjectByColumnString(SistemaPropiedad.class.getName(), "clave", clave);
+		
+		return sp;
+		
 	}
 	
 
