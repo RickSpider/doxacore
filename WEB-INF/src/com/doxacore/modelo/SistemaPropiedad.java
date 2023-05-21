@@ -6,10 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="SistemaPropiedades")
+@Table(name="SistemaPropiedades"
+	,indexes = {
+        @Index(name="clave_index", columnList="clave", unique=true)
+    })
 public class SistemaPropiedad extends Modelo implements Serializable{
 	
 	/**
