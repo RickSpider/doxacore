@@ -211,7 +211,7 @@ public abstract class TemplateViewModel {
 
 				if (filtro[i].length() > 0) {
 
-					if (x[i].toString().toUpperCase().contains(filtro[i].toUpperCase())) {
+					if (x[i] != null && x[i].toString().toUpperCase().contains(filtro[i].toUpperCase())) {
 
 						existe[i] = true;
 
