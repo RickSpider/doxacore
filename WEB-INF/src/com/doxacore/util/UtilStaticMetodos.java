@@ -408,18 +408,18 @@ public class UtilStaticMetodos {
 		//Modulo Sistema Propiedad
 				System.out.println("Creando Modulo Sistema Propiedad");
 				Modulo sp = new Modulo();
-				sp.setModulo("Info");
+				sp.setModulo("SistemaPropiedad");
 				sp.setDescripcion("Modulo de Sistema Propiedad");
 				sp.setPath("/doxacore/zul/configuracion/sistemaPropiedad.zul");
-				sp.setTitulo("SistemaPropiedad");
+				sp.setTitulo("Sistema Propiedad");
 				sp.setMenu("Configuracion");
 				sp.setHabilitado(true);
 				sp = reg.saveObject(sp, "System");
 				
 				System.out.println("Creando Operaciones del modulo Tipotipo");
 				Operacion op17x1 = new Operacion();
-				op17x1.setOperacion("AbrirInfo");
-				op17x1.setDescripcion("Abrir Info");
+				op17x1.setOperacion("AbrirSistemaPropiedad");
+				op17x1.setDescripcion("Abrir SistemaPropiedad");
 				op17x1.setAbreModulo(true);
 				op17x1.setModulo(sp);
 				op17x1 = reg.saveObject(op17x1, "System");

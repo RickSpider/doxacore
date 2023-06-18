@@ -32,7 +32,7 @@ public class UserInfoService2Impl implements UserInfoService,Serializable{
 			
 		}
 		
-		List<Pais> paises = r.getAllObjects(Pais.class.getName());
+		/*List<Pais> paises = r.getAllObjects(Pais.class.getName());
 		
 		Pais p;
 		
@@ -53,7 +53,7 @@ public class UserInfoService2Impl implements UserInfoService,Serializable{
 			
 			CargarPaisDepartamentoCiudad.cargarDC(r,p);
 			
-		}
+		}*/
 		
 	}
 	
