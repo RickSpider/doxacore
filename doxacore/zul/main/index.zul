@@ -5,8 +5,14 @@
 
 <zk xmlns:h="http://www.w3.org/1999/xhtml">
 
-
 	<style src="/css/main/style.css" />
+
+	<style>
+		.imagen-circular { width: 35px; height: 35px; border-radius:
+		50%; overflow: hidden; }
+	</style>
+
+
 
 	<vlayout vflex="1" hflex="1">
 
@@ -33,21 +39,55 @@
 					pack="center" align="end">
 
 					<hbox>
-						<label
+						<!-- <label
 							value="${sessionScope.userCredential.name}" />
-						<button id="logout" iconSclass="z-icon-sign-out"
-							tooltiptext="Salir." />
+							<button id="logout" iconSclass="z-icon-sign-out"
+							tooltiptext="Salir." /> -->
+						<hbox align="center" pack="center">
+
+							<vbox>
+								<label
+									value="${sessionScope.userCredential.name}"
+									onClick='editPopup.open(self,"after_start")' />
+								<label
+									value="${sessionScope.userCredential.extra}"
+									style="font-weight:bold;" />
+							</vbox>
+
+							<div class="imagen-circular"
+								onClick='editPopup.open(self,"after_start")'>
+								<image
+									src="/doxacore/img/blank-profile.png" width="100%"
+									height="100%" />
+							</div>
+
+						</hbox>
+
+						<div apply="org.zkoss.bind.BindComposer"
+							viewModel="@id('vm')@init('com.doxacore.main.MenuPopupVM')">
+							
+						<menupopup id="editPopup">
+
+							<menuitem iconSclass="	z-icon-key " label="Cambiar Contraseña"
+								onClick="@command('cambiarPass', user=sessionScope.userCredential.account)" />
+
+							<menuitem id="logout"
+								iconSclass="z-icon-sign-out" label="Salir" />
+						</menupopup>
+
+						 </div>
 					</hbox>
 
-					<label value="${sessionScope.userCredential.extra}" style="font-weight:bold;"/>
-
-
 				</vbox>
+
 
 			</hlayout>
 
 
 		</hlayout>
+
+
+
 
 		<div id="container" sclass="vertical"
 			apply="org.zkoss.bind.BindComposer"
