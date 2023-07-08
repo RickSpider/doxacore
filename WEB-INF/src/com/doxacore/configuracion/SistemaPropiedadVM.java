@@ -29,8 +29,6 @@ public class SistemaPropiedadVM extends TemplateViewModel{
 	private boolean opCrearSistemaPropiedad;
 	private boolean opEditarSistemaPropiedad;
 	private boolean opBorrarSistemaPropiedad;
-	private boolean opAgregarSistemaPropiedadOperacion;
-	private boolean opQuitarSistemaPropiedadOperacion;
 	
 	@Init(superclass = true)
 	public void initSistemaPropiedadVM() {
@@ -130,6 +128,12 @@ public class SistemaPropiedadVM extends TemplateViewModel{
 	@Command
 	@NotifyChange("lSistemaPropiedades")
 	public void guardar() {
+		
+		if (!this.opCrearSistemaPropiedad) {
+			
+			this.mensajeInfo("No tienes permisos para crear Propiedades de Sistema");
+			return;
+		}
 
 		this.reg.saveObject(sistemaPropiedadSelected, getCurrentUser().getAccount());
 
@@ -249,25 +253,6 @@ public class SistemaPropiedadVM extends TemplateViewModel{
 	public void setOpBorrarSistemaPropiedad(boolean opBorrarSistemaPropiedad) {
 		this.opBorrarSistemaPropiedad = opBorrarSistemaPropiedad;
 	}
-
-	public boolean isOpAgregarSistemaPropiedadOperacion() {
-		return opAgregarSistemaPropiedadOperacion;
-	}
-
-	public void setOpAgregarSistemaPropiedadOperacion(boolean opAgregarSistemaPropiedadOperacion) {
-		this.opAgregarSistemaPropiedadOperacion = opAgregarSistemaPropiedadOperacion;
-	}
-
-	public boolean isOpQuitarSistemaPropiedadOperacion() {
-		return opQuitarSistemaPropiedadOperacion;
-	}
-
-	public void setOpQuitarSistemaPropiedadOperacion(boolean opQuitarSistemaPropiedadOperacion) {
-		this.opQuitarSistemaPropiedadOperacion = opQuitarSistemaPropiedadOperacion;
-	}
-
-	
-	
 	
 	
 	
