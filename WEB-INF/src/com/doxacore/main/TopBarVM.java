@@ -11,6 +11,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.Selectors;
 import org.zkoss.zk.ui.util.Notification;
+import org.zkoss.zkmax.zul.Navbar;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
@@ -20,23 +21,25 @@ import com.doxacore.modelo.Usuario;
 import com.doxacore.util.Register;
 import com.doxacore.util.UtilStaticMetodos;
 
-public class MenuPopupVM {
+public class TopBarVM {
 
 	private String currentUser;
 	private String currentPass;
 	private String newPass;
 	private String newPassControl;
+	private boolean collapsed = false;
+	private String includeSclass ="content";
 	protected Component mainComponent;
 
 	@Init(superclass = true)
-	public void initMenuPopupVM(@ContextParam(ContextType.VIEW) Component view) {
+	public void initTopBarVM(@ContextParam(ContextType.VIEW) Component view) {
 
 		this.mainComponent = view;
 
 	}
 
 	@AfterCompose(superclass = true)
-	public void afterComposeMenuPopupVM() {
+	public void afterComposeTopBarVM() {
 
 	}
 
@@ -108,6 +111,22 @@ public class MenuPopupVM {
 		Notification.show("Contraseña Actualizada con exito.");
 
 	}
+	
+	@Command
+	@NotifyChange({"collapsed", "includeSclass"})
+	public void collapsedAll(@BindingParam("param") Navbar param) {
+		
+		this.collapsed = !this.collapsed;
+		
+		this.includeSclass="content";
+		
+		if (this.collapsed) {
+			
+			this.includeSclass="content collapsed";
+			
+		}
+		
+	}
 
 	public String getCurrentPass() {
 		return currentPass;
@@ -131,6 +150,22 @@ public class MenuPopupVM {
 
 	public void setNewPassControl(String newPassControl) {
 		this.newPassControl = newPassControl;
+	}
+
+	public boolean isCollapsed() {
+		return collapsed;
+	}
+
+	public void setCollapsed(boolean collapsed) {
+		this.collapsed = collapsed;
+	}
+
+	public String getIncludeSclass() {
+		return includeSclass;
+	}
+
+	public void setIncludeSclass(String includeSclass) {
+		this.includeSclass = includeSclass;
 	}
 
 }

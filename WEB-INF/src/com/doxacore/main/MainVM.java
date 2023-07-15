@@ -19,7 +19,6 @@ import com.doxacore.main.menu.NavigationPage;
 import com.doxacore.main.menu.NavigationTitle;
 import com.doxacore.modelo.Modulo;
 import com.doxacore.modelo.Operacion;
-import com.doxacore.util.Params;
 import com.doxacore.util.Register;
 import com.doxacore.util.SystemInfo;
 import com.doxacore.util.UtilMetodos;

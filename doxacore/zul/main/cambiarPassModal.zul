@@ -13,7 +13,7 @@
 			</tablechildren>
 			
 			<tablechildren>
-				<textbox value="@bind(vm.currentPass)" type="password"/>
+				<textbox value="@bind(tbvm.currentPass)" type="password"/>
 			</tablechildren>
 			
 			<tablechildren>
@@ -21,7 +21,7 @@
 			</tablechildren>
 			
 			<tablechildren>
-				<textbox value="@bind(vm.newPass)" type="password"/>
+				<textbox value="@bind(tbvm.newPass)" type="password"/>
 			</tablechildren>
 			
 			<tablechildren>
@@ -29,7 +29,7 @@
 			</tablechildren>
 			
 			<tablechildren>
-				<textbox value="@bind(vm.newPassControl)" type="password"/>
+				<textbox value="@bind(tbvm.newPassControl)" type="password"/>
 			</tablechildren>
 			
 		

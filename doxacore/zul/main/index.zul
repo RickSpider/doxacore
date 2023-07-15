@@ -12,15 +12,20 @@
 		50%; overflow: hidden; }
 	</style>
 
-
-
-	<vlayout vflex="1" hflex="1">
+	<vlayout vflex="1" hflex="1"
+	apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('tbvm')@init('com.doxacore.main.TopBarVM')">
+	
+	
 
 		<hlayout style="padding: 10px 15px;" hflex="1">
+
 
 			<hlayout hflex="1">
 
 				<hbox vflex="1" hflex="1" pack="start" align="center">
+
+					<button iconSclass="z-icon-reorder" onClick="@command('collapsedAll', param=navbar)"/>
 
 					<label value="PowerBy DoxaCORE" />
 
@@ -63,8 +68,6 @@
 
 						</hbox>
 
-						<div apply="org.zkoss.bind.BindComposer"
-							viewModel="@id('vm')@init('com.doxacore.main.MenuPopupVM')">
 							
 						<menupopup id="editPopup">
 
@@ -75,7 +78,7 @@
 								iconSclass="z-icon-sign-out" label="Salir" />
 						</menupopup>
 
-						 </div>
+						 
 					</hbox>
 
 				</vbox>
@@ -83,10 +86,11 @@
 
 			</hlayout>
 
+		
 
 		</hlayout>
 
-
+	
 
 
 		<div id="container" sclass="vertical"
@@ -95,7 +99,7 @@
 
 			<apply templateURI="/doxacore/zul/main/navbarMenu.zul" />
 
-			<include id="contentInclude" sclass="content" mode="defer"
+			<include id="contentInclude" sclass="@load(tbvm.includeSclass)" mode="defer"
 				currentPage="@ref(vm.currentPage)"
 				arg="@load(currentPage.data.toString())"
 				src="@load(currentPage.includeUri)" vflex="1" />
@@ -105,5 +109,6 @@
 		</div>
 
 	</vlayout>
+
 
 </zk>

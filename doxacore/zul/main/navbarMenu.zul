@@ -1,6 +1,6 @@
 <zk>
 
-	<navbar id="navbar" orient="vertical" collapsed="false"
+	<navbar id="navbar" orient="vertical" collapsed="@load(tbvm.collapsed)"
 		onSelect="@command('navigatePage', target=self.selectedItem.attributes['navigationPage'])">
 		
 		<apply templateURI="@load(vm.getDirectorioSistema())" />
