@@ -113,7 +113,7 @@ public class TopBarVM {
 	}
 	
 	@Command
-	@NotifyChange({"collapsed", "includeSclass"})
+	@NotifyChange("*")
 	public void collapsedAll(@BindingParam("param") Navbar param) {
 		
 		this.collapsed = !this.collapsed;
