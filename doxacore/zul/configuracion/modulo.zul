@@ -92,7 +92,7 @@
 											onClick="@command('modalModulo', moduloid=each.moduloid)"
 											tooltiptext="Editar" disabled="@load(!vm.opEditarModulo)"/>
 										<button
-											iconSclass="z-icon-trash-o" style="background-color:red"
+											iconSclass="z-icon-trash-o" class="doxa-button-red"
 											onClick="@command('borrarModuloConfirmacion', modulo=each)"
 											tooltiptext="Borrar" disabled="@load(!vm.opBorrarModulo)"/>
 
@@ -181,7 +181,7 @@
 											onClick="@command('modalOperacion', operacionid=each.operacionid)"
 											tooltiptext="Editar" disable="@load(!vm.opEditarOperacion)"/>
 										<button
-											iconSclass="z-icon-trash-o" style="background-color:red"
+											iconSclass="z-icon-trash-o" class="doxa-button-red"
 											onClick="@command('borrarOperacionConfirmacion', operacion=each)"
 											tooltiptext="Borrar" disabled="@load(!vm.opBorrarOperacion)"/>
 											

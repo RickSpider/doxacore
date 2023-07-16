@@ -92,7 +92,7 @@
 											onClick="@command('modalUsuario', usuarioid=each.usuarioid)"
 											tooltiptext="Editar" disabled = "@load(!vm.opEditarUsuario)"/>
 										<button
-											iconSclass="z-icon-trash-o" style="background-color:red"
+											iconSclass="z-icon-trash-o" class="doxa-button-red"
 											onClick="@command('borrarUsuarioConfirmacion', usuario=each)"
 											tooltiptext="Borrar" disabled = "@load(!vm.opBorrarUsuario)"/>
 
@@ -219,7 +219,7 @@
 									<hlayout>
 
 										<button
-											iconSclass="z-icon-trash-o" style="background-color:red"
+											iconSclass="z-icon-trash-o" class="doxa-button-red"
 											onClick="@command('borrarRolConfirmacion', usuariorol=each)"
 											tooltiptext="Borrar" disabled="@load(!vm.opQuitarUsuarioRol)"/>
 											

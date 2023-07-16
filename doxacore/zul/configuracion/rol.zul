@@ -68,7 +68,7 @@
 											onClick="@command('modalRol', rolid=each.rolid)"
 											tooltiptext="Editar" disabled="@load(!vm.opEditarRol)"/>
 										<button
-											iconSclass="z-icon-trash-o" style="background-color:red"
+											iconSclass="z-icon-trash-o" class="doxa-button-red"
 											onClick="@command('borrarRolConfirmacion', rol=each)"
 											tooltiptext="Borrar" disabled="@load(!vm.opBorrarRol)"/>
 
@@ -196,7 +196,7 @@
 									<hlayout>
 
 										<button
-											iconSclass="z-icon-trash-o" style="background-color:red"
+											iconSclass="z-icon-trash-o" class="doxa-button-red"
 											onClick="@command('borrarOperacionConfirmacion', RolOperacion=each)"
 											tooltiptext="Borrar" disabled="@load(!vm.opQuitarRolOperacion)" />
 											

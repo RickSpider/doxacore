@@ -2,15 +2,12 @@
 <!-- protect page by the authentication init  -->
 <?init class="com.doxacore.login.AuthenticationInit"?>
 
+<!-- de esta forma carga primero el css -->
+<?style src="/css/main/doxacore.css" ?>
+<?style src="/css/main/style.css" ?>
 
 <zk xmlns:h="http://www.w3.org/1999/xhtml">
 
-	<style src="/css/main/style.css" />
-
-	<style>
-		.imagen-circular { width: 35px; height: 35px; border-radius:
-		50%; overflow: hidden; }
-	</style>
 
 	<vlayout vflex="1" hflex="1"
 	apply="org.zkoss.bind.BindComposer"
@@ -25,7 +22,7 @@
 
 				<hbox vflex="1" hflex="1" pack="start" align="center">
 
-					<button iconSclass="z-icon-reorder" onClick="@command('collapsedAll', param=navbar)"/>
+					<button iconSclass="z-icon-reorder" class="doxa-button-round" onClick="@command('collapsedAll', param=navbar)"/>
 
 					<label value="PowerBy DoxaCORE" />
 
@@ -59,7 +56,7 @@
 									style="font-weight:bold;" />
 							</vbox>
 
-							<div class="imagen-circular"
+							<div class="doxa-image-round"
 								onClick='editPopup.open(self,"after_start")'>
 								<image
 									src="/doxacore/img/blank-profile.png" width="100%"
