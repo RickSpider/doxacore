@@ -1,10 +1,10 @@
 .doxa-button-orange, .doxa-button-orange:active, .doxa-button-orange:focus
 	{
-	background: #ED7014;
+	background: orange;
 }
 
 .doxa-button-orange:hover {
-	background: #FA8128;
+	background: #ffc14e;
 }
 
 .doxa-button-red, .doxa-button-red:active, .doxa-button-red:focus {
