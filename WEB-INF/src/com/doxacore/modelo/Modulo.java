@@ -36,6 +36,9 @@ public class Modulo extends Modelo implements Serializable {
 	@ColumnDefault("false")
 	private boolean habilitado= false;
 	
+	@ColumnDefault("false")
+	private boolean pagInit= false;
+	
 	@Override
 	public String getStringDatos() {
 		// TODO Auto-generated method stub
@@ -108,6 +111,14 @@ public class Modulo extends Modelo implements Serializable {
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public boolean isPagInit() {
+		return pagInit;
+	}
+
+	public void setPagInit(boolean pagInit) {
+		this.pagInit = pagInit;
 	}
 
 	

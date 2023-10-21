@@ -60,7 +60,14 @@
 				</hbox>
 				<checkbox checked="@bind(vm.moduloSelected.habilitado)" />
 			</hlayout>
-
+			
+			<hlayout>
+				<hbox width = "130px">
+					<label value="Pagina de Inicio " style="font-weight:bold" />	
+				</hbox>
+				<checkbox checked="@bind(vm.moduloSelected.pagInit)" />
+			</hlayout>
+			
 			<space height="10px" />
 
 			<hlayout>

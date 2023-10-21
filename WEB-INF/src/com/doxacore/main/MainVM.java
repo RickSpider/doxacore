@@ -112,6 +112,10 @@ public class MainVM {
 
 			// System.out.println("cargado Modulo " + m.getModulo());
 			addPage(m.getMenu(), m.getTitulo(), m.getPath(), m.getModulo());
+			
+			if (m.isPagInit()) {
+				this.currentPage = pageMap.get(m.getMenu()).get(m.getTitulo());
+			}
 
 		}
 
