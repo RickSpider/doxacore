@@ -5,6 +5,9 @@
 <!-- de esta forma carga primero el css -->
 <?style src="/css/main/doxacore.css" ?>
 <?style src="/css/main/style.css" ?>
+<?style src="/css/main/widget.css" ?>
+<?style src="/css/bootstrap/bootstrap4.min.css" ?>
+<?style src="/css/fontawesome/font-awesome.min.css" ?>
 
 <zk xmlns:h="http://www.w3.org/1999/xhtml">
 
