@@ -25,9 +25,9 @@
 
 				<hbox vflex="1" hflex="1" pack="start" align="center">
 
-					<button iconSclass="z-icon-reorder" class="doxa-button-round" onClick="@command('collapsedAll', param=navbar)"/>
+					<button iconSclass="z-icon-reorder" class="doxa-button-round" onClick="@command('collapsedAll')"/>
 
-					<label value="PowerBy DoxaCORE" />
+					<label value="PowerBy DoxaCORE" visible="@load(tbvm.visibleResponsive)"/>
 
 				</hbox>
 
@@ -53,7 +53,7 @@
 							<vbox>
 								<label
 									value="${sessionScope.userCredential.name}"
-									onClick='editPopup.open(self,"after_start")' />
+									onClick='editPopup.open(self,"after_start")' visible="@load(tbvm.visibleResponsive)"/>
 								<label
 									value="${sessionScope.userCredential.extra}"
 									style="font-weight:bold;" />

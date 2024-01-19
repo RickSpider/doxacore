@@ -6,6 +6,7 @@ import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.Init;
+import org.zkoss.bind.annotation.MatchMedia;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -30,6 +31,7 @@ public class TopBarVM {
 	private boolean collapsed = false;
 	private String includeSclass ="content";
 	protected Component mainComponent;
+	private boolean visibleResponsive = true;
 
 	@Init(superclass = true)
 	public void initTopBarVM(@ContextParam(ContextType.VIEW) Component view) {
@@ -113,8 +115,8 @@ public class TopBarVM {
 	}
 	
 	@Command
-	@NotifyChange("*")
-	public void collapsedAll(@BindingParam("param") Navbar param) {
+	@NotifyChange({"includeSclass", "collapsed"})
+	public void collapsedAll() {
 		
 		this.collapsed = !this.collapsed;
 		
@@ -127,6 +129,31 @@ public class TopBarVM {
 		}
 		
 	}
+	
+	 @MatchMedia("all and (min-width: 958px)")
+	 @NotifyChange({"collapsed", "includeSclass", "visibleResponsive"})
+	 public void beWide(){
+		 	
+		 this.visibleResponsive = true;
+		 this.collapsed = false;
+		 this.includeSclass="content";
+		
+	    
+	 }
+
+	
+	 @MatchMedia("all and (max-width: 957px)")
+	 @NotifyChange({"collapsed", "includeSclass", "visibleResponsive"})
+	 public void beNarrow(){
+		 
+		 this.visibleResponsive = false;
+		 this.collapsed = true;
+		 this.includeSclass="content collapsed";
+		 
+		 
+	 }
+	
+	
 
 	public String getCurrentPass() {
 		return currentPass;
@@ -166,6 +193,14 @@ public class TopBarVM {
 
 	public void setIncludeSclass(String includeSclass) {
 		this.includeSclass = includeSclass;
+	}
+
+	public boolean isVisibleResponsive() {
+		return visibleResponsive;
+	}
+
+	public void setVisibleResponsive(boolean visibleResponsive) {
+		this.visibleResponsive = visibleResponsive;
 	}
 
 }
