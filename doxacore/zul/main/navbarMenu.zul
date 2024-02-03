@@ -5,7 +5,7 @@
 		
 		<apply templateURI="@load(vm.getDirectorioSistema())" />
 
-	 	<nav label="Configuracion" iconSclass="z-icon-gear" badgeText="@load(vm.pageMap[self.label].values().size() )"
+	 	<nav label="Configuracion" iconSclass="z-icon-gear" 
 			children="@load(vm.pageMap[self.label].values()) @template('navitem')" 
 			visible="@load(vm.menuVisible( vm.pageMap[self.label].values().size() ))"/>
 

@@ -38,7 +38,7 @@
 						onClick="@command('onSelectetItemFinder', id = each[0], finder= finderModel.nameFinder)">
 
 						<forEach items="@load(each)" var="item">
-							<listcell label="@load(item)" />
+							<listcell label="@load(item)" tooltiptext="@load(item)" />
 						</forEach>
 
 					</listitem>

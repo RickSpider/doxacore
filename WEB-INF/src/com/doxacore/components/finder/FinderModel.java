@@ -33,7 +33,8 @@ public class FinderModel {
 		
 		if (matcher.find()) {
 			String columnsString = matcher.group(1);
-			this.columns = columnsString.split("\\s*,\\s*");
+			this.columns = columnsString.split(",(?![^()]*\\))");
+			//this.columns = columnsString.split("\\s*,\\s*");
 
 		}
 		
