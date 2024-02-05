@@ -20,13 +20,13 @@
     width: 580px;
 }
 .content {
-    padding: 10px 10px;
+    padding: 18px 25px;
 }
 .vertical .content {
     padding-left: 182px;
 }
 .vertical .content.collapsed {
-    padding-left: 75px;
+    padding-left: 50px;
 }
 .horizontal .content {
     padding-top: 50px;
