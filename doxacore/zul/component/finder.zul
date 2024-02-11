@@ -1,4 +1,4 @@
-<bandbox id="bd" value="${finderValue}" 
+<bandbox value="${finderValue}" disabled="${disabled}"
 	mold="rounded" autodrop="true"
 	onOpen="@command('generarFinders', finder= finderModel.nameFinder)"
 	width="150px" readonly="true">
@@ -16,7 +16,7 @@
 			</hbox>
 
 			<listbox height="250px" width="450px" mold="paging"
-				autopaging="true" onSelect="bd.close()"
+				autopaging="true" onSelect="self.getParent().getParent().getParent().close()"
 				model="@load(finderModel.listFinder)">
 
 				<listhead>
