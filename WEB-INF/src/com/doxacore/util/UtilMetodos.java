@@ -112,5 +112,19 @@ public class UtilMetodos {
 
 		return c.getTime();
 	}
+	
+	public Date modificarHorasMinutosSegundos(Date fecha, int horas, int minutos, int segundos, int millisegundos) {
+		
+		Calendar cal = Calendar.getInstance();
+
+		cal.setTime(fecha);
+		cal.set(Calendar.HOUR_OF_DAY, horas);
+		cal.set(Calendar.MINUTE, minutos);
+		cal.set(Calendar.SECOND, segundos);
+		cal.set(Calendar.MILLISECOND, millisegundos);
+		
+		return cal.getTime();
+		
+	}
 
 }
