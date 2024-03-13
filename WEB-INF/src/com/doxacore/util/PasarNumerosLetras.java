@@ -5,10 +5,10 @@ import java.util.regex.Pattern;
 public class PasarNumerosLetras {
 	
 	private final String[] UNIDADES = {"", "un ", "dos ", "tres ", "cuatro ", "cinco ", "seis ", "siete ", "ocho ", "nueve "};
-    private final String[] DECENAS = {"diez ", "once ", "doce ", "trece ", "catorce ", "quince ", "dieciseis ",
+    private final String[] DECENAS = {"diez ", "once ", "doce ", "trece ", "catorce ", "quince ", "dieciséis ",
         "diecisiete ", "dieciocho ", "diecinueve", "veinte ", "treinta ", "cuarenta ",
         "cincuenta ", "sesenta ", "setenta ", "ochenta ", "noventa "};
-    private final String[] CENTENAS = {"", "ciento ", "doscientos ", "trecientos ", "cuatrocientos ", "quinientos ", "seiscientos ",
+    private final String[] CENTENAS = {"", "ciento ", "doscientos ", "trescientos ", "cuatrocientos ", "quinientos ", "seiscientos ",
         "setecientos ", "ochocientos ", "novecientos "};
 
     public String Convertir(String numero, boolean mayusculas) {
@@ -110,12 +110,21 @@ public class PasarNumerosLetras {
         //se obtiene los millones
         String millon = numero.substring(0, numero.length() - 6);
         String n = "";
-        if(millon.length()>1){
+        
+        if(Integer.parseInt(millon)>1){
             n = getCentenas(millon) + "millones ";
         }else{
             n = getUnidades(millon) + "millon ";
         }
-        return n + getMiles(miles);        
+        
+        return n + getMiles(miles);
+        
+      /*  if(millon.length()>1){
+            n = getCentenas(millon) + "millones ";
+        }else{
+            n = getUnidades(millon) + "millon ";
+        }
+        return n + getMiles(miles);    */    
     }
 
 }
