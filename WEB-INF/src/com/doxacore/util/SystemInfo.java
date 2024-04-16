@@ -7,6 +7,7 @@ import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.WebApp;
 import org.zkoss.zk.ui.select.SelectorComposer;
 
 public class SystemInfo{
@@ -16,10 +17,14 @@ public class SystemInfo{
 	public static String SISTEMA_PATH_DIRECTORIO;
 	public static String SISTEMA_PAQUETE;
 
-	static {
+	//public static void init (WebApp webApp) {
 
+	static {
+	
 		// DIRECTORIO_BASE_WEB = Executions.getCurrent().getDesktop().getCurrentDirectory();
 		SISTEMA_PATH_ABSOLUTO = Executions.getCurrent().getDesktop().getWebApp().getRealPath("/");
+		
+		//SISTEMA_PATH_ABSOLUTO = webApp.getRealPath("/");
 		
 		try {
 			Wini ini = new Wini(new File(SystemInfo.SISTEMA_PATH_ABSOLUTO + "/WEB-INF/sistema.ini"));
