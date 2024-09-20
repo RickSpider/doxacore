@@ -112,7 +112,19 @@ public class PasarNumerosLetras {
         String n = "";
         
         if(Integer.parseInt(millon)>1){
-            n = getCentenas(millon) + "millones ";
+        	
+        	if (Integer.parseInt(millon)<10) {
+        		
+        		n = getUnidades(millon)+"millones";
+        		
+        	}else if (Integer.parseInt(millon)<100){
+        		
+        		n = getDecenas(millon)+"millones";
+        	}else if (Integer.parseInt(millon)<999){
+        		
+        		n = getCentenas(millon)+"millones";
+        	}
+        	
         }else{
             n = getUnidades(millon) + "millon ";
         }
