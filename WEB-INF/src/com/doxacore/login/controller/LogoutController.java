@@ -16,6 +16,6 @@ public class LogoutController extends SelectorComposer<Component> {
 	@Listen("onClick=#logout")
 	public void doLogout() {
 		authService.logout();
-		Executions.sendRedirect("/doxacore/zul/main/");
+		Executions.sendRedirect("/");
 	}
 }

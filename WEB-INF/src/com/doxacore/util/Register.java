@@ -129,4 +129,12 @@ public class Register {
 		return sess.createSQLQuery(sql).list();
 	}
 	
+	public synchronized void sqlNativoVoid(String sql){
+		
+		Session sess = currentSession();
+		
+		sess.createSQLQuery(sql).executeUpdate();
+		
+	}
+	
 }

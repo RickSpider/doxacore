@@ -58,7 +58,7 @@ public class MainVM {
 		List<Object[]> lUsuariosOperaciones = reg.sqlNativo(UsuarioOperacionesSQL);
 
 		List<Operacion> lOperaciones = reg.getAllObjectsByCondicionOrder(Operacion.class.getName(), "abremodulo = true",
-				null);
+				"moduloid asc");
 
 		for (Operacion o : lOperaciones) {
 
