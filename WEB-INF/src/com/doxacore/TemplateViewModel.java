@@ -2,6 +2,7 @@ package com.doxacore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
@@ -145,8 +146,10 @@ public abstract class TemplateViewModel {
 		org.zkoss.zul.Messagebox.Button b = Messagebox.show(texto, "Error",
 				new Messagebox.Button[] { Messagebox.Button.OK }, Messagebox.ERROR, null);
 	}
+	
+	
 
-	protected List<Object[]> filtrarListaObject(String filtro, List<Object[]> listOri) {
+	/*protected List<Object[]> filtrarListaObject(String filtro, List<Object[]> listOri) {
 
 		//System.out.println("VOY A FILTRAR " + listOri.size());
 
@@ -183,9 +186,11 @@ public abstract class TemplateViewModel {
 		}
 
 		return aux;
-	}
+	}*/
 	
-	protected List<Object[]> filtrarListaObject(String[] filtro, List<Object[]> listOri){
+	
+	
+	/*protected List<Object[]> filtrarListaObject(String[] filtro, List<Object[]> listOri){
 		
 		List<Object[]> aux = new ArrayList<Object[]>();
 
@@ -251,9 +256,9 @@ public abstract class TemplateViewModel {
 
 		return aux;
 		
-	}
+	}*/
 	
-	protected <T extends Modelo> List<T> filtrarLT(String[] filtro, List<T> lmOri) {
+	/*protected <T extends Modelo> List<T> filtrarLT(String[] filtro, List<T> lmOri) {
 
 		List<T> aux = new ArrayList<T>();
 
@@ -320,6 +325,95 @@ public abstract class TemplateViewModel {
 		}
 
 		return aux;
+	}*/
+	
+	protected List<Object[]> filtrarListaObject(String filtro, List<Object[]> listOri) {
+	    // Si el filtro está vacío, devolvemos la lista original
+	    if (filtro == null || filtro.isEmpty()) {
+	        return listOri;
+	    }
+
+	    // Convertimos el filtro a mayúsculas para comparación insensible a mayúsculas/minúsculas
+	    String filtroUpper = filtro.toUpperCase();
+
+	    // Filtramos la lista utilizando stream()
+	    return listOri.stream()
+	            .filter(x -> {
+	                // Concatenamos todos los elementos del array en una sola cadena
+	                String concatenado = String.join(" ", 
+	                        java.util.Arrays.stream(x)
+	                                .map(String::valueOf)
+	                                .toArray(String[]::new)); // Convertimos cada objeto a String
+	                return concatenado.toUpperCase().contains(filtroUpper); // Verificamos si contiene el filtro
+	            })
+	            .collect(Collectors.toList()); // Recogemos los elementos filtrados en una lista
+	}
+	
+	protected List<Object[]> filtrarListaObject(String[] filtro, List<Object[]> listOri) {
+	    // Verificamos si el filtro está vacío o nulo
+	    if (filtro == null || filtro.length == 0 || String.join("", filtro).isEmpty()) {
+	        return listOri; // Si no hay filtro, devolvemos la lista original
+	    }
+
+	    // Convertimos cada filtro a mayúsculas para una búsqueda insensible a mayúsculas/minúsculas
+	    String[] filtroUpper = new String[filtro.length];
+	    for (int i = 0; i < filtro.length; i++) {
+	        filtroUpper[i] = filtro[i].toUpperCase();
+	    }
+
+	    return listOri.stream()
+	            .filter(x -> {
+	                for (int i = 0; i < filtro.length; i++) {
+	                    if (!filtro[i].isEmpty()) {
+	                        // Verificamos que el valor no sea nulo y que contenga el filtro
+	                        if (x[i] == null || !x[i].toString().toUpperCase().contains(filtroUpper[i])) {
+	                            return false; // Si no cumple, lo excluimos
+	                        }
+	                    }
+	                }
+	                return true; // Si todos los filtros coinciden, mantenemos el elemento
+	            })
+	            .collect(Collectors.toList()); // Recogemos los elementos filtrados en una lista
+	}
+	
+	protected <T extends Modelo> List<T> filtrarLT(String filtro, List<T> lmOri) {
+	    if (filtro == null || filtro.isEmpty()) {
+	        return lmOri;
+	    }
+
+	    String filtroUpper = filtro.toUpperCase();
+
+	    return lmOri.stream()
+	            .filter(x -> {
+	                for (Object dato : x.getArrayObjectDatos()) {
+	                    if (dato.toString().toUpperCase().contains(filtroUpper)) {
+	                        return true; // Si encuentra coincidencia en algún campo, lo mantiene
+	                    }
+	                }
+	                return false; // Si no hay coincidencia en ningún campo, lo descarta
+	            })
+	            .collect(Collectors.toList()); // Usar collect para obtener una lista
+	}
+	
+	protected <T extends Modelo> List<T> filtrarLT(String[] filtro, List<T> lmOri) {
+		
+	    if (filtro == null || filtro.length == 0 || String.join("", filtro).isEmpty()) {
+	        return lmOri;
+	    }
+
+	    List<T> aux = new ArrayList<>(lmOri);
+
+	    aux.removeIf(x -> {
+	        Object[] filtroModelo = x.getArrayObjectDatos();
+	        for (int i = 0; i < filtro.length; i++) {
+	            if (!filtro[i].isEmpty() && !filtroModelo[i].toString().toUpperCase().contains(filtro[i].toUpperCase())) {
+	                return true; // Si un filtro no coincide, eliminar el elemento
+	            }
+	        }
+	        return false; // Mantener el elemento si cumple con todos los filtros
+	    });
+
+	    return aux;
 	}
 	
 	
