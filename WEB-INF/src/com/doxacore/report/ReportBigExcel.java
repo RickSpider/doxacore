@@ -1,8 +1,6 @@
 package com.doxacore.report;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -14,7 +12,7 @@ import org.apache.poi.ss.usermodel.Picture;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
-import org.apache.poi.util.IOUtils;
+
 import org.apache.poi.util.Units;
 import org.apache.poi.xssf.streaming.SXSSFCell;
 import org.apache.poi.xssf.streaming.SXSSFDrawing;
@@ -38,7 +36,7 @@ public class ReportBigExcel {
 
 	}
 
-	private void agregarLogoTitulo(String titulo, String pathImg) {
+	private void agregarLogoTitulo(String titulo, byte[] logo) {
 
 		
 		
@@ -54,8 +52,8 @@ public class ReportBigExcel {
 		
 		sheet.addMergedRegion(new CellRangeAddress(0,3,0,5));
 
-		byte[] bytes = null;
-		try {
+		//byte[] bytes = null;
+		/*try {
 
 			FileInputStream logo = new FileInputStream(pathImg);
 			bytes = IOUtils.toByteArray(logo);
@@ -66,15 +64,15 @@ public class ReportBigExcel {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 
-		if (bytes == null) {
+		if (logo == null) {
 
 			return;
 
 		}
 
-		int logoID = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_PNG);
+		int logoID = workbook.addPicture(logo, Workbook.PICTURE_TYPE_PNG);
 
 		SXSSFDrawing drawing = (SXSSFDrawing) sheet.createDrawingPatriarch();
 
@@ -203,7 +201,7 @@ public class ReportBigExcel {
 	}
 
 	public void descargar(List<String[]> titulos, List<String[]> headersDatos, List<Object[]> datos, String titulo,
-			String logo) {
+			byte[] logo) {
 
 		if (logo != null) {
 

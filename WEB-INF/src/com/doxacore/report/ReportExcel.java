@@ -39,7 +39,7 @@ public class ReportExcel {
 
 	}
 
-	private void agregarLogoTitulo(String titulo, String pathImg) {
+	private void agregarLogoTitulo(String titulo, byte[] logo) {
 
 		
 		
@@ -55,7 +55,7 @@ public class ReportExcel {
 		
 		sheet.addMergedRegion(new CellRangeAddress(0,3,0,5));
 
-		byte[] bytes = null;
+		/*byte[] bytes = null;
 		try {
 
 			FileInputStream logo = new FileInputStream(pathImg);
@@ -67,15 +67,15 @@ public class ReportExcel {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 
-		if (bytes == null) {
+		if (logo == null) {
 
 			return;
 
 		}
 
-		int logoID = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_PNG);
+		int logoID = workbook.addPicture(logo, Workbook.PICTURE_TYPE_PNG);
 
 		XSSFDrawing drawing = (XSSFDrawing) sheet.createDrawingPatriarch();
 
@@ -201,7 +201,7 @@ public class ReportExcel {
 	}
 
 	public void descargar(List<String[]> titulos, List<String[]> headersDatos, List<Object[]> datos, String titulo,
-			String logo) {
+			byte[] logo) {
 
 		if (logo != null) {
 
